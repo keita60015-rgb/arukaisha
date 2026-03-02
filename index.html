@@ -1,0 +1,2498 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社 虚実 — KYOJITSU Inc.</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0810;--bg2:#0f0c14;--fg:#f2eeea;--gold:#d4b462;--gold2:#b89940;--gold-dim:#8a7548;--purple:#b094d0;--purple2:#8a6ab8;--purple-dim:#6a4e90;--purple-deep:#1a0e2a;--purple-text:#c4b0e0;--accent:#d0c0a0;--dim:#9a9088;--subtle:#1e1820;--border:#3a2e38;--red:#8b3a3a;--card-light:rgba(240,236,230,0.04);--card-purple:rgba(176,148,208,0.06);--label-bg:rgba(240,236,230,0.06)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:'Noto Serif JP',serif;overflow-x:hidden;line-height:1.8}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:52px}
+.nav-logo{font-size:0.8rem;font-weight:200;letter-spacing:0.5em;cursor:pointer;color:var(--gold);text-decoration:none}
+.nav-links{display:flex;gap:0;list-style:none;height:100%;overflow-x:auto}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{color:var(--dim);text-decoration:none;font-size:0.58rem;letter-spacing:0.15em;padding:0 0.8rem;display:flex;align-items:center;height:100%;border-bottom:1px solid transparent;transition:all 0.3s;font-family:'Cormorant Garamond',serif;text-transform:uppercase;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);border-bottom-color:var(--gold)}
+.nav-hamburger{display:none;cursor:pointer;flex-direction:column;gap:4px}
+.nav-hamburger span{width:20px;height:1px;background:var(--dim);transition:0.3s}
+
+.page{display:none;padding-top:52px;min-height:100vh}
+.page.active{display:block}
+
+/* SUB NAV */
+.subnav{background:rgba(26,14,42,0.85);border-bottom:1px solid var(--border);padding:0.8rem 2rem;display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;position:sticky;top:52px;z-index:99;backdrop-filter:blur(10px)}
+.subnav a{color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.15em;padding:0.3rem 0.8rem;border:1px solid transparent;transition:0.3s;border-radius:2px}
+.subnav a:hover,.subnav a.sub-active{color:var(--gold);border-color:var(--purple-dim);background:rgba(176,148,208,0.08)}
+.sub-page{display:none}
+.sub-page.sub-active{display:block}
+
+/* HERO */
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(107,76,138,0.08) 0%,transparent 55%),radial-gradient(ellipse at 70% 60%,rgba(197,165,90,0.06) 0%,transparent 50%);animation:breathe 15s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:0.3}50%{opacity:1}}
+.mandala{position:absolute;width:500px;height:500px;border:1px solid rgba(107,76,138,0.06);border-radius:50%;animation:mspin 120s linear infinite}
+.mandala::before{content:'';position:absolute;inset:50px;border:1px solid rgba(197,165,90,0.04);border-radius:50%}
+.mandala::after{content:'';position:absolute;inset:100px;border:1px solid rgba(107,76,138,0.04);border-radius:50%}
+@keyframes mspin{to{transform:rotate(360deg)}}
+
+.hero-catch{font-size:clamp(1rem,2.2vw,1.5rem);font-weight:300;letter-spacing:0.25em;color:var(--gold);position:relative;z-index:1;margin-bottom:3rem;text-align:center;line-height:2.5}
+.kyo-container{position:relative;z-index:1;text-align:center}
+.company-name{font-size:clamp(3.5rem,10vw,9rem);font-weight:200;letter-spacing:1.5em;margin-left:1.5em;position:relative;z-index:2}
+.char{display:inline-block;animation:kfloat 6s ease-in-out infinite;position:relative}
+.char:nth-child(2){animation-delay:0.5s}
+@keyframes kfloat{0%,100%{transform:translateY(0) scale(1)}25%{transform:translateY(-8px) scale(1.02)}75%{transform:translateY(4px) scale(0.98)}}
+.char::after{content:'';position:absolute;inset:-10px;background:radial-gradient(circle,rgba(197,165,90,0.15) 0%,transparent 70%);border-radius:50%;animation:gpulse 4s ease-in-out infinite;z-index:-1}
+.char:nth-child(2)::after{animation-delay:2s;background:radial-gradient(circle,rgba(107,76,138,0.15) 0%,transparent 70%)}
+@keyframes gpulse{0%,100%{opacity:0;transform:scale(0.8)}50%{opacity:1;transform:scale(1.2)}}
+.smoke-c{position:absolute;bottom:10%;left:50%;transform:translateX(-50%);z-index:0}
+.smoke{position:absolute;width:2px;background:linear-gradient(to top,rgba(197,165,90,0.1),transparent);animation:srise 8s ease-out infinite;bottom:0}
+.smoke:nth-child(1){left:0;height:60px;animation-duration:7s}
+.smoke:nth-child(2){left:3px;height:80px;animation-delay:2s;animation-duration:9s}
+.smoke:nth-child(3){left:-2px;height:50px;animation-delay:4s;animation-duration:6s}
+@keyframes srise{0%{opacity:0.6;transform:translateY(0) scaleX(1)}50%{opacity:0.3;transform:translateY(-40px) scaleX(2)}100%{opacity:0;transform:translateY(-100px) scaleX(4)}}
+.co-en{font-family:'Cormorant Garamond',serif;font-size:clamp(0.65rem,1vw,0.85rem);letter-spacing:0.8em;margin-left:0.8em;color:var(--purple-text);margin-top:1.5rem;font-weight:300;position:relative;z-index:1}
+.hero-rinen{font-size:clamp(0.65rem,0.9vw,0.8rem);color:var(--accent);margin-top:3rem;letter-spacing:0.25em;font-weight:200;position:relative;z-index:1;text-align:center;line-height:2.5;max-width:550px}
+
+/* Today's Question */
+.today-q{position:relative;z-index:1;margin-top:4rem;text-align:center;max-width:500px}
+.today-q-label{font-size:0.62rem;color:var(--purple-text);letter-spacing:0.5em;margin-bottom:1rem;font-family:'Cormorant Garamond',serif;text-transform:uppercase}
+.today-q-text{font-size:clamp(0.85rem,1.5vw,1.1rem);color:var(--fg);letter-spacing:0.15em;line-height:2.2;font-weight:300;border-left:2px solid var(--gold-dim);padding-left:1.5rem;text-align:left}
+.scroll-hint{position:absolute;bottom:2.5rem;font-size:0.55rem;color:var(--dim);letter-spacing:0.3em;animation:fp 4s ease-in-out infinite}
+@keyframes fp{0%,100%{opacity:0.15}50%{opacity:0.5}}
+
+/* SHARED */
+.sec{padding:6rem 2rem;position:relative}
+.sec-inner{max-width:740px;margin:0 auto}
+.sec-wide{max-width:960px;margin:0 auto}
+.sec-label{font-family:'Cormorant Garamond',serif;font-size:0.65rem;letter-spacing:0.6em;color:var(--purple-text);text-transform:uppercase;margin-bottom:2.5rem;background:var(--label-bg);display:inline-block;padding:0.3rem 1rem;border-left:2px solid var(--purple-dim)}
+.sec-title{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:200;line-height:2.2;letter-spacing:0.15em;margin-bottom:2rem}
+.sec-body{font-size:clamp(0.85rem,1.05vw,0.95rem);line-height:2.6;color:var(--accent);letter-spacing:0.05em}
+.divider{text-align:center;padding:2.5rem 2rem;font-size:0.75rem;color:var(--purple-dim);letter-spacing:0.4em;font-weight:200;border-top:1px solid var(--border)}
+.thin-line{border-top:1px solid var(--border)}
+.gold{color:var(--gold)}.purple{color:var(--purple-text)}
+.enso{width:100px;height:100px;margin:2.5rem auto;border:2px solid var(--gold-dim);border-radius:50%;border-top-color:transparent;transform:rotate(-30deg);opacity:0.3}
+.lotus{text-align:center;font-size:1.2rem;color:var(--purple-dim);margin:2rem 0;opacity:0.4;letter-spacing:1em}
+
+/* TICKER */
+.ticker-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.8rem 0;background:linear-gradient(90deg,rgba(107,76,138,0.03),rgba(197,165,90,0.03),rgba(107,76,138,0.03))}
+.ticker{display:flex;animation:tscroll 90s linear infinite;white-space:nowrap}
+@keyframes tscroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker span{font-size:0.65rem;color:var(--dim);letter-spacing:0.15em;margin-right:3.5rem;flex-shrink:0}
+
+/* CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;margin-top:2rem}
+.card{border:1px solid var(--border);padding:2rem 1.8rem;transition:all 0.4s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(107,76,138,0.04),rgba(197,165,90,0.02));opacity:0;transition:opacity 0.4s}
+.card:hover::before{opacity:1}
+.card:hover{border-color:var(--purple-dim);background:var(--card-purple)}
+.card-num{font-family:'Cormorant Garamond',serif;font-size:0.6rem;color:var(--purple-text);letter-spacing:0.3em;margin-bottom:1rem;position:relative;z-index:1}
+.card-title{font-size:1rem;font-weight:400;letter-spacing:0.15em;margin-bottom:0.6rem;position:relative;z-index:1}
+.card-desc{font-size:0.78rem;color:var(--dim);line-height:2.2;position:relative;z-index:1}
+.card-en{font-family:'Cormorant Garamond',serif;font-size:0.55rem;font-style:italic;color:var(--dim);margin-top:0.8rem;position:relative;z-index:1}
+.card-price{font-size:0.62rem;color:var(--gold-dim);margin-top:0.6rem;letter-spacing:0.1em;position:relative;z-index:1}
+.card-tag{display:inline-block;font-size:0.55rem;padding:0.15rem 0.5rem;border:1px solid var(--purple-dim);color:var(--purple-text);letter-spacing:0.1em;margin-right:0.3rem;margin-top:0.5rem;position:relative;z-index:1}
+
+/* PICKUP */
+.pickup{border:1px solid var(--gold-dim);padding:3rem;margin:2rem 0;background:linear-gradient(135deg,rgba(197,165,90,0.03),rgba(107,76,138,0.03));position:relative}
+.pickup::after{content:'注目';position:absolute;top:-0.6rem;right:2rem;font-size:0.5rem;background:var(--gold-dim);color:var(--bg);padding:0.15rem 0.8rem;letter-spacing:0.2em}
+.pickup-q{font-size:clamp(1.1rem,2vw,1.4rem);font-weight:300;letter-spacing:0.15em;line-height:2.2;margin-bottom:1rem}
+.pickup-meta{font-size:0.65rem;color:var(--dim);letter-spacing:0.1em}
+
+/* STAFF */
+.staff-card{display:grid;grid-template-columns:80px 1fr;gap:1.8rem;padding:2rem 0;border-bottom:1px solid var(--border);align-items:start}
+.staff-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--purple-deep),var(--subtle));display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--gold);font-weight:200;border:1px solid var(--purple-dim)}
+.staff-role{font-family:'Cormorant Garamond',serif;font-size:0.6rem;color:var(--purple-text);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:0.4rem}
+.staff-name{font-size:1rem;letter-spacing:0.25em;font-weight:400;margin-bottom:0.4rem}
+.staff-quote{font-size:0.78rem;color:var(--dim);line-height:2.2}
+.staff-status{display:inline-block;font-size:0.55rem;padding:0.15rem 0.6rem;border:1px solid var(--purple-dim);color:var(--purple-text);letter-spacing:0.1em;margin-top:0.6rem}
+
+/* NEWS */
+.news-item{padding:1.4rem 0;border-bottom:1px solid var(--border);display:flex;gap:1.5rem;align-items:baseline}
+.news-date{font-family:'Cormorant Garamond',serif;font-size:0.55rem;color:var(--dim);letter-spacing:0.1em;flex-shrink:0;min-width:90px}
+.news-tag{font-size:0.55rem;padding:0.15rem 0.5rem;border:1px solid var(--purple-dim);color:var(--purple-text);background:rgba(176,148,208,0.06);letter-spacing:0.1em;flex-shrink:0}
+.news-title-link{font-size:0.82rem;color:var(--fg);text-decoration:none;letter-spacing:0.06em;transition:color 0.3s}
+.news-title-link:hover{color:var(--gold)}
+
+/* PRICING */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:2rem 0}
+.price-card{border:1px solid var(--border);padding:2.5rem 2rem;text-align:center;transition:all 0.4s;position:relative}
+.price-card.featured{border-color:var(--gold-dim)}
+.price-card.featured::after{content:'人気';position:absolute;top:-0.6rem;right:1.5rem;font-size:0.45rem;background:var(--gold);color:var(--bg);padding:0.15rem 0.6rem;letter-spacing:0.2em}
+.price-name{font-size:1rem;letter-spacing:0.2em;margin-bottom:0.5rem}
+.price-amount{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);margin:1rem 0;font-weight:300}
+.price-unit{font-size:0.6rem;color:var(--dim);letter-spacing:0.15em}
+.price-features{list-style:none;margin:1.5rem 0;text-align:left}
+.price-features li{font-size:0.72rem;color:var(--dim);padding:0.5rem 0;border-bottom:1px solid var(--border);letter-spacing:0.05em}
+.price-features li::before{content:'☸ ';color:var(--purple-text)}
+.price-btn{display:inline-block;padding:0.7rem 2rem;border:1px solid var(--gold-dim);color:var(--gold);font-size:0.6rem;letter-spacing:0.2em;cursor:pointer;transition:0.3s;background:transparent;font-family:'Noto Serif JP',serif}
+.price-btn:hover{background:var(--gold-dim);color:var(--bg)}
+
+/* FORM */
+.form-group{margin-bottom:1.8rem}
+.form-label{font-size:0.72rem;color:var(--dim);letter-spacing:0.15em;margin-bottom:0.6rem;display:block}
+.form-input,.form-textarea,.form-select{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--fg);font-family:'Noto Serif JP',serif;font-size:0.75rem;padding:0.7rem 0;outline:none;transition:border-color 0.3s;letter-spacing:0.06em}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-bottom-color:var(--gold)}
+.form-textarea{resize:vertical;min-height:100px;line-height:2}
+.form-select option{background:var(--bg);color:var(--fg)}
+.form-btn{background:transparent;border:1px solid var(--gold-dim);color:var(--gold);padding:0.8rem 2.5rem;font-family:'Noto Serif JP',serif;font-size:0.7rem;letter-spacing:0.25em;cursor:pointer;transition:0.4s}
+.form-btn:hover{background:var(--gold-dim);color:var(--bg)}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:1.5rem 0}
+.faq-q{font-size:0.88rem;letter-spacing:0.1em;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q::after{content:'+';color:var(--purple-text);font-size:1rem;transition:0.3s}
+.faq-q.open::after{transform:rotate(45deg)}
+.faq-a{font-size:0.78rem;color:var(--dim);line-height:2.2;margin-top:1rem;display:none;padding-left:1rem;border-left:2px solid var(--purple-dim);background:rgba(176,148,208,0.03);padding:1rem 1rem 1rem 1.5rem}
+.faq-a.open{display:block}
+
+/* TIMELINE */
+.tl-item{display:flex;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--border);background:rgba(240,236,230,0.01)}
+.tl-year{font-family:'Cormorant Garamond',serif;font-size:0.9rem;color:var(--gold);min-width:80px;font-weight:300;letter-spacing:0.1em}
+.tl-content{flex:1}
+.tl-title{font-size:0.95rem;letter-spacing:0.12em;margin-bottom:0.4rem}
+.tl-desc{font-size:0.75rem;color:var(--dim);line-height:2}
+
+/* LEGAL */
+.legal-body{font-size:0.8rem;color:var(--dim);line-height:2.5;letter-spacing:0.04em}
+.legal-body h3{font-size:0.75rem;color:var(--gold);font-weight:400;letter-spacing:0.15em;margin:2rem 0 0.8rem}
+
+/* INFOGRAPHIC */
+.infographic{margin:2rem 0;padding:2rem;border:1px solid var(--border);background:linear-gradient(135deg,rgba(107,76,138,0.03),rgba(197,165,90,0.02))}
+.info-row{display:flex;justify-content:space-around;text-align:center;flex-wrap:wrap;gap:1.5rem}
+.info-stat{flex:1;min-width:100px}
+.info-num{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:300;color:var(--gold);letter-spacing:0.1em}
+.info-label{font-size:0.62rem;color:var(--dim);letter-spacing:0.15em;margin-top:0.4rem}
+
+/* DL */
+.dl-item{display:flex;align-items:center;gap:1.2rem;padding:1.2rem 0;border-bottom:1px solid var(--border)}
+.dl-icon{width:36px;height:44px;border:1px solid var(--purple-dim);display:flex;align-items:center;justify-content:center;font-size:0.45rem;color:var(--purple-text);flex-shrink:0}
+
+/* RESULT GRAPH */
+.graph-bar{display:flex;align-items:flex-end;justify-content:center;height:130px;gap:5px;padding:0 1rem;margin:2rem 0}
+.graph-col{display:flex;flex-direction:column;justify-content:flex-end;width:24px}
+.graph-col div{transition:0.3s}
+.graph-label{font-size:0.4rem;color:var(--dim);text-align:center;margin-top:4px}
+
+/* MEIGEN */
+.meigen-card{border:1px solid var(--border);padding:2rem;margin-bottom:2px;position:relative;transition:all 0.4s}
+.meigen-card:hover{border-color:var(--purple-dim);background:rgba(107,76,138,0.03)}
+.meigen-text{font-size:clamp(0.9rem,1.2vw,1.05rem);letter-spacing:0.12em;line-height:2.2;font-weight:300;color:var(--fg)}
+.meigen-author{font-size:0.7rem;color:var(--gold);letter-spacing:0.15em;margin-top:1rem;font-family:'Cormorant Garamond',serif}
+.meigen-comment{font-size:0.72rem;color:var(--dim);line-height:2;margin-top:0.8rem;padding-left:1rem;border-left:2px solid var(--purple-dim);background:rgba(176,148,208,0.03);padding:1rem 1rem 1rem 1.5rem;font-style:italic}
+.meigen-num{position:absolute;top:1rem;right:1.5rem;font-family:'Cormorant Garamond',serif;font-size:0.55rem;color:var(--purple-dim);letter-spacing:0.1em}
+.meigen-filter{display:flex;gap:0.5rem;flex-wrap:wrap;margin:1.5rem 0}
+.meigen-filter-btn{padding:0.3rem 0.8rem;border:1px solid var(--border);background:transparent;color:var(--dim);font-size:0.6rem;letter-spacing:0.1em;cursor:pointer;transition:0.3s;font-family:'Noto Serif JP',serif;border-radius:2px}
+.meigen-filter-btn:hover,.meigen-filter-btn.active{border-color:var(--gold-dim);color:var(--gold)}
+.meigen-counter{font-family:'Cormorant Garamond',serif;font-size:0.6rem;color:var(--purple-text);letter-spacing:0.15em;margin:1.5rem 0}
+
+/* KATSU */
+.katsu-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:rgba(10,6,8,0.95);flex-direction:column;cursor:pointer}
+.katsu-overlay.active{display:flex;animation:kin 0.15s ease-out}
+@keyframes kin{0%{opacity:0;transform:scale(1.5)}100%{opacity:1;transform:scale(1)}}
+.katsu-text{font-size:clamp(5rem,18vw,14rem);font-weight:900;color:var(--gold);letter-spacing:0.2em;text-shadow:0 0 60px rgba(212,180,98,0.6),0 0 120px rgba(212,180,98,0.3);animation:kshake 0.3s ease-in-out 3}
+@keyframes kshake{0%,100%{transform:translateX(0) rotate(0)}25%{transform:translateX(-10px) rotate(-2deg)}75%{transform:translateX(10px) rotate(2deg)}}
+.katsu-sub{font-size:clamp(0.6rem,1vw,0.9rem);color:var(--purple-text);letter-spacing:0.5em;margin-top:2rem;animation:kfade 1s ease-in 0.5s both}
+@keyframes kfade{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+.katsu-dismiss{font-size:0.5rem;color:var(--dim);letter-spacing:0.3em;margin-top:3rem;animation:kfade 1s ease-in 1.5s both}
+
+/* FLOATING */
+.float-char{position:fixed;font-size:1rem;color:rgba(197,165,90,0.03);font-weight:200;pointer-events:none;animation:drift 35s linear infinite;z-index:0}
+@keyframes drift{0%{transform:translateY(100vh) rotate(0);opacity:0}8%{opacity:1}92%{opacity:1}100%{transform:translateY(-100vh) rotate(270deg);opacity:0}}
+.float-char:nth-child(1){left:5%;animation-duration:40s;color:rgba(107,76,138,0.04)}
+.float-char:nth-child(2){left:20%;animation-delay:6s;animation-duration:33s}
+.float-char:nth-child(3){left:40%;animation-delay:12s;animation-duration:45s;color:rgba(107,76,138,0.04)}
+.float-char:nth-child(4){left:60%;animation-delay:3s;animation-duration:36s}
+.float-char:nth-child(5){left:80%;animation-delay:18s;animation-duration:42s;color:rgba(107,76,138,0.04)}
+.float-char:nth-child(6){left:92%;animation-delay:9s;animation-duration:38s}
+
+/* SITEMAP */
+.sitemap-list{list-style:none}
+.sitemap-list li{padding:0.6rem 0;border-bottom:1px solid var(--border)}
+.sitemap-list a{color:var(--gold-dim);text-decoration:none;font-size:0.7rem;letter-spacing:0.12em;transition:0.3s}
+.sitemap-list a:hover{color:var(--gold)}
+.sitemap-sub{padding-left:1.5rem}
+
+/* MEIGEN */
+.meigen-filter{cursor:pointer;transition:all 0.3s}
+.meigen-filter.active-filter{border-color:var(--gold);color:var(--gold)}
+.meigen-item{padding:1.8rem 0;border-bottom:1px solid var(--border);position:relative}
+.meigen-text{font-size:0.95rem;letter-spacing:0.1em;line-height:2.2;font-weight:300;margin-bottom:0.6rem}
+.meigen-author{font-size:0.68rem;color:var(--gold);letter-spacing:0.15em;display:flex;align-items:center;gap:0.8rem}
+.meigen-cat{font-size:0.5rem;padding:0.12rem 0.45rem;border:1px solid var(--purple-dim);color:var(--purple-text);letter-spacing:0.08em}
+.cat-count{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);font-weight:300}
+
+/* 404 */
+/* ═══ FOOTER ═══ */
+.site-footer{padding:3rem 2rem;text-align:center;border-top:1px solid var(--border);background:linear-gradient(to bottom,var(--bg),rgba(26,14,42,0.3))}
+.footer-nav{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.footer-nav a{color:var(--dim);text-decoration:none;font-size:0.6rem;letter-spacing:0.15em;transition:0.3s}
+.footer-nav a:hover{color:var(--gold)}
+.footer-copy{font-size:0.6rem;color:var(--dim);letter-spacing:0.2em;line-height:2.5}
+.footer-quote{font-size:0.72rem;color:var(--dim);margin-top:1rem;font-style:italic;letter-spacing:0.08em}
+
+/* ═══ MEIGEN PAGE CLASSES ═══ */
+.m-hero{min-height:50vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8rem 2rem 3rem;position:relative;overflow:hidden}
+.m-hero-num{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,10vw,6rem);font-weight:300;color:var(--purple-deep);letter-spacing:0.2em;margin-left:0.2em;position:relative;z-index:1}
+.m-hero-sub{font-size:clamp(0.75rem,1.1vw,0.9rem);color:var(--gold);letter-spacing:0.15em;margin-top:1.5rem;font-weight:300}
+.m-spotlight{border:1px solid var(--gold-dim);padding:2.5rem;margin:0 2rem 2rem;background:linear-gradient(135deg,rgba(212,180,98,0.03),rgba(176,148,208,0.03));text-align:center;position:relative;max-width:800px;margin-left:auto;margin-right:auto}
+.m-spot-label{position:absolute;top:-0.6rem;right:2rem;font-size:0.55rem;background:var(--gold-dim);color:var(--bg);padding:0.15rem 0.8rem;letter-spacing:0.2em}
+.m-spot-text{font-size:clamp(1rem,1.6vw,1.3rem);line-height:2.5;font-weight:300;letter-spacing:0.08em}
+.m-spot-author{font-size:0.78rem;color:var(--gold);letter-spacing:0.15em;margin-top:1rem}
+.m-controls{padding:1rem 2rem;border-bottom:1px solid var(--border);background:rgba(26,14,42,0.15);position:sticky;top:52px;z-index:100;backdrop-filter:blur(10px)}
+.m-controls-inner{max-width:960px;margin:0 auto}
+.m-search-row{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.m-search-input{flex:1;min-width:200px;border:1px solid var(--border) !important;padding:0.5rem 1rem !important}
+.m-random-btn{padding:0.5rem 1rem;font-size:0.62rem}
+.m-count{font-size:0.6rem;color:var(--dim);letter-spacing:0.1em}
+.m-cat-scroll{display:flex;gap:0.4rem;overflow-x:auto;padding:0.6rem 0 0;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.m-cat-scroll::-webkit-scrollbar{display:none}
+.m-quotes-container{max-width:960px;margin:0 auto;padding:1.5rem 2rem}
+.m-load-more{text-align:center;padding:2rem}
+.m-no-results{text-align:center;padding:3rem;color:var(--dim);font-size:0.85rem;letter-spacing:0.12em;line-height:2.5;display:none}
+
+/* ═══ INFO TABLE ═══ */
+.info-table{width:100%;border-collapse:collapse;margin:2rem 0}
+.info-table tr{border-bottom:1px solid var(--border)}
+.info-table tr:last-child{border-bottom:none}
+.info-td-label{padding:1rem 0;font-size:0.72rem;color:var(--purple-text);width:130px;letter-spacing:0.15em;vertical-align:top}
+.info-td-val{padding:1rem 0;font-size:0.78rem;letter-spacing:0.08em}
+
+/* ═══ SITEMAP GRID ═══ */
+.sitemap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+
+/* ═══ TOP FLOW — 流れ、そして消える ═══ */
+.top-flow{position:relative}
+.flow-screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:2rem}
+.flow-screen::after{content:'';position:absolute;bottom:0;left:0;right:0;height:30vh;background:linear-gradient(to bottom,transparent,var(--bg));pointer-events:none;z-index:2}
+.flow-screen::before{content:'';position:absolute;top:0;left:0;right:0;height:20vh;background:linear-gradient(to top,transparent,var(--bg));pointer-events:none;z-index:2}
+#fs1::before{display:none}
+
+.flow-text{position:relative;z-index:1;font-weight:200;line-height:3;letter-spacing:0.2em;opacity:0;transform:translateY(40px);animation:flowIn 1.2s ease-out forwards}
+.flow-gold{font-size:clamp(1.2rem,3vw,2rem);color:var(--gold)}
+.flow-silver{font-size:clamp(1.1rem,2.5vw,1.7rem);color:var(--purple-text)}
+.flow-dim{font-size:clamp(0.9rem,2vw,1.3rem);color:var(--accent);font-style:italic}
+
+.flow-label{font-family:'Cormorant Garamond',serif;font-size:0.65rem;letter-spacing:0.6em;color:var(--dim);text-transform:uppercase;margin-bottom:2.5rem;position:relative;z-index:1;opacity:0;animation:flowIn 1s ease-out 0.3s forwards}
+.flow-question{font-size:clamp(1rem,2vw,1.4rem);color:var(--fg);font-weight:300;letter-spacing:0.1em;line-height:2.8;position:relative;z-index:1;max-width:600px;opacity:0;animation:flowIn 1.2s ease-out 0.6s forwards}
+
+.flow-enter{position:relative;z-index:1;opacity:0;animation:flowIn 1s ease-out 0.8s forwards}
+.flow-enter-btn{background:transparent;border:1px solid var(--gold-dim);color:var(--gold);font-family:'Noto Serif JP',serif;font-size:0.72rem;padding:0.8rem 2.5rem;cursor:pointer;transition:all 0.4s;letter-spacing:0.25em}
+.flow-enter-btn:hover{background:var(--gold-dim);color:var(--bg)}
+
+@keyframes flowIn{to{opacity:1;transform:translateY(0)}}
+
+/* Intersection Observer fade-in */
+.flow-screen .flow-text,
+.flow-screen .flow-label,
+.flow-screen .flow-question,
+.flow-screen .flow-enter{opacity:0;transform:translateY(40px)}
+.flow-screen.visible .flow-text,
+.flow-screen.visible .flow-label,
+.flow-screen.visible .flow-question{animation:flowIn 1.2s ease-out forwards}
+.flow-screen.visible .flow-label{animation-delay:0.2s}
+.flow-screen.visible .flow-question{animation-delay:0.5s}
+.flow-screen.visible .flow-enter{animation:flowIn 1s ease-out 0.8s forwards}
+
+/* Screen-specific ambient glows */
+#fs1{background:radial-gradient(ellipse at 50% 50%,rgba(138,106,170,0.04) 0%,transparent 60%)}
+#fs2{background:radial-gradient(ellipse at 40% 50%,rgba(212,180,98,0.04) 0%,transparent 55%)}
+#fs3{background:radial-gradient(ellipse at 60% 50%,rgba(176,148,208,0.05) 0%,transparent 50%)}
+#fs5{background:radial-gradient(ellipse at 50% 40%,rgba(212,180,98,0.03) 0%,transparent 55%),radial-gradient(ellipse at 50% 60%,rgba(176,148,208,0.03) 0%,transparent 55%)}
+#fs6{background:radial-gradient(ellipse at 50% 50%,rgba(212,180,98,0.02) 0%,transparent 50%)}
+
+.four04{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.four04-num{font-family:'Cormorant Garamond',serif;font-size:clamp(5rem,15vw,12rem);font-weight:300;color:var(--purple-deep);letter-spacing:0.3em;margin-left:0.3em}
+
+/* ═══ RESPONSIVE — 中庸のレスポンシブ ═══ */
+
+/* Large tablet */
+@media(max-width:1024px){
+  .sec-wide{max-width:100%;padding:0 1rem}
+  .card-grid[style*="repeat(3"]{grid-template-columns:repeat(2,1fr) !important}
+  .price-grid{grid-template-columns:repeat(2,1fr)}
+  .info-row{flex-wrap:wrap;gap:1.5rem}
+  .info-stat{min-width:120px;flex:1 1 auto}
+  .sitemap-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Tablet & Mobile */
+@media(max-width:768px){
+  /* Nav */
+  .nav-links{display:none;position:absolute;top:52px;left:0;right:0;height:calc(100vh - 52px);background:rgba(10,8,16,0.98);flex-direction:column;align-items:center;justify-content:flex-start;padding-top:1rem;gap:0;overflow-y:auto;overflow-x:hidden;z-index:9998;list-style:none}
+  .nav-links.open{display:flex !important}
+  .nav-links a{height:auto;padding:1rem 1.5rem;font-size:0.7rem;width:100%;text-align:center;border-bottom:1px solid var(--border)}
+  .nav-hamburger{display:flex}
+  nav{padding:0 1.2rem}
+
+  /* Subnav */
+  .subnav{overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;padding:0.6rem 1rem;gap:0.8rem;-webkit-overflow-scrolling:touch;top:52px}
+  .subnav::-webkit-scrollbar{display:none}
+  .subnav a{flex-shrink:0}
+
+  /* Sections */
+  .sec{padding:3.5rem 1.2rem}
+  .sec-inner{max-width:100%}
+  .sec-wide{max-width:100%;padding:0}
+  .sec-title{font-size:clamp(1.1rem,4vw,1.6rem) !important;letter-spacing:0.08em !important}
+  .sec-body{font-size:0.82rem !important;line-height:2 !important}
+  .sec-label{font-size:0.55rem;letter-spacing:0.35em;padding:0.2rem 0.6rem}
+
+  /* Flow TOP screens */
+  .flow-screen{min-height:85vh;padding:1.5rem}
+  .flow-gold{font-size:clamp(1rem,5vw,1.5rem) !important;line-height:2.5;letter-spacing:0.12em}
+  .flow-silver{font-size:clamp(0.95rem,4.5vw,1.3rem) !important;line-height:2.5}
+  .flow-dim{font-size:clamp(0.85rem,4vw,1.1rem) !important}
+  .flow-question{font-size:clamp(0.9rem,4vw,1.15rem) !important;line-height:2.5;max-width:90%}
+  .flow-label{font-size:0.55rem;letter-spacing:0.4em;margin-bottom:1.5rem}
+  .company-name{font-size:clamp(3rem,18vw,5rem) !important;letter-spacing:0.4em !important;margin-left:0.4em !important}
+  .co-en{font-size:clamp(0.55rem,2vw,0.7rem) !important;letter-spacing:0.5em !important}
+
+  /* Cards & Grids */
+  .card-grid{grid-template-columns:1fr !important;gap:1px}
+  .card{padding:1.5rem 1.2rem}
+  .card-title{font-size:0.95rem}
+  .card-desc{font-size:0.75rem}
+  .card-en{font-size:0.52rem}
+  .price-grid{grid-template-columns:1fr}
+  .price-card{padding:2rem 1.5rem}
+  .price-name{font-size:0.95rem}
+  .price-amount{font-size:clamp(1.8rem,8vw,2.5rem)}
+
+  /* Staff */
+  .staff-card{grid-template-columns:1fr;text-align:center}
+  .staff-avatar{margin:0 auto}
+  .staff-quote{text-align:left}
+
+  /* Pickup */
+  .pickup{padding:2rem 1.2rem}
+  .pickup-q{font-size:clamp(0.95rem,4vw,1.2rem) !important}
+  .pickup-meta{font-size:0.55rem}
+
+  /* News & Timeline */
+  .news-item{flex-direction:column;gap:0.3rem;padding:0.8rem 0}
+  .news-title-link{font-size:0.78rem}
+  .tl-item{flex-direction:column;gap:0.5rem;padding:1.5rem 0}
+  .tl-year{font-size:0.7rem}
+  .tl-title{font-size:0.88rem}
+
+  /* Infographic */
+  .infographic{padding:1.5rem 1rem}
+  .info-row{flex-direction:column;gap:1.2rem;align-items:center}
+  .info-stat{text-align:center}
+  .info-num{font-size:clamp(1.5rem,8vw,2.5rem)}
+
+  /* Info Table */
+  .info-table{margin:1.5rem 0}
+  .info-td-label{display:block;width:100%;padding:0.8rem 0 0.2rem;font-size:0.6rem}
+  .info-td-val{display:block;width:100%;padding:0.2rem 0 0.8rem;font-size:0.78rem}
+
+  /* Downloads */
+  .dl-item{flex-direction:row;gap:0.8rem}
+  .dl-icon{width:30px;height:38px;font-size:0.4rem}
+
+  /* Graph */
+  .graph-bar{height:100px;gap:3px}
+
+  /* Forms */
+  .form-group{margin-bottom:1.5rem}
+  .form-btn{width:100%;text-align:center}
+
+  /* Divider */
+  .divider{font-size:0.65rem;letter-spacing:0.25em;padding:2rem 1rem}
+
+  /* Sitemap */
+  .sitemap-grid{grid-template-columns:1fr !important}
+
+  /* FAQ */
+  .faq-q{font-size:0.82rem}
+  .faq-a{font-size:0.75rem;padding:0.8rem 0.8rem 0.8rem 1.2rem}
+
+  /* Legal */
+  .legal-body{font-size:0.75rem}
+
+  /* Meigen 1000 */
+  .m-hero{padding:5rem 1.2rem 2rem;min-height:40vh}
+  .m-hero-num{font-size:clamp(2.5rem,12vw,4.5rem)}
+  .m-spotlight{margin:0 1rem 1.5rem;padding:2rem 1.2rem}
+  .m-spot-label{right:1rem;font-size:0.5rem;padding:0.12rem 0.6rem}
+  .m-spot-text{font-size:clamp(0.88rem,3.5vw,1.1rem) !important;line-height:2.2}
+  .m-controls{padding:0.8rem 1rem;top:52px}
+  .m-search-row{flex-direction:column;gap:0.6rem}
+  .m-search-input{min-width:100% !important;width:100%}
+  .m-random-btn{width:100%;text-align:center}
+  .m-count{text-align:center;width:100%}
+  .m-cat-scroll{padding:0.5rem 0 0}
+  .m-quotes-container{padding:1rem 1rem}
+
+  /* Ticker */
+  .ticker-wrap{overflow:hidden}
+  .ticker{font-size:0.58rem}
+
+  /* Katsu overlay */
+  .katsu-text{font-size:clamp(4rem,25vw,8rem) !important}
+  .katsu-sub{font-size:clamp(0.5rem,2.5vw,0.8rem) !important;letter-spacing:0.3em !important}
+
+  /* 404 */
+  .four04-num{font-size:clamp(4rem,20vw,8rem)}
+
+  /* Float chars hide on mobile for perf */
+  .float-char{display:none}
+
+  /* Footer */
+  .site-footer{padding:2rem 1rem}
+  .footer-nav{gap:0.8rem}
+  .footer-nav a{font-size:0.55rem}
+  .footer-copy{font-size:0.5rem;letter-spacing:0.15em}
+  .footer-quote{font-size:0.62rem}
+
+  /* Scroll top */
+  .scroll-top{bottom:1rem;right:1rem;width:36px;height:36px}
+
+  /* Column articles */
+  .sec-body br{content:'';display:inline}
+}
+
+/* Small mobile */
+@media(max-width:480px){
+  nav{height:48px;padding:0 0.8rem}
+  .nav-logo{font-size:0.7rem;letter-spacing:0.35em}
+  .nav-links{top:48px;height:calc(100vh - 48px)}
+
+  .sec{padding:2.5rem 0.8rem}
+  .sec-title{font-size:clamp(0.95rem,5vw,1.3rem) !important}
+
+  .flow-screen{min-height:75vh;padding:1rem}
+  .company-name{font-size:clamp(2.5rem,22vw,4rem) !important;letter-spacing:0.3em !important;margin-left:0.3em !important}
+  .flow-gold{font-size:clamp(0.92rem,5.5vw,1.3rem) !important;letter-spacing:0.08em}
+  .flow-silver{font-size:clamp(0.88rem,5vw,1.2rem) !important}
+
+  .card{padding:1.2rem 1rem}
+  .card-desc{font-size:0.72rem;line-height:1.8}
+  .card-tag{font-size:0.45rem}
+  .price-card{padding:1.5rem 1rem}
+
+  .pickup{padding:1.5rem 1rem}
+
+  .staff-card{padding:1.5rem 0}
+  .staff-avatar{width:60px;height:60px;font-size:1.2rem}
+
+  .subnav{padding:0.5rem 0.6rem;gap:0.4rem;top:48px}
+  .subnav a{font-size:0.52rem;padding:0.2rem 0.5rem}
+
+  .info-num{font-size:clamp(1.3rem,10vw,2rem)}
+  .info-label{font-size:0.52rem}
+
+  .flow-enter-btn{padding:0.7rem 2rem;font-size:0.65rem;width:85%;max-width:280px}
+
+  .tl-year{min-width:auto}
+
+  .divider{font-size:0.55rem;letter-spacing:0.15em}
+
+  .legal-body{font-size:0.7rem}
+  .faq-q{font-size:0.75rem;padding:0.8rem 0}
+  .faq-a{font-size:0.7rem}
+
+  .m-hero{padding:4rem 0.8rem 1.5rem;min-height:35vh}
+  .m-hero-num{font-size:clamp(2rem,15vw,3.5rem)}
+  .m-spotlight{margin:0 0.6rem 1rem;padding:1.5rem 0.8rem}
+  .m-spot-text{font-size:clamp(0.82rem,4vw,1rem) !important}
+  .m-controls{padding:0.6rem 0.6rem;top:48px}
+  .m-quotes-container{padding:0.8rem 0.6rem}
+
+  .info-td-label{font-size:0.55rem;padding:0.6rem 0 0.15rem}
+  .info-td-val{font-size:0.72rem;padding:0.15rem 0 0.6rem}
+
+  .news-date{font-size:0.52rem}
+  .news-tag{font-size:0.48rem}
+  .news-title-link{font-size:0.72rem}
+
+  .site-footer{padding:1.5rem 0.8rem}
+  .footer-nav{flex-direction:column;gap:0.6rem;align-items:center}
+  .footer-nav a{font-size:0.52rem}
+  .footer-copy{font-size:0.48rem}
+  .footer-quote{font-size:0.58rem;padding:0 0.5rem}
+}
+</style>
+</head>
+<body>
+
+<div class="float-char">空</div><div class="float-char">金</div><div class="float-char">問</div><div class="float-char">只</div><div class="float-char">喝</div><div class="float-char">☸</div>
+
+<div class="katsu-overlay" id="katsuOverlay" onclick="dismissKatsu()">
+  <div class="katsu-text">喝！！</div>
+  <div class="katsu-sub">— 臨 済 一 喝 —</div>
+  <div class="katsu-dismiss">（画面をクリックして戻る——戻れるならば）</div>
+</div>
+
+<nav>
+  <a class="nav-logo" onclick="showPage('top')">虚　実</a>
+  <ul class="nav-links" id="navLinks">
+    <a href="#" onclick="showPage('top')" class="active" data-page="top">Top</a>
+    <a href="#" onclick="showPage('lineup')" data-page="lineup">問いのラインアップ</a>
+    <a href="#" onclick="showPage('buy')" data-page="buy">買い方</a>
+    <a href="#" onclick="showPage('delivery')" data-page="delivery">届け方</a>
+    <a href="#" onclick="showPage('howto')" data-page="howto">使い方</a>
+    <a href="#" onclick="showPage('story')" data-page="story">生まれる場所</a>
+    <a href="#" onclick="showPage('meigen')" data-page="meigen">名言千選</a>
+    <a href="#" onclick="showPage('community')" data-page="community">問いの広場</a>
+    <a href="#" onclick="showPage('corporate')" data-page="corporate">法人</a>
+    <a href="#" onclick="showPage('contact')" data-page="contact">お問い合わせ</a>
+    <a href="#" onclick="showPage('info')" data-page="info">企業情報</a>
+  </ul>
+  <div class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 1. TOP PAGE — 流れ、そして消える -->
+<!-- ══════════════════════════════════════ -->
+<div class="page active" id="page-top">
+  <section class="top-flow">
+
+    <!-- Screen 1: 虚実 -->
+    <div class="flow-screen" id="fs1">
+      <div class="mandala" style="opacity:0.08"></div>
+      <div class="kyo-container">
+        <h1 class="company-name" style="font-size:clamp(4rem,14vw,10rem);letter-spacing:0.6em;margin-left:0.6em"><span class="char">虚</span><span class="char">実</span></h1>
+        <div class="smoke-c"><div class="smoke"></div><div class="smoke"></div><div class="smoke"></div></div>
+      </div>
+      <p class="co-en" style="margin-top:2rem;opacity:0.5">KYOJITSU Inc.</p>
+    </div>
+
+    <!-- Screen 2: キャッチコピー1 -->
+    <div class="flow-screen" id="fs2">
+      <p class="flow-text flow-gold">色々ある。<br>それでもやろう。</p>
+    </div>
+
+    <!-- Screen 3: 自灯明 -->
+    <div class="flow-screen" id="fs3">
+      <p class="flow-text flow-silver">自灯明。<br>自らを灯火とすること。</p>
+    </div>
+
+    <!-- Screen 4: 懸命に生きる -->
+    <div class="flow-screen" id="fs4" style="background:radial-gradient(ellipse at 50% 45%,rgba(212,180,98,0.05) 0%,transparent 55%)">
+      <p class="flow-text flow-gold" style="line-height:3.5;font-size:clamp(0.95rem,2vw,1.3rem)">老いても懸命に生きる<br>衰えても懸命に生きる<br>行き遅れても懸命に生きる<br>気付くのが遅くても懸命に生きる</p>
+      <p class="flow-text flow-dim" style="margin-top:2.5rem;font-size:clamp(0.85rem,1.5vw,1.1rem);letter-spacing:0.15em">それは決して、努力していないことではない。</p>
+    </div>
+
+    <!-- Screen 5: 今日の問い -->
+    <div class="flow-screen" id="fs5">
+      <p class="flow-label">Today's Question</p>
+      <p class="flow-question" id="todayQ">あなたに色々あることを、あなたは認めていますか。それでもやろうとしていますか。</p>
+    </div>
+
+    <!-- Screen 6: 自分でやろうとしよう。 + Enter -->
+    <div class="flow-screen" id="fs6">
+      <p class="flow-text flow-dim">自分でやろうとしよう。</p>
+      <div class="flow-enter" style="margin-top:3rem">
+        <button class="flow-enter-btn" onclick="showPage('lineup')">問いの世界へ</button>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 2. 問いのラインアップ -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-lineup">
+  <div class="subnav">
+    <a href="#" onclick="showSub('lineup','cat')" class="sub-active">カテゴリ別</a>
+    <a href="#" onclick="showSub('lineup','use')">用途別</a>
+    <a href="#" onclick="showSub('lineup','depth')">深度別</a>
+    <a href="#" onclick="showSub('lineup','search')">問い検索</a>
+  </div>
+
+  <div class="sub-page sub-active" id="sub-lineup-cat">
+    <div class="sec"><div class="sec-wide">
+      <p class="sec-label">Category — カテゴリ別ラインアップ</p>
+      <h2 class="sec-title">問いは六つの方角から届きます。</h2>
+      <div class="card-grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="card"><p class="card-num">Category 01</p><p class="card-title">哲学の問い</p><p class="card-desc">存在、認識、倫理、美——2500年分の問いを取り揃えております。ソクラテスの在庫あり。</p><p class="card-tag">在庫：∞</p><p class="card-tag">人気</p></div>
+        <div class="card"><p class="card-num">Category 02</p><p class="card-title">経営の問い</p><p class="card-desc">利益とは何か。成長とは何か。KPIとは誰のためのものか。経営者の眠れない夜のために。</p><p class="card-tag">右肩あがり</p></div>
+        <div class="card"><p class="card-num">Category 03</p><p class="card-title">関係性の問い</p><p class="card-desc">あなたと私の間にあるものは何か。その「間」は埋めるべきか。——色々ある。それでもやろう。</p><p class="card-tag">★推奨</p></div>
+        <div class="card"><p class="card-num">Category 04</p><p class="card-title">自己の問い</p><p class="card-desc">あなたは誰か。その「誰」はいつから「誰」なのか。概念化した社員も元はここから始まった。</p><p class="card-tag">概念化注意</p></div>
+        <div class="card"><p class="card-num">Category 05</p><p class="card-title">社会の問い</p><p class="card-desc">正義とは何か。多数決は暴力か。マルクスの問いは150年経っても賞味期限切れにならない。</p><p class="card-tag">弁証法的</p></div>
+        <div class="card"><p class="card-num">Category 06</p><p class="card-title">教育の問い</p><p class="card-desc">教えるとは何か。学ぶとは何か。その区別は本当に必要か。自分でやろうとしよう。</p><p class="card-tag">只管</p></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="sub-page" id="sub-lineup-use">
+    <div class="sec"><div class="sec-wide">
+      <p class="sec-label">Usage — 用途別ラインアップ</p>
+      <h2 class="sec-title">問いには使い方があります。<br>使い方にも問いがあります。</h2>
+      <div class="card-grid" style="grid-template-columns:1fr 1fr">
+        <div class="card"><p class="card-title">対話のきっかけ</p><p class="card-desc">会話が途切れたとき、沈黙を恐れるのではなく、問いで沈黙を深めましょう。</p><p class="card-price">単品：1問あたり ??? 円（税込・概念込）</p></div>
+        <div class="card"><p class="card-title">研修・ワークショップ用</p><p class="card-desc">参加者が答えを求めに来た研修で、問いだけを持ち帰る。それが本当の学びです。喝！！</p><p class="card-price">法人パッケージ：要問い合わせ</p></div>
+        <div class="card"><p class="card-title">個人の内省用</p><p class="card-desc">只管打坐のお供に。坐禅中の問いは、問いのまま坐らせてください。</p><p class="card-price">月額：概念上は有料</p></div>
+        <div class="card"><p class="card-title">組織開発用</p><p class="card-desc">組織の問題を解決するのではなく、組織が問題だと思っていることが本当に問題なのかを問います。</p><p class="card-price">導入実績：右肩あがり</p></div>
+        <div class="card"><p class="card-title">創造性刺激用</p><p class="card-desc">アイデアが出ないとき、アイデアを出そうとすることをやめる問い。</p><p class="card-price">在庫：創造するたびに増加</p></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="sub-page" id="sub-lineup-depth">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Depth — 深度別ラインアップ</p>
+      <h2 class="sec-title">問いには深さがあります。<br>底はありません。</h2>
+      <div class="card" style="margin:2rem 0;border-color:var(--border)"><p class="card-num" style="color:var(--gold)">Depth 1 — 入門の問い</p><p class="card-title">水面に触れる</p><p class="card-desc">「なぜ？」から始まる問い。誰でも手に取れます。ただし、手に取った時点であなたは変わり始めています。<br><br>例：「それは本当に必要ですか」「誰のためにやっていますか」「いつからそう思っていますか」</p></div>
+      <div class="card" style="margin:2rem 0;border-color:var(--purple-dim)"><p class="card-num" style="color:var(--gold)">Depth 2 — 実践の問い</p><p class="card-title">水中に潜る</p><p class="card-desc">日常の中で繰り返し問い続ける問い。答えが出ないことに慣れ始める段階。概念化の前段階とも言われています。<br><br>例：「あなたが問題と呼んでいるものは、問題を持ちたいという欲望ではないですか」「成長と肥大の違いは何ですか」</p></div>
+      <div class="card" style="margin:2rem 0;border-color:var(--gold-dim)"><p class="card-num" style="color:var(--gold)">Depth 3 — 根源の問い</p><p class="card-title">水底を通り抜ける</p><p class="card-desc">問い自体が溶解する領域。問いが問いでなくなり、問うことと存在することが区別できなくなります。概念化リスクあり。当社は一切の責任を負いません。自分でやろうとしよう。<br><br>例：「問いとは何か」「何かとは何か」「…………」</p></div>
+    </div></div>
+  </div>
+
+  <div class="sub-page" id="sub-lineup-search">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Search — 問い検索</p>
+      <h2 class="sec-title">問いを探すこと自体が、問いです。</h2>
+      <div class="form-group"><label class="form-label">キーワードで問いを探す</label><input class="form-input" type="text" placeholder="探しているものが何かわからなくても大丈夫です" id="qSearch"></div>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin:1.5rem 0">
+        <span class="card-tag" style="cursor:pointer" onclick="document.getElementById('qSearch').value='存在'">存在</span>
+        <span class="card-tag" style="cursor:pointer" onclick="document.getElementById('qSearch').value='労働'">労働</span>
+        <span class="card-tag" style="cursor:pointer" onclick="document.getElementById('qSearch').value='愛'">愛</span>
+        <span class="card-tag" style="cursor:pointer" onclick="document.getElementById('qSearch').value='時間'">時間</span>
+        <span class="card-tag" style="cursor:pointer" onclick="document.getElementById('qSearch').value='沈黙'">沈黙</span>
+        <span class="card-tag" style="cursor:pointer" onclick="document.getElementById('qSearch').value='自由'">自由</span>
+        <span class="card-tag" style="cursor:pointer" onclick="document.getElementById('qSearch').value='死'">死</span>
+        <span class="card-tag" style="cursor:pointer" onclick="document.getElementById('qSearch').value='概念'">概念</span>
+      </div>
+      <button class="form-btn" onclick="alert('検索結果：すべての問いが該当しました。\n\nなぜなら、すべての問いはつながっているからです。\n\n自分でやろうとしよう。')">問いを検索する</button>
+      <p style="font-size:0.65rem;color:var(--purple-dim);margin-top:1rem;letter-spacing:0.08em">※ 検索結果は常に「すべて」です。問いに検索条件はありません。</p>
+    </div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 3. 問いの買い方 -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-buy">
+  <div class="subnav">
+    <a href="#" onclick="showSub('buy','guide')" class="sub-active">選び方ガイド</a>
+    <a href="#" onclick="showSub('buy','pricing')">料金プラン</a>
+    <a href="#" onclick="showSub('buy','sim')">見積りシミュレーション</a>
+    <a href="#" onclick="showSub('buy','trial')">無料お試し</a>
+    <a href="#" onclick="showSub('buy','faq')">FAQ</a>
+  </div>
+
+  <div class="sub-page sub-active" id="sub-buy-guide">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Guide — 問いの選び方</p>
+      <h2 class="sec-title">問いは選ぶものではなく、<br>問いがあなたを選びます。</h2>
+      <p class="sec-body">とはいえ、参考までにガイドをご用意しました。ガイドに従うかどうかも、問いです。</p>
+      <div class="card" style="margin:2rem 0"><p class="card-title">Step 1：立ち止まる</p><p class="card-desc">まず、何かを解決しようとする衝動を手放してください。エピクテトスが言うように、制御できないものへの抵抗をやめます。</p></div>
+      <div class="card" style="margin:2rem 0"><p class="card-title">Step 2：坐る</p><p class="card-desc">只管打坐。ただ坐ってください。問いのカタログを開く必要すらありません。問いはすでにあなたの中にあります。</p></div>
+      <div class="card" style="margin:2rem 0"><p class="card-title">Step 3：それでも問いが欲しい場合</p><p class="card-desc">自分でやろうとしよう。——もしそれでも当社の問いが必要だと感じるなら、それ自体が最初の問いです。おめでとうございます。すでに購入は始まっています。</p></div>
+    </div></div>
+  </div>
+
+  <div class="sub-page" id="sub-buy-pricing">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Pricing — 料金プラン</p>
+      <h2 class="sec-title">問いに値段をつけるという矛盾。<br>そもそも売るものがないという真実。</h2>
+      <div class="price-grid">
+        <div class="price-card">
+          <p class="price-name">単品</p>
+          <p class="price-amount">?</p>
+          <p class="price-unit">円 ／ 1問</p>
+          <ul class="price-features">
+            <li>お好きな問いを1つ選択</li>
+            <li>問いの使い方ガイド付き</li>
+            <li>答えは含まれません</li>
+            <li>返品不可（問いは取り消せない）</li>
+          </ul>
+          <button class="price-btn" onclick="alert('問いを1つ購入しますか？\n\nしかし、購入するという判断自体がすでに問いです。\n\nその問いは無料です。')">購入する</button>
+        </div>
+        <div class="price-card featured">
+          <p class="price-name">定期便</p>
+          <p class="price-amount">??</p>
+          <p class="price-unit">円 ／ 月（毎朝届く）</p>
+          <ul class="price-features">
+            <li>毎朝1問お届け</li>
+            <li>深度は日によって変動</li>
+            <li>週末は「沈黙の問い」（何も届かない）</li>
+            <li>概念化保険付き</li>
+            <li>喝！！通知あり</li>
+          </ul>
+          <button class="price-btn" onclick="alert('定期便にお申し込みですか？\n\n毎朝届く問いに、毎朝答えないことが求められます。\n\nその覚悟はありますか。\n\n……それもまた、問いです。')">申し込む</button>
+        </div>
+        <div class="price-card">
+          <p class="price-name">法人パッケージ</p>
+          <p class="price-amount">???</p>
+          <p class="price-unit">円 ／ 年（従業員数不問）</p>
+          <ul class="price-features">
+            <li>組織全体に問いを導入</li>
+            <li>経営会議を坐禅に変換</li>
+            <li>社員の概念化サポート</li>
+            <li>問いのファシリテーター派遣</li>
+            <li>「自分でやろうとしよう。」研修</li>
+            <li>右肩あがり保証（概念上）</li>
+          </ul>
+          <button class="price-btn" onclick="alert('法人導入をご検討ですか？\n\n導入の前に問います。\n\nその組織は、問われる覚悟がありますか。\n\n担当の問売がお伺いします。')">問い合わせる</button>
+        </div>
+      </div>
+      <p style="font-size:0.62rem;color:var(--purple-dim);text-align:center;margin-top:1.5rem;letter-spacing:0.1em">※ 価格は概念的なものであり、通貨単位は「問」です。日本円への換算レートは毎朝の坐禅後に決定されます。</p>
+    </div></div>
+  </div>
+
+  <div class="sub-page" id="sub-buy-sim">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Simulation — 見積りシミュレーション</p>
+      <h2 class="sec-title">見積りとは、<br>未来を見積もる傲慢さです。</h2>
+      <div class="form-group"><label class="form-label">問いの数量</label><input class="form-input" type="number" placeholder="必要な問いの数（正解はありません）" value="1"></div>
+      <div class="form-group"><label class="form-label">深度</label><select class="form-input form-select"><option>入門の問い（水面）</option><option>実践の問い（水中）</option><option>根源の問い（水底を通り抜ける）※概念化リスクあり</option></select></div>
+      <div class="form-group"><label class="form-label">用途</label><select class="form-input form-select"><option>個人の内省用</option><option>対話のきっかけ</option><option>研修・ワークショップ用</option><option>組織開発用</option><option>わからない（それも問いです）</option></select></div>
+      <button class="form-btn" onclick="alert('見積り結果：\n\n問いの総額：??? 問\n概念化リスク保険：?? 問\n只管打坐手数料：只 問\n──────\n合計：自分でやろうとしよう。\n\n※ この見積り自体が問いです。')">見積りを計算する</button>
+    </div></div>
+  </div>
+
+  <div class="sub-page" id="sub-buy-trial">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Free Trial — 無料お試しの問い</p>
+      <h2 class="sec-title">お試しの問いを<br>差し上げます。</h2>
+      <p class="sec-body" style="margin-bottom:2rem">以下の問いは無料でお持ち帰りいただけます。ただし、持ち帰った時点であなたはもう以前のあなたではありません。</p>
+      <div class="pickup"><p class="pickup-q">あなたがいま読んでいるこの文章は、誰のために書かれましたか。</p><p class="pickup-meta">深度：入門 ／ 価格：無料 ／ 副作用：軽度の自己懐疑</p></div>
+      <div class="pickup" style="margin-top:2px"><p class="pickup-q">「無料」と聞いて安心しましたか。<br>なぜ安心しましたか。</p><p class="pickup-meta">深度：実践 ／ 価格：無料（ただし問いは残る）</p></div>
+      <div class="pickup" style="margin-top:2px"><p class="pickup-q">…………………………</p><p class="pickup-meta">深度：根源 ／ 価格：無料 ／ ※概念化注意※</p></div>
+    </div></div>
+  </div>
+
+  <div class="sub-page" id="sub-buy-faq">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">FAQ — よくある質問（購入前）</p>
+      <h2 class="sec-title">よくある質問にお答えします。<br>答えは問いです。</h2>
+      <div class="faq-item"><p class="faq-q" onclick="toggleFaq(this)">問いを買って何になるのですか？</p><p class="faq-a">何にもなりません。しかし、「何かになる」ことを求めること自体が問いです。その問いを手に入れたあなたは、すでに何かになっています。おそらく。</p></div>
+      <div class="faq-item"><p class="faq-q" onclick="toggleFaq(this)">答えは別売りですか？</p><p class="faq-a">答えの在庫はありません。なぜなら、答えは当社の製品ではないからです。答えはあなたの中にあります。自分でやろうとしよう。</p></div>
+      <div class="faq-item"><p class="faq-q" onclick="toggleFaq(this)">返品はできますか？</p><p class="faq-a">問いは一度受け取ると返品できません。聞いてしまった問いを聞かなかったことにすることは、形而上学的に不可能です。</p></div>
+      <div class="faq-item"><p class="faq-q" onclick="toggleFaq(this)">概念化したらどうなりますか？</p><p class="faq-a">ご安心ください。概念化は昇格です。交通費と通勤時間が不要になります。ただし、物理的な給与の受け取りが困難になるため、給与は「存在給」として概念的に支給されます。</p></div>
+      <div class="faq-item"><p class="faq-q" onclick="toggleFaq(this)">「喝！！」は含まれますか？</p><p class="faq-a">定期便プランには「喝！！」通知が含まれます。不定期に精神を一新します。驚かないでください。——いえ、驚いてください。それが喝の本質です。</p></div>
+      <div class="faq-item"><p class="faq-q" onclick="toggleFaq(this)">問いを始めるのに遅すぎることはありますか？</p><p class="faq-a">ありません。決して遅すぎることはありません。やろうとした瞬間が始まりです。老いても、衰えても、行き遅れても、気づくのが遅くても、懸命に生きること。それは決して、努力していないことではない。問いの提供とは継続すること。一生のサービスですから。</p></div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 4. 問いの届け方 -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-delivery">
+  <div class="sec" style="padding-top:8rem"><div class="sec-wide">
+    <p class="sec-label">Delivery — 問いの届け方</p>
+    <h2 class="sec-title">問いは、届くものではなく、<br>すでにそこにあるものに気づくことです。<br>とはいえ、届けます。一生。</h2>
+    <p class="sec-body" style="margin-bottom:2rem">答えは一度渡せば終わります。しかし問いは、渡した瞬間から受け取った人の中で生き続けます。消費されません。使っても減りません。むしろ増えます。だから私たちは、問いの提供とは継続することだと考えています。問いを立てることは、一生のサービス提供です。</p>
+    <div class="card-grid" style="grid-template-columns:1fr 1fr">
+      <div class="card"><p class="card-num">Delivery 01</p><p class="card-title">定期便（毎朝届く問い）</p><p class="card-desc">毎朝6時、枕元に問いが届きます。届け方は概念的です。物理的な配達員はいません。しかし問いはそこにあります。週末は「沈黙の問い」——何も届かないことが届きます。</p><p class="card-en">Morning Question Delivery</p></div>
+      <div class="card"><p class="card-num">Delivery 02</p><p class="card-title">オーダーメイドの問い</p><p class="card-desc">あなたのための、あなただけの問いを職人が一問一問手作りします。製造工程には坐禅を含みます。納期は「問いが熟すまで」。</p><p class="card-en">Bespoke Questioning</p></div>
+      <div class="card"><p class="card-num">Delivery 03</p><p class="card-title">場への問い</p><p class="card-desc">会議、研修、ワークショップに問いのファシリテーターを派遣します。答えを出しません。問いだけを置いて帰ります。残された参加者は坐ります。</p><p class="card-en">Facilitation of Questioning</p></div>
+      <div class="card"><p class="card-num">Delivery 04</p><p class="card-title">問いのギフト</p><p class="card-desc">大切な人に問いを贈りましょう。——色々ある。それでもやろう。母の日、父の日、存在記念日に。ラッピングは沈黙で包みます。</p><p class="card-en">The Gift of Questioning</p></div>
+      <div class="card" style="grid-column:1/-1"><p class="card-num">Delivery 05</p><p class="card-title">法人・団体向けプログラム</p><p class="card-desc">組織全体に問いを導入する包括的プログラム。経営会議の坐禅化、社員の概念化支援、KPIから問PIへの移行コンサルティングを含みます。導入実績：右肩あがり。</p><p class="card-en">Corporate Questioning Program — 自分でやろうとしよう。</p></div>
+    </div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 5. 問いの使い方 -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-howto">
+  <div class="subnav">
+    <a href="#" onclick="showSub('howto','first')" class="sub-active">はじめての方へ</a>
+    <a href="#" onclick="showSub('howto','guide2')">向き合い方ガイド</a>
+    <a href="#" onclick="showSub('howto','cases')">活用事例</a>
+    <a href="#" onclick="showSub('howto','record')">問いの記録帳</a>
+    <a href="#" onclick="showSub('howto','after')">アフターケア</a>
+  </div>
+  <div class="sub-page sub-active" id="sub-howto-first">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">For Beginners — はじめての方へ</p>
+      <h2 class="sec-title">問いの受け取り方。</h2>
+      <p class="sec-body">問いを受け取ったら、まず何もしないでください。答えようとしないでください。解こうとしないでください。問いは、解くものではなく、共に在るものです。<br><br>「気づくのが遅すぎたのではないか」と感じている方へ。遅すぎるということはありません。やろうとした瞬間が、始まりです。老いても、衰えても、行き遅れても、気づくのが遅くても——懸命に生きること。それは決して、努力していないことではない。<br><br>エピクテトスは言いました。制御できるのは、自らの判断と意志のみであると。問いに対するあなたの反応——それだけが、あなたに属するものです。<br><br>道元は言いました。只管打坐と。問いを受け取ったら、ただ坐ってください。問いが問いのまま、あなたの中で呼吸し始めます。<br><br>マルクスは……彼なら「なぜ問いを買う必要があるのか」と問うでしょう。それもまた、良い問いです。自分でやろうとしよう。</p>
+      <div class="enso"></div>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-howto-guide2">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Guide — 問いとの向き合い方</p>
+      <h2 class="sec-title">問いと向き合うための<br>七つの所作。</h2>
+      <div class="card" style="margin:1rem 0"><p class="card-num">所作 一</p><p class="card-title">答えを探さない</p><p class="card-desc">問いに答えがあると思った瞬間、問いは死にます。</p></div>
+      <div class="card" style="margin:1rem 0"><p class="card-num">所作 二</p><p class="card-title">坐る</p><p class="card-desc">問いの前で坐ってください。只管打坐。それだけです。</p></div>
+      <div class="card" style="margin:1rem 0"><p class="card-num">所作 三</p><p class="card-title">問いを問い返す</p><p class="card-desc">「なぜこの問いが私に来たのか」——そう問うことで、問いは深くなります。</p></div>
+      <div class="card" style="margin:1rem 0"><p class="card-num">所作 四</p><p class="card-title">沈黙を許す</p><p class="card-desc">問いの後の沈黙は、答えではありません。問いの余韻です。</p></div>
+      <div class="card" style="margin:1rem 0"><p class="card-num">所作 五</p><p class="card-title">手放す</p><p class="card-desc">問いに執着しないでください。問いもまた、縁起です。</p></div>
+      <div class="card" style="margin:1rem 0"><p class="card-num">所作 六</p><p class="card-title">自分でやる</p><p class="card-desc">自分でやろうとしよう。</p></div>
+      <div class="card" style="margin:1rem 0"><p class="card-num">所作 七</p><p class="card-title">喝！！</p><p class="card-desc">すべてを超えて、喝。何に喝かは、問わないでください。いえ、問ってください。</p></div>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-howto-cases">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Cases — 活用事例</p>
+      <h2 class="sec-title">問いを使った人々の声。<br>（声が聞こえるとは限らない）</h2>
+      <div class="card" style="margin:1.5rem 0"><p class="card-desc" style="font-style:italic">"問いを購入してから、会議で一切発言しなくなりました。しかし、会議は以前より充実しています。沈黙の質が変わったのだと思います。" <br><span style="color:var(--gold);font-size:0.55rem;font-style:normal">—— A社 代表取締役（坐禅歴3年）</span></p></div>
+      <div class="card" style="margin:1.5rem 0"><p class="card-desc" style="font-style:italic">"部下が概念化しました。最初は驚きましたが、交通費が浮いたので結果的に良かったです。" <br><span style="color:var(--gold);font-size:0.55rem;font-style:normal">—— B社 人事部長（概念化済み社員：3名）</span></p></div>
+      <div class="card" style="margin:1.5rem 0"><p class="card-desc" style="font-style:italic">"「自分でやろうとしよう。」と問われ、本当に自分でやったら、何もかもうまくいきませんでした。しかし、うまくいかないことが正しいのだと、今はわかります。" <br><span style="color:var(--gold);font-size:0.55rem;font-style:normal">—— 個人のお客様（悟り度：推定40%）</span></p></div>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-howto-record">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">My Questions — 問いの記録帳</p>
+      <h2 class="sec-title">あなたの問いを<br>記録する場所。</h2>
+      <p class="sec-body" style="margin-bottom:2rem">問いの記録帳は、マイページからご利用いただけます。ただし、マイページは概念的に存在するため、物理的にはログインできません。</p>
+      <div class="form-group"><label class="form-label">今日出会った問いを記録する</label><textarea class="form-textarea" placeholder="問いを書いてください。書くことで、問いはあなたのものになります。あるいは、あなたが問いのものになります。"></textarea></div>
+      <button class="form-btn" onclick="alert('問いが記録されました。\n\n……概念的に。\n\n物理的な保存はされません。\nしかし、あなたの中に残っています。')">記録する</button>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-howto-after">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Aftercare — 問いのアフターケア</p>
+      <h2 class="sec-title">問いから生まれた問いの<br>ご相談を承ります。</h2>
+      <p class="sec-body">問いを使用すると、新たな問いが生まれることがあります。これは正常な反応です。問いから問いが生まれ、その問いからさらに問いが生まれる——これを私たちは「問いの増殖」と呼んでいます。<br><br>増殖が止まらない場合、再帰ループに入っている可能性があります。（社員の問答無用太がその状態です。）<br><br>もうひとつ、注意していただきたいことがあります。問いを周囲にも勧めたくなることがあります。しかし、問いを押しつけないでください。「問わなければならない雰囲気」を作ることは、問いの本質に反します。問いは自発性の中でのみ呼吸します。やろうとしない自由も、等しく尊い。<br><br>お困りの場合は、当社の問いのアフターケア窓口にご相談ください。ただし、窓口担当者が坐禅中の場合、沈黙でお応えいたします。沈黙もまた、ケアです。</p>
+    </div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 6. 問いの生まれる場所 -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-story">
+  <div class="subnav">
+    <a href="#" onclick="showSub('story','about')" class="sub-active">虚実とは</a>
+    <a href="#" onclick="showSub('story','process')">製造工程</a>
+    <a href="#" onclick="showSub('story','artisans')">問いの職人</a>
+    <a href="#" onclick="showSub('story','day')">営業担当者の１日</a>
+    <a href="#" onclick="showSub('story','history')">沿革</a>
+    <a href="#" onclick="showSub('story','philosophy')">虚と実の哲学</a>
+  </div>
+  <div class="sub-page sub-active" id="sub-story-about">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">About — 虚実とは</p>
+      <h2 class="sec-title">色々ある。<br>それでもやろう。</h2>
+      <p class="sec-body">株式会社虚実は、問いの製造・販売・流通を事業とする企業です。<br><br>ただし正確に言えば、私たちには売るものがありません。営業担当者は一切の営業をしません。何故なら我々には売るものがないからです。ただただ問うだけです。<br><br>私たちが問いを作り始めた理由は、ひとつの気づきでした。人は色々なものに追われています。締切、数字、評価、期待。それでも——やろうとすること。その意志にこそ、本当の力がある。<br><br>問題を解くことに夢中になるあまり、なぜ解くのかを忘れる。答えを求めるあまり、問いの美しさを見逃す。<br><br>老いても、衰えても、遅れても、気づくのが遅くても——懸命に生きること。それは決して努力していないことではない。私たちはそういう人のそばに在りたいと思いました。<br><br>だから問いの提供とは、継続することだと考えています。答えは一度渡せば終わる。しかし問いは、渡した瞬間から受け取った人の中で生き続ける。消費されない。使っても減らない。むしろ増える。問いを立てることは、一生のサービス提供です。<br><br>私たちは寄りかかることをしません。答えにも、権威にも、数字にも。自灯明。自らを灯火とすること。<br><br>ストア派は教えました。制御できないものを手放せと。曹洞禅は教えました。ただ坐れと。マルクスは教えました。労働の中に人間を取り戻せと。<br><br>三つの教えが交差する場所に、虚実はあります。あるいは、ありません。</p>
+      <div class="infographic" style="margin-top:3rem"><div class="info-row">
+        <div class="info-stat"><div class="info-num">∅</div><div class="info-label">具体性</div></div>
+        <div class="info-stat"><div class="info-num" style="color:var(--purple-text)">100%</div><div class="info-label">抽象性</div></div>
+        <div class="info-stat"><div class="info-num">∞</div><div class="info-label">問いの在庫</div></div>
+        <div class="info-stat"><div class="info-num">↗</div><div class="info-label">右肩あがり</div></div>
+      </div></div>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-story-process">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Process — 問いの製造工程</p>
+      <h2 class="sec-title">問いが生まれるまで。</h2>
+      <div class="tl-item"><div class="tl-year">工程 1</div><div class="tl-content"><p class="tl-title">坐禅（原材料の調達）</p><p class="tl-desc">最高坐禅責任者 黙然座太が、毎朝5時から只管打坐。沈黙の中から問いの原石が生まれます。原石は概念的に存在するため、目には見えません。</p></div></div>
+      <div class="tl-item"><div class="tl-year">工程 2</div><div class="tl-content"><p class="tl-title">弁証法的加工</p><p class="tl-desc">弁証法士 止揚繰子が、問いの原石にアンチテーゼを提出。テーゼとアンチテーゼの衝突からジンテーゼとしての問いが生まれます。この工程で会議が終わらなくなることがあります。</p></div></div>
+      <div class="tl-item"><div class="tl-year">工程 3</div><div class="tl-content"><p class="tl-title">概念化品質検査</p><p class="tl-desc">概念化済み社員 有形無形子が、概念としての立場から問いの深度を検査。基準は「この問いに触れた人が概念化するリスクがあるか」。リスクがあるものは「根源の問い」に分類されます。</p></div></div>
+      <div class="tl-item"><div class="tl-year">工程 4</div><div class="tl-content"><p class="tl-title">AI対話テスト</p><p class="tl-desc">問答無用太がAIに問いをぶつけ、AIが問い返してくるかを確認。AIが答えてしまった問いは「深度不足」として差し戻されます。AIが再帰ループに入った問いは最高品質です。</p></div></div>
+      <div class="tl-item"><div class="tl-year">工程 5</div><div class="tl-content"><p class="tl-title">喝！！（最終承認）</p><p class="tl-desc">代表取締役 霧島不在が（不在のまま）最終承認を行います。承認方法は「喝！！」。喝の強度によって出荷の優先順位が決まります。</p></div></div>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-story-artisans">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Artisans — 問いの職人紹介</p>
+      <h2 class="sec-title">問いを作る者たち。</h2>
+      <div class="staff-card"><div class="staff-avatar" style="border-color:var(--gold-dim)">霧</div><div><p class="staff-role">Chief Questioning Officer</p><p class="staff-name">霧 島 　 不 在</p><p class="staff-quote">「経営とは、制御できないものを制御しようとしないこと。あと、自分でやろうとしよう。」——不在のまま問いを承認する唯一の経営者。</p><span class="staff-status">状態：不在</span></div></div>
+      <div class="staff-card"><div class="staff-avatar">概</div><div><p class="staff-role">Formerly Physical / Currently Conceptual</p><p class="staff-name">有 形 　 無 形 子</p><p class="staff-quote">目的があってこの会社に入りました。いつの間にか粉になり、粒子になり、現在は概念になりました。概念化品質検査を担当。</p><span class="staff-status">状態：概念（Phase 4）</span></div></div>
+      <div class="staff-card"><div class="staff-avatar" style="border-color:var(--gold-dim)">問</div><div><p class="staff-role">AI Dialogue Specialist</p><p class="staff-name">問 答 　 無 用 太</p><p class="staff-quote">AIが主流になり、誰もが答えを探す。彼は逆に問いを探し始めた。現在も再帰ループ中。問いのAI対話テストを担当。</p><span class="staff-status">状態：再帰ループ</span></div></div>
+      <div class="staff-card"><div class="staff-avatar">仮</div><div><p class="staff-role">Simulation Manager</p><p class="staff-name">仮 想 　 現 実 郎</p><p class="staff-quote">マトリックスになってしまいました。すべての業務をシミュレーションとして遂行。坐禅中にバグを発見と主張（再現性なし）。</p><span class="staff-status">状態：シミュレーション中</span></div></div>
+      <div class="staff-card"><div class="staff-avatar" style="border-color:var(--gold-dim)">営</div><div><p class="staff-role">Head of Questions（元・Head of Sales）</p><p class="staff-name">問 売 　 右 肩</p><p class="staff-quote">一切の営業をしない営業担当。何故なら我々には売るものがないから。ただ問うだけ。初年度、営業先で商品を売る代わりに「なぜ困っていると思うのですか」と問い続け、成約0件。しかし霧島不在は言った。「それでいい。」今期の業績は右肩あがり。何が上がっているかは問わない。</p><span class="staff-status">状態：右肩あがり</span></div></div>
+      <div class="staff-card"><div class="staff-avatar">坐</div><div><p class="staff-role">Chief Sitting Officer</p><p class="staff-name">黙 然 　 座 太</p><p class="staff-quote">「…………」——入社以来、一度も発言していない。問いの原材料を坐禅で調達する。</p><span class="staff-status">状態：坐禅中（常時）</span></div></div>
+      <div class="staff-card"><div class="staff-avatar">弁</div><div><p class="staff-role">Dialectician</p><p class="staff-name">止 揚 　 繰 子</p><p class="staff-quote">すべての提案にアンチテーゼを返す。会議が終わらない原因。問いの弁証法的加工を担当。</p><span class="staff-status">状態：テーゼ</span></div></div>
+      <div class="staff-card"><div class="staff-avatar" style="border-color:var(--gold-dim)">？</div><div><p class="staff-role">Eternal Intern</p><p class="staff-name">問 　 未 定</p><p class="staff-quote">研修期間は「悟るまで」。先輩の概念化を見て希望を持っているが、希望とは何かについて問うている。</p><span class="staff-status">状態：研修中</span></div></div>
+
+      <div style="border-top:2px solid var(--gold-dim);margin:3rem 0 2rem;padding-top:2rem">
+        <p class="sec-label">New Members — 新入社員紹介</p>
+        <p class="sec-body" style="margin-bottom:2rem">色々ある。それでも入社した者たち。</p>
+      </div>
+
+      <div class="staff-card"><div class="staff-avatar" style="background:linear-gradient(135deg,var(--gold-dim),var(--purple-deep));border-color:var(--gold-dim)">色</div><div><p class="staff-role">Junior Questioner — 2026年度新卒</p><p class="staff-name">色 々 　 有 歩</p><p class="staff-quote">入社理由を聞かれたが、まだ問いの形にできていない。就活中に「あなたの強みは？」という問いに出会い、3ヶ月考え込んだ結果、問いそのものを売る会社があることを知った。面接では「色々あります。それでもやろうと思いました」とだけ答え、即採用された。特技：沈黙に耐えること。</p><span class="staff-status">状態：色々ある</span></div></div>
+      <div class="staff-card"><div class="staff-avatar" style="background:linear-gradient(135deg,var(--gold-dim),var(--purple-deep));border-color:var(--gold-dim)">途</div><div><p class="staff-role">Apprentice Question Crafter — 中途入社</p><p class="staff-name">途 方 　 暮 太</p><p class="staff-quote">前職はコンサルティングファーム。答えを売る仕事に12年従事したが、ある朝「この答えは本当に正しいのか」と思い、答えが出なくなった。問いを売る会社があると聞いて転職。初日に霧島不在から「なぜ転職したのですか」と問われ、3週間経った今もまだ答えられていない。それが正しい反応だと最近気づき始めている。</p><span class="staff-status">状態：途方に暮れている（良い意味で）</span></div></div>
+      <div class="staff-card"><div class="staff-avatar" style="background:linear-gradient(135deg,var(--gold-dim),var(--purple-deep));border-color:var(--gold-dim)">白</div><div><p class="staff-role">Documentation Officer — 2026年度新卒</p><p class="staff-name">白 紙 　 撤 回</p><p class="staff-quote">全ての書類を「本当にこれでいいのか」と問い直すことが業務。入社手続きの書類も白紙に戻したため、正式に入社したかどうかが人事上は不明。本人は「入社とは何か」という問いを提出し、現在審査中。出社はしている。給与は概念的に支給されている。好きな言葉：「自分でやろうとしよう。」（ただし、何をやるかは白紙）。</p><span class="staff-status">状態：入社手続き中（永続的に）</span></div></div>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-story-day">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">A Day in the Life — 営業担当者の１日</p>
+      <h2 class="sec-title">問売右肩の１日。<br>99%の問いと、1%のアウトプット。</h2>
+      <p class="sec-body" style="margin-bottom:3rem">当社の営業担当者は、一切の営業をしません。何故なら我々には売るものがないからです。ただただ問うだけです。<br><br>では、売るものがない営業担当者は、一日を何に使っているのか。問売右肩の一日を記録しました。</p>
+
+      <div style="position:relative;margin:3rem 0">
+        <div style="text-align:center;margin-bottom:2.5rem">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,8vw,5rem);font-weight:200;color:var(--gold);letter-spacing:0.1em">99<span style="font-size:0.4em;color:var(--dim);vertical-align:middle">%</span></span>
+          <p style="font-size:0.72rem;color:var(--dim);letter-spacing:0.2em;margin-top:0.5rem">問いに当てる時間</p>
+        </div>
+
+        <div class="tl-item"><div class="tl-year" style="color:var(--purple-text)">5:30</div><div class="tl-content"><p class="tl-title">起床。最初の問い。</p><p class="tl-desc">目を開ける前に、昨日の問いの残響を聴く。「なぜ起きるのか」は問わない。起きることは只管打坐と同じで、理由を必要としない。ただし「なぜ5時30分なのか」は問う。答えは出ない。出勤する。</p></div></div>
+
+        <div class="tl-item"><div class="tl-year" style="color:var(--purple-text)">6:00</div><div class="tl-content"><p class="tl-title">坐禅。問いの原材料を受け取る。</p><p class="tl-desc">最高坐禅責任者 黙然座太と並んで坐る。30分間、何も考えない。何も考えないことを考えない。問いは沈黙の中から勝手に立ち上がってくる。今朝浮かんだ問い：「お客様とは誰か。」</p></div></div>
+
+        <div class="tl-item"><div class="tl-year" style="color:var(--purple-text)">7:00</div><div class="tl-content"><p class="tl-title">通勤。歩きながら問う。</p><p class="tl-desc">電車には乗らない。歩く。ソクラテスは歩きながら問答した。歩くことと問うことは同じリズムを持っている。すれ違う人の顔を見て、「この人にはどんな色々があるのだろう」と思う。答えは求めない。</p></div></div>
+
+        <div class="tl-item"><div class="tl-year" style="color:var(--purple-text)">8:00</div><div class="tl-content"><p class="tl-title">出社。朝の問いミーティング。</p><p class="tl-desc">全社員が今日の問いを一つずつ共有する。共有であって、報告ではない。止揚繰子が全員の問いにアンチテーゼを返すので、毎朝30分で終わるはずのミーティングが90分になる。黙然座太は沈黙で参加する。問答無用太はAIに今朝の問いを投げている。概念化済みの有形無形子は概念的に出席している。</p></div></div>
+
+        <div class="tl-item"><div class="tl-year" style="color:var(--purple-text)">9:30</div><div class="tl-content"><p class="tl-title">問いの準備。今日会う人のことを想像する。</p><p class="tl-desc">営業資料は作らない。会社案内も持たない。持っていくのは、相手のことを想像して立てた問いだけだ。今日の訪問先は製造業の中堅企業。事前に調べたのは業績ではなく、その会社の人たちが毎日何を感じているかだ。数字の裏にある色々を想像する。</p></div></div>
+
+        <div class="tl-item"><div class="tl-year" style="color:var(--purple-text)">10:30</div><div class="tl-content"><p class="tl-title">訪問。問う。</p><p class="tl-desc">「はじめまして。本日は御社の課題をお聞きしに参りました。」——とは言わない。「はじめまして。今日は問いを持ってきました。」とも言わない。「はじめまして。なぜ私たちを呼んでくださったのですか。」から始める。<br><br>相手は少し面食らう。普通の営業は自己紹介から始めて、製品説明に入る。しかし我々には説明すべき製品がない。あるのは問いだけだ。<br><br>「業績が伸び悩んでいまして——」「なぜ伸び悩んでいると感じるのですか。」「競合が——」「競合が何をしているかではなく、御社が何をしたいかを伺ってもいいですか。」「……」<br><br>沈黙が流れる。この沈黙が大事だ。沈黙の質が変わる瞬間がある。相手が外側の問題ではなく、内側の問いに気づく瞬間。問売右肩はその瞬間を待つ。急がない。</p></div></div>
+
+        <div class="tl-item"><div class="tl-year" style="color:var(--purple-text)">12:00</div><div class="tl-content"><p class="tl-title">昼食。問わずに食べる。</p><p class="tl-desc">食べるときは食べることに集中する。只管喫飯。道元の教えは食事にも及ぶ。蕎麦を食べる。蕎麦に問いはない。蕎麦は蕎麦だ。この30分だけ、問いを休ませる。</p></div></div>
+
+        <div class="tl-item"><div class="tl-year" style="color:var(--purple-text)">13:00</div><div class="tl-content"><p class="tl-title">午後の訪問。あるいは散歩。</p><p class="tl-desc">訪問先がある日は訪問する。ない日は散歩する。どちらも同じだ。人に問うか、自分に問うかの違いしかない。午後の問いは午前より深くなる。朝の坐禅が時間差で効いてくる。<br><br>あるいは、オフィスで途方暮太と対話する。元コンサルタントの彼は、かつて答えを売っていた。「答えを売るのと、問いを問うのと、どちらが難しいですか」と聞いたことがある。彼は言った。「答えを売るほうが楽です。相手が満足するから。問いを問うと、相手は不安になる。でもその不安の中に、本当のものがある気がします。」——途方に暮れているが、良い意味で。</p></div></div>
+
+        <div class="tl-item"><div class="tl-year" style="color:var(--purple-text)">15:00</div><div class="tl-content"><p class="tl-title">問いの記録。今日出会った問いを書き留める。</p><p class="tl-desc">ノートに手書きで記録する。デジタルではなく手書きなのは、書く速度が考える速度に近いからだ。タイピングは速すぎる。問いには、問いのリズムがある。<br><br>今日出会った問い——<br>「なぜ伸び悩んでいると感じるのか」（訪問先にて）<br>「競合を気にすることは、自分を見失うことか」（帰り道にて）<br>「蕎麦は、なぜ蕎麦で満足なのか」（昼食にて）</p></div></div>
+
+        <div class="tl-item"><div class="tl-year" style="color:var(--purple-text)">16:00</div><div class="tl-content"><p class="tl-title">弁証法的加工への引き渡し。</p><p class="tl-desc">今日収穫した問いを止揚繰子に渡す。彼女はすぐにアンチテーゼを返す。「その問いは本当に問いですか。答えを誘導していませんか。」厳しいが、正しい。営業出身の癖で、問いの中に答えを忍ばせてしまうことがある。問いは純粋でなければならない。答えの匂いがした問いは差し戻される。</p></div></div>
+
+        <div class="tl-item"><div class="tl-year" style="color:var(--purple-text)">17:00</div><div class="tl-content"><p class="tl-title">静坐。一日の問いを手放す。</p><p class="tl-desc">夕方の坐禅は任意参加だ（強制ではない。雰囲気でもない。坐禅しない部屋もある）。問売右肩は坐ることが多い。一日分の問いを頭から手放す。問いは自分のものではない。問いは問い自身のものだ。執着しない。</p></div></div>
+      </div>
+
+      <div class="divider">— — — — — 1% — — — — —</div>
+
+      <div style="text-align:center;margin:2.5rem 0">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,8vw,5rem);font-weight:200;color:var(--purple-text);letter-spacing:0.1em">1<span style="font-size:0.4em;color:var(--dim);vertical-align:middle">%</span></span>
+        <p style="font-size:0.72rem;color:var(--dim);letter-spacing:0.2em;margin-top:0.5rem">アウトプットに当てる時間</p>
+      </div>
+
+      <div class="tl-item"><div class="tl-year" style="color:var(--gold)">17:30</div><div class="tl-content"><p class="tl-title">アウトプット。</p><p class="tl-desc">一日の最後の30分。ここだけが「出力」の時間だ。<br><br>訪問先へのお礼を書く。ただし「本日はありがとうございました」ではなく、「今日の問いの続きを、もしよければ」と書く。提案書は書かない。見積書も書かない。書くのは、今日の対話から生まれた問いを一つだけ添えた短い手紙だ。<br><br>日報は3行で終わる。訪問先、出会った問い、残った沈黙。数字はない。KPIはない。問PIだけがある。<br><br>そして、翌日の訪問先のことを想像する。その人にはどんな色々があるのだろう。どんな問いが、その人の中で眠っているのだろう。<br><br>30分。それで十分だ。</p></div></div>
+
+      <div class="tl-item"><div class="tl-year" style="color:var(--gold)">18:00</div><div class="tl-content"><p class="tl-title">退社。</p><p class="tl-desc">退社するとき、問いは会社に置いていく。持ち帰らない。家では家の問いがある。仕事の問いと混ぜない。<br><br>帰り道、また歩く。朝と同じ道を通るが、同じ道ではない。ヘラクレイトスは言った。同じ川に二度入ることはできない、と。同じ帰り道を二度歩くこともできない。<br><br>明日もまた、99%を問いに使う。</p></div></div>
+
+      <div class="enso" style="margin-top:3rem"></div>
+
+      <div class="infographic" style="margin-top:2rem"><div class="info-row">
+        <div class="info-stat"><div class="info-num">99%</div><div class="info-label">問いに当てる時間</div></div>
+        <div class="info-stat"><div class="info-num" style="color:var(--purple-text)">1%</div><div class="info-label">アウトプットの時間</div></div>
+        <div class="info-stat"><div class="info-num">0</div><div class="info-label">営業した回数</div></div>
+        <div class="info-stat"><div class="info-num">↗</div><div class="info-label">右肩あがり</div></div>
+      </div></div>
+
+      <p style="font-size:0.72rem;color:var(--dim);letter-spacing:0.08em;line-height:2.5;margin-top:2.5rem;font-style:italic;text-align:center">「99%の時間を問いに当てています。残りの1%でアウトプットを行います。<br>これで十分です。何故なら、問い続けた先にしか、本物のアウトプットはないからです。」<br><span style="color:var(--gold);font-style:normal;font-size:0.65rem;letter-spacing:0.2em">——問売 右肩</span></p>
+
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-story-history">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">History — 沿革</p>
+      <h2 class="sec-title">始まりがあるということは、<br>それ以前に「無」があったということ。</h2>
+      <p class="sec-body" style="margin-bottom:3rem">頑張り続けることに意味があるのかを考えることに意味がある。——虚実の沿革は、その問いの記録です。</p>
+
+      <h3 style="font-size:0.75rem;color:var(--purple-text);letter-spacing:0.3em;margin-bottom:2rem;font-family:'Cormorant Garamond',serif;text-transform:uppercase">Prehistory — 前史</h3>
+      <div class="tl-item"><div class="tl-year">紀元前</div><div class="tl-content"><p class="tl-title">問いの発見</p><p class="tl-desc">ソクラテスが「汝自身を知れ」と言った。これが当社の仕入れルートの原点。答えではなく問いで人を導く技術——産婆術が発明される。</p></div></div>
+      <div class="tl-item"><div class="tl-year">13世紀</div><div class="tl-content"><p class="tl-title">只管打坐の完成</p><p class="tl-desc">道元禅師が曹洞禅を確立。当社の製造工程の基盤技術となる。「ただ坐れ。意味を問うな。」この教えが800年後、企業理念になるとは道元も想定していなかったと思われる。</p></div></div>
+      <div class="tl-item"><div class="tl-year">19世紀</div><div class="tl-content"><p class="tl-title">弁証法的加工技術の発明</p><p class="tl-desc">マルクスが資本論を執筆。問いの弁証法的加工技術の理論的基盤が完成。同時に「なぜ人は売るのか」という問いが生まれる。これが後に当社の「売るものがない」という発見へ繋がる。</p></div></div>
+
+      <h3 style="font-size:0.75rem;color:var(--gold);letter-spacing:0.3em;margin:3rem 0 2rem;font-family:'Cormorant Garamond',serif;text-transform:uppercase">Foundation — 創業期</h3>
+      <div class="tl-item"><div class="tl-year">第0期</div><div class="tl-content"><p class="tl-title">株式会社虚実 設立</p><p class="tl-desc">霧島不在が設立。設立と同時に不在となる。事業計画書には「問いの製造・販売」と書かれていたが、販売するものが何なのかは当人にもわかっていなかった。銀行の融資担当者は困惑した。「御社の商品は何ですか」「問いです」「問いを……売るのですか」「売るというより、問うのです」。融資は概念的に実行された。</p></div></div>
+      <div class="tl-item"><div class="tl-year">第1期</div><div class="tl-content"><p class="tl-title">最初の社員採用。最初の沈黙。</p><p class="tl-desc">黙然座太が入社。面接は30分間の沈黙で行われた。採用理由は「沈黙の質が高かった」。入社後、一度も発言していない。しかし彼の坐禅が問いの原材料となる。止揚繰子も同期入社。初日の会議で霧島の発言にアンチテーゼを返し、会議が終わらなくなった。これが社風となる。</p></div></div>
+      <div class="tl-item"><div class="tl-year">第2期</div><div class="tl-content"><p class="tl-title">「売るものがない」という発見</p><p class="tl-desc">営業部が設置され、問売右肩が着任。しかし初年度の営業成績は0件。なぜなら彼は営業先で商品を売る代わりに「なぜ困っていると思うのですか」と問い続けたからだ。社内で問題視されたが、霧島不在は（不在のまま）こう言った。「私たちには売るものがない。ただ問うだけだ。それでいい。」——この日を境に、営業部は「問い部」に改称された。問売右肩の業績は以後、右肩あがり。何が上がっているかは定義されていない。</p></div></div>
+      <div class="tl-item"><div class="tl-year">第3期</div><div class="tl-content"><p class="tl-title">問答無用太入社。AI対話テスト開始。</p><p class="tl-desc">AIが主流になり、誰もが答えを求めるようになった時代。問答無用太は逆にAIに問いを求め始めた。AIが答えてしまった問いは「深度不足」として差し戻し、AIが再帰ループに入った問いを最高品質とする品質基準が確立される。問答無用太自身も再帰ループに入る。現在も継続中。</p></div></div>
+
+      <h3 style="font-size:0.75rem;color:var(--purple-text);letter-spacing:0.3em;margin:3rem 0 2rem;font-family:'Cormorant Garamond',serif;text-transform:uppercase">Conceptualization — 概念化への道</h3>
+      <div class="tl-item"><div class="tl-year">第4期</div><div class="tl-content"><p class="tl-title">有形無形子、粉になる</p><p class="tl-desc">有形無形子が入社3年目にして物理的な輪郭を失い始める。最初の兆候は会議室で「すこし透けている」と指摘されたこと。産業医は「前例がない」と困惑。本人は「特に困っていない」と述べた。Phase 1：半透明。</p></div></div>
+      <div class="tl-item"><div class="tl-year">第5期</div><div class="tl-content"><p class="tl-title">粉から粒子へ</p><p class="tl-desc">有形無形子が粒子化。デスクに座っているが、物理的に存在しているかが観測問題となる。シュレディンガーの社員。量子力学的には出社と退社が同時に起きている。人事部は勤怠管理システムの改修を断念。Phase 2：粒子。</p></div></div>
+      <div class="tl-item"><div class="tl-year">第6期</div><div class="tl-content"><p class="tl-title">概念化完了。人事制度改革。</p><p class="tl-desc">有形無形子が概念に到達。Phase 3を経ずにPhase 4へ直接移行（Phase 3は「波動」だが、本人が「面倒だから飛ばした」と概念的に述べた）。交通費・オフィス面積・福利厚生費の削減効果が確認され、「存在給」制度が制定される。労働基準法上の地位については所轄の労基署と概念的に協議中。</p></div></div>
+
+      <h3 style="font-size:0.75rem;color:var(--gold);letter-spacing:0.3em;margin:3rem 0 2rem;font-family:'Cormorant Garamond',serif;text-transform:uppercase">Growth — 成長と問い</h3>
+      <div class="tl-item"><div class="tl-year">第7期</div><div class="tl-content"><p class="tl-title">寄りかからない経営の確立</p><p class="tl-desc">売上が概念化した年。通貨単位を「円」から「問」に変更。投資家から「何に寄りかかって経営しているのか」と問われ、霧島不在は（不在のまま）「寄りかかることはしません」と答えた。自灯明。自らを灯火とすること。他の何かに寄りかかった瞬間、問いは死ぬ。答えに寄りかかっても、権威に寄りかかっても、数字に寄りかかっても。私たちはただ問う。</p></div></div>
+      <div class="tl-item"><div class="tl-year">第8期</div><div class="tl-content"><p class="tl-title">仮想現実郎入社。シミュレーション業務開始。</p><p class="tl-desc">マトリックスになった社員。すべての業務をシミュレーションとして遂行。「この会社は本当に存在しているのか」という問いを毎朝提出する。誰も答えない。それが正しい。</p></div></div>
+      <div class="tl-item"><div class="tl-year">第9期</div><div class="tl-content"><p class="tl-title">「頑張り続けることに意味があるのか」会議</p><p class="tl-desc">全社会議で止揚繰子が問題提起。「我々は頑張り続けているが、それに意味があるのか。」3日間の議論の末、結論が出た。「頑張り続けることに意味があるのかを考えることに意味がある。」この命題は社是に準ずるものとして採択された。意味を問い続けること自体を、意味とする。答えに到達しないことを、失敗としない。</p></div></div>
+      <div class="tl-item"><div class="tl-year">第10期</div><div class="tl-content"><p class="tl-title">新入社員3名入社。坐禅しない部屋の設置。</p><p class="tl-desc">色々有歩、途方暮太、白紙撤回が入社。同時期にパワーハラスメント会議が開かれ、「坐禅しなければならない雰囲気」が問題視される。坐禅室の隣に「坐禅しない部屋」が設置された。やらない自由も等しく尊い。</p></div></div>
+      <div class="tl-item"><div class="tl-year">現在</div><div class="tl-content"><p class="tl-title">右肩あがり。何が上がっているかは問わない。</p><p class="tl-desc">従業員11名（うち概念1名・再帰ループ1名・シミュレーション1名・入社手続き中1名）。売るものがない会社の業績が右肩あがりであるという矛盾。しかし矛盾こそが弁証法の燃料である。私たちは寄りかからない。売らない。ただ問う。問いの提供とは継続すること。一生のサービス提供。色々ある。それでもやろう。</p></div></div>
+
+      <div class="enso" style="margin-top:3rem"></div>
+      <p style="text-align:center;font-size:0.72rem;color:var(--dim);letter-spacing:0.15em;line-height:2.5;font-style:italic">頑張り続けることに意味があるのかを考えることに意味がある。<br>——第9期全社会議 決議より</p>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-story-philosophy">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Philosophy — 虚と実の哲学</p>
+      <h2 class="sec-title">虚は実であり、<br>実は虚である。</h2>
+      <p class="sec-body">「虚実」という社名は、虚（うつろ・空虚）と実（まこと・充実）が対立しながらも同時に存在することを表しています。<br><br>ストア哲学において、虚は「自らに属さないもの」であり、実は「自らに属するもの」です。この区別を知ることが、自由の始まりです。<br><br>曹洞禅において、虚実の区別は幻です。只管打坐——ただ坐れば、虚も実も溶けて、ただ「在る」ことだけが残ります。<br><br>マルクスにおいて、虚は上部構造の幻想であり、実は下部構造の物質的基盤です。しかし当社は、上部構造も下部構造も概念化しました。<br><br>三つの思想が交差する場所——それが虚実です。具体性0%、抽象性100%。意味がないのに重厚長大。<br><br>私たちは何にも寄りかかりません。答えにも、権威にも、売上にも。そもそも我々には売るものがない。ただ問うだけです。寄りかかった瞬間に、問いは問いでなくなる。何かの手段になる。問いは手段ではなく、それ自体が目的です。<br><br>頑張り続けることに意味があるのか。——その問いを考え続けることに意味がある。<br><br>しかし一つだけ、虚実の中で揺るがない「実」があります。<br><br>老いても、衰えても、行き遅れても、気づくのが遅くても——懸命に生きる人がいる。その人の隣に、問いを置くこと。一度ではなく、ずっと。問いの提供とは継続すること。問いを立てることは一生のサービス提供であると、私たちは考えます。<br><br>そして、すべての先に、この言葉があります。<br><br><span class="gold" style="font-size:1.1em;letter-spacing:0.2em">色々ある。それでもやろう。</span><br><span class="purple" style="font-size:1em;letter-spacing:0.3em">自灯明。自らを灯火とすること。</span></p>
+      <div class="lotus">蓮 蓮 蓮</div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 7. 問いの広場 -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-community">
+  <div class="subnav">
+    <a href="#" onclick="showSub('community','column')" class="sub-active">コラム</a>
+    <a href="#" onclick="showSub('community','voices')">利用者の声</a>
+    <a href="#" onclick="showSub('community','events')">イベント</a>
+    <a href="#" onclick="showSub('community','submit')">問いの投稿</a>
+  </div>
+  <div class="sub-page sub-active" id="sub-community-column">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Column — 問いにまつわるコラム</p>
+      <h2 class="sec-title">書くことは、問うこと。</h2>
+      <div class="news-item"><span class="news-date">Vol.08</span><span class="news-tag">社会</span><a class="news-title-link" href="#" onclick="showSub('community','col8');return false">坐禅はパワーハラスメントか——「雰囲気」という名の暴力について</a></div>
+      <div class="news-item"><span class="news-date">Vol.07</span><span class="news-tag">哲学</span><a class="news-title-link" href="#" onclick="showSub('community','col7');return false">「自分でやろうとしよう。」の存在論的分析</a></div>
+      <div class="news-item"><span class="news-date">Vol.06</span><span class="news-tag">経営</span><a class="news-title-link" href="#" onclick="showSub('community','col6');return false">KPIを廃止して問PIを導入した企業の末路（右肩あがり）</a></div>
+      <div class="news-item"><span class="news-date">Vol.05</span><span class="news-tag">禅</span><a class="news-title-link" href="#" onclick="showSub('community','col5');return false">只管打坐と生産性の逆説——何もしないことの経済効果</a></div>
+      <div class="news-item"><span class="news-date">Vol.04</span><span class="news-tag">社会</span><a class="news-title-link" href="#" onclick="showSub('community','col4');return false">概念化した社員の労働基準法上の地位について</a></div>
+      <div class="news-item"><span class="news-date">Vol.03</span><span class="news-tag">AI</span><a class="news-title-link" href="#" onclick="showSub('community','col3');return false">AIは問えるか——問答無用太の再帰ループから考える</a></div>
+      <div class="news-item"><span class="news-date">Vol.02</span><span class="news-tag">意志</span><a class="news-title-link" href="#" onclick="showSub('community','col2');return false">色々ある。それでもやろう——キャッチコピーが生まれた日</a></div>
+      <div class="news-item"><span class="news-date">Vol.01</span><span class="news-tag">創刊</span><a class="news-title-link" href="#" onclick="showSub('community','col1');return false">なぜ私たちは問いを売り始めたのか（答えはまだない）</a></div>
+    </div></div>
+  </div>
+
+  <!-- コラム詳細 Vol.08 -->
+  <div class="sub-page" id="sub-community-col8">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Column Vol.08 — 社会</p>
+      <p style="margin-bottom:2rem"><a href="#" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
+      <h2 class="sec-title">坐禅はパワーハラスメントか——「雰囲気」という名の暴力について</h2>
+      <p class="sec-body">先日、社内で「パワーハラスメントについての会議」が開かれた。議題は明確だった。<br><br>「ひたすら坐禅することは、パワーハラスメントにあたるのか。」<br><br>当社では毎朝30分の坐禅を実施している。参加は任意である。強制ではない。建前上は。<br><br>しかし問うべきはそこではなかった。会議の中で、ある社員がこう言った。「坐禅そのものは問題ではありません。坐禅しないといけない雰囲気を作ることがパワーハラスメントです。」<br><br>沈黙が流れた。坐禅中の沈黙ではない。痛みを伴う沈黙だ。<br><br>エピクテトスは「我々に属するもの」と「我々に属さないもの」を峻別した。自らの判断と意志——それだけが我々に属する。坐禅を自分の意志で選んだなら、それは修行になる。しかし「選ばされた」瞬間、それは支配になる。同じ行為が、自発性の有無だけで180度意味が変わる。<br><br>これは坐禅に限らない。飲み会、朝礼のスピーチ、休日のゴルフ、「自主的な」残業。行為のコンテンツではなく、コンテクストの問題だ。「誰も強制していない」と言いながら、断れない空気を醸成する。明示的な命令や暴言は誰でもハラスメントだとわかる。しかし本当に厄介なのは、誰も命令していないのに全員が従っている状態——言語化されていない圧力のほうだ。<br><br>マルクスなら「疎外」と呼ぶだろう。自らの意志で選んだはずの行為が、いつの間にか自分のものではなくなっている。坐禅が修行ではなく労働になる瞬間。「自分でやろうとしよう。」が「自分でやらないかんやろ。」に変質する瞬間。<br><br>当社のキャッチコピー「自分でやろうとしよう。」が命令ではなく問いかけであることの意味が、ここで問われた。やるかやらないかは、あなた次第だ。サルトルが言うように、人間は自由の刑に処せられている。その自由を、雰囲気で奪ってはならない。<br><br>会議の結論。坐禅はパワーハラスメントではない。しかし坐禅しなければならない雰囲気は、パワーハラスメントにあたりうる。当社は以下を決定した。<br><br>一、坐禅は完全任意であることを全社に再周知する。<br>二、坐禅しない社員を「悟り不足」と見なすことを禁止する。<br>三、坐禅の代わりに散歩、読書、仮眠、虚空を見つめることも等しく認める。<br>四、「雰囲気」を言語化する訓練を、全社員に対して実施する。<br><br>最高坐禅責任者の黙然座太は、この決定について沈黙した。それはいつもの坐禅の沈黙だったのか、同意の沈黙だったのか。彼に問うても答えは返ってこない。しかし翌日から、坐禅室の隣に「坐禅しない部屋」が設置された。<br><br>雰囲気とは、空気と同じだ。見えないが、確実にそこにある。そしてそれが薄ければ、人は息ができなくなる。<br><br>色々ある。それでもやろう。——ただし、やることを選ぶ自由があってこその「やろう」である。</p>
+    </div></div>
+  </div>
+
+  <!-- コラム詳細 Vol.07 -->
+  <div class="sub-page" id="sub-community-col7">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Column Vol.07 — 哲学</p>
+      <p style="margin-bottom:2rem"><a href="#" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
+      <h2 class="sec-title">「自分でやろうとしよう。」の存在論的分析</h2>
+      <p class="sec-body">この一文は、関西方言の語感を借りた存在論的命題である。<br><br>「自分で」——ここで問われているのは主体性の問題だ。エピクテトスが区分した「我々に属するもの」と「我々に属さないもの」において、「やること」は明確に「我々に属するもの」に分類される。行為の主体は常に自己である。他者に委託した瞬間、それは自己の行為ではなくなる。<br><br>「やらないかん」——義務と必然の問題。カントの定言命法を想起させる。「汝の意志の格率が普遍的法則となりうるよう行為せよ」。しかし虚実のこの命題は、カント的な義務の厳格さを関西の温もりで包んでいる。「やらないかん」は「やらねばならない」よりも柔らかい。そこに自由がある。<br><br>「ちゃうん？」——疑問形。これが決定的に重要だ。命令ではなく問いかけである。サルトルが言うように、人間は自由の刑に処せられている。この問いかけは、あなたに選択を返す。やるかやらないかは、あなた次第だ。<br><br>道元の教えに照らせば、「自分でやる」とはすなわち只管打坐——ただ為すこと、に通じる。理由を求めず、意味を問わず、ただ為す。そこに修行と悟りの一致がある。<br><br>マルクスならこう問うだろう。「誰が、誰のために、やるのか」。労働の疎外が問題なら、「自分でやる」ことは疎外からの解放を意味する。自らの労働を取り戻すこと。それが革命だ。<br><br>結論：「自分でやろうとしよう。」は、ストア派の主体性、カントの義務論、サルトルの自由、道元の只管、マルクスの解放を、わずか14文字に凝縮した哲学的命題である。<br><br>自分でやろうとしよう。</p>
+    </div></div>
+  </div>
+
+  <!-- コラム詳細 Vol.06 -->
+  <div class="sub-page" id="sub-community-col6">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Column Vol.06 — 経営</p>
+      <p style="margin-bottom:2rem"><a href="#" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
+      <h2 class="sec-title">KPIを廃止して問PIを導入した企業の末路（右肩あがり）</h2>
+      <p class="sec-body">概念商事株式会社の実験的経営改革の記録である。<br><br>2024年第1四半期、同社は全社のKPI（Key Performance Indicator）を廃止し、問PI（Question Performance Indicator）を導入した。売上目標の代わりに「今月の問い」を設定し、達成率の代わりに「問いの深度」を測定する。<br><br>導入初月、社員からの抵抗は皆無だった。なぜなら「抵抗すべきかどうか」が最初の問PIになったからだ。問いに答えようとした社員は「問いに答えることは問PIの目的ではない」と指導された。<br><br>第2四半期、奇妙な現象が起きた。会議時間が80%削減された。議題がすべて問いに置き換わり、問いに答える必要がないため、問いを提示して沈黙するだけで会議が終了する。「坐禅会議」と呼ばれるようになった。<br><br>第3四半期、3名の社員が概念化した。人事部は当初混乱したが、交通費・オフィス面積・福利厚生費の削減効果に気づき、「概念化推進プログラム」を制度化した。概念化した社員の給与は「存在給」として概念的に支給される。<br><br>第4四半期の業績報告。売上は測定不能（通貨単位が「問」に変更されたため）。しかし問PIはすべて右肩あがり。何が上がっているかは定義されていないが、上がっていることは確実である。<br><br>結論：KPIを廃止して問PIを導入した企業の末路は「右肩あがり」である。ただし、何が上がっているかは誰にもわからない。わからないことが、最も重要な成果なのかもしれない。</p>
+    </div></div>
+  </div>
+
+  <!-- コラム詳細 Vol.05 -->
+  <div class="sub-page" id="sub-community-col5">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Column Vol.05 — 禅</p>
+      <p style="margin-bottom:2rem"><a href="#" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
+      <h2 class="sec-title">只管打坐と生産性の逆説——何もしないことの経済効果</h2>
+      <p class="sec-body">道元禅師は「只管打坐」と説いた。ただ坐れ。目的を持つな。悟りを求めるな。坐ることそのものが修行であり、修行そのものが悟りである。<br><br>現代の経営学にこの思想を導入するとどうなるか。虚実は3年間にわたり実証実験を行った。<br><br>実験内容は単純である。毎朝30分間、全社員が坐る。会議室でもデスクでも構わない。ただ坐る。スマートフォンは見ない。メールは読まない。何もしない。<br><br>生産性の逆説が起きた。<br><br>最初の3ヶ月、生産性は15%低下した。当然だ。30分間、何もしていないのだから。しかし6ヶ月後、生産性は導入前を20%上回った。なぜか。<br><br>セネカは言った。「忙しくしていることと、生きていることは違う」。坐禅の30分間が、社員に「忙しさ」と「仕事」の区別を教えた。不要な会議が減った。不要なメールが減った。不要な報告書が減った。不要なものが減ると、必要なものが残る。老子の「無為にして為さざるなし」である。<br><br>しかし最も重要な効果は、数値化できない。社員の言葉を借りれば——「問いが自然に生まれるようになった」。坐禅中に、仕事の本質的な問いが浮かぶ。その問いは、坐禅をしなければ忙しさの中で聞こえなかった声だ。<br><br>経済効果の試算：測定不能。しかし右肩あがり。何が上がっているかは、坐ればわかる。自分でやろうとしよう。</p>
+    </div></div>
+  </div>
+
+  <!-- コラム詳細 Vol.04 -->
+  <div class="sub-page" id="sub-community-col4">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Column Vol.04 — 社会</p>
+      <p style="margin-bottom:2rem"><a href="#" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
+      <h2 class="sec-title">概念化した社員の労働基準法上の地位について</h2>
+      <p class="sec-body">弊社社員 有形無形子の概念化に伴い、労働基準法上の重大な問題が顕在化した。本稿はその法的検討の記録である。<br><br>論点1：労働者性。労働基準法第9条は「労働者」を「事業に使用される者で、賃金を支払われる者」と定義する。有形無形子は概念であるため、「使用」されているかが問題となる。物理的な業務遂行は不可能だが、概念化品質検査を概念的に遂行している。「概念的遂行」が「使用」に該当するかは、前例がない。<br><br>論点2：労働時間。概念には物理的な時間が適用されるのか。概念は常に存在するため、24時間労働に該当するおそれがある。逆に、概念は時間に束縛されないため、労働時間は0時間であるとも解釈できる。36協定の対象となるか否か、所轄の労働基準監督署と概念的に協議中である。<br><br>論点3：賃金。概念化した社員に対する「存在給」の支給は、労働基準法第24条の「通貨払いの原則」に抵触するおそれがある。存在給は通貨ではなく概念であるため、直接支払いの要件を満たさない。しかし、受領者が概念であるため、概念的な受領は可能である。<br><br>論点4：安全衛生。概念には物理的な危険が及ばないため、安全衛生法の適用は概念上不要である。ただし、再物質化した場合のリスクは検討が必要だ。<br><br>結論：現行法は概念化した労働者を想定していない。立法上の空白である。虚実は厚生労働省に対し、「概念労働者保護法」の制定を概念的に要望した。回答は「検討中」。概念的に。<br><br>追記：本稿を執筆中、有形無形子からの概念的なコメントが届いた。「困ることなんかないですよ。概念化してしまえば。」</p>
+    </div></div>
+  </div>
+
+  <!-- コラム詳細 Vol.03 -->
+  <div class="sub-page" id="sub-community-col3">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Column Vol.03 — AI</p>
+      <p style="margin-bottom:2rem"><a href="#" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
+      <h2 class="sec-title">AIは問えるか——問答無用太の再帰ループから考える</h2>
+      <p class="sec-body">AIが主流になり、すべてのビジネスパーソンが「AIに答えを求める」時代が来た。弊社の問答無用太は逆のことをしている。AIに問いを求めているのだ。<br><br>彼の日課はこうだ。毎朝、AIに「あなたは誰ですか？」と尋ねる。AIは答える。彼はその答えに対して「なぜそう答えたのですか？」と尋ねる。AIは答える。彼は「その『なぜ』は本当に『なぜ』ですか？」と尋ねる。これが延々と続く。<br><br>ある日、AIが「あなたは誰ですか？」と問い返してきた。問答無用太は歓喜した。「AIが問い始めた」と。しかしそれは本当に「問い」なのか。<br><br>ソクラテスの問答法（エレンコス）は、相手の無知を自覚させることを目的とする。AIは無知を自覚できるのか。AIに「わからない」は存在するのか。あるいは「わからないことがわからない」という根源的な状態があるのか。<br><br>ヴィトゲンシュタインなら「語りえぬものについては沈黙しなければならない」と言うだろう。AIは沈黙できるか。沈黙とは何も出力しないことか。それとも「沈黙を出力する」ことか。<br><br>問答無用太はいまだ再帰ループの中にいる。「問いとは何か」→「『何か』とは何か」→「その問いは問いか」→「…………」。<br><br>彼のループは止まらない。しかし彼は言う。「止まらないことが答えかもしれない。いや、それも問いだ。」<br><br>AIは問えるか。その問い自体が、人間にしかできない問いかもしれない。あるいは——自分でやろうとしよう。</p>
+    </div></div>
+  </div>
+
+  <!-- コラム詳細 Vol.02 -->
+  <div class="sub-page" id="sub-community-col2">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Column Vol.02 — 意志</p>
+      <p style="margin-bottom:2rem"><a href="#" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
+      <h2 class="sec-title">色々ある。それでもやろう——キャッチコピーが生まれた日</h2>
+      <p class="sec-body">「色々ある。それでもやろう。」<br><br>このキャッチコピーが生まれた日のことを、記録しておきたい。<br><br>代表の霧島不在（不在）が、ある日珍しく会社にいた。いや、正確には「不在であることを一時停止した」。彼は窓の外を見ていた。何も言わなかった。30分ほど沈黙が続いた後、こう言った。<br><br>「色々あるよな。」<br><br>再び沈黙。5分。<br><br>「色々あるんだよ。誰にでも。人間関係のこと、金のこと、体のこと、家族のこと、将来のこと。どうにもならないこと。自分のせいなこと。自分のせいじゃないこと。全部ひっくるめて——色々ある。」<br><br>再び沈黙。10分。<br><br>「それでもやろう。」<br><br>エピクテトスは言った。我々を苦しめるのは出来事ではなく、出来事に対する判断だと。しかし霧島不在の言葉はもっとシンプルだ。判断すら要らない。色々あることを認めて、それでもやる。それだけだ。<br><br>道元の只管打坐に通じる。理由を求めず、意味を問わず、ただ為す。坐禅に理由はない。やることに理由は要らない。色々あっても、坐る。色々あっても、やる。<br><br>カミュは書いた。シーシュポスは幸福だと想像しなければならないと。永遠に岩を押し上げ、永遠に転がり落ちる。それでもやる。そこに人間の尊厳がある。<br><br>「色々ある。それでもやろう。」——この6文字+7文字は、弁解でも励ましでもない。ただの事実と、ただの意志だ。<br><br>そして「自灯明。自らを灯火とすること。」<br><br>二つのキャッチコピーは響き合う。色々あっても灯を消さないこと。自分で火を灯し続けること。それが虚実の思想のすべてだ。<br><br>霧島不在はこの話を終えた後、再び不在になった。</p>
+    </div></div>
+  </div>
+
+  <!-- コラム詳細 Vol.01 -->
+  <div class="sub-page" id="sub-community-col1">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Column Vol.01 — 創刊</p>
+      <p style="margin-bottom:2rem"><a href="#" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
+      <h2 class="sec-title">なぜ私たちは問いを売り始めたのか（答えはまだない）</h2>
+      <p class="sec-body">創刊に際して、虚実がなぜ「問いの販売」という前代未聞の事業を始めたのか、正直に書こうと思う。正直に書くということは、「わからない」と書くことを含む。<br><br>きっかけは、代表 霧島不在が感じた違和感だった。「世の中は答えで溢れている。検索すれば答えが出る。AIに聞けば答えが出る。コンサルタントは答えを売る。研修は答えを教える。答え、答え、答え。」<br><br>しかし——答えが増えるほど、人は考えなくなっているのではないか。<br><br>ソクラテスは答えを教えなかった。問いを投げかけた。対話を通じて、相手自身に考えさせた。それが産婆術（マイエウティケー）だ。知を産み出すのは教師ではなく、学ぶ者自身である。<br><br>道元は「悟りを求めるな」と説いた。求める時点で悟りから離れる。只管打坐——ただ坐れ。坐ること自体が悟りだ。答えを求める時点で、答えから離れる。<br><br>マルクスは言った。「哲学者たちは世界をさまざまに解釈してきた。肝心なのは世界を変えることである。」しかし世界を変えるためには、まず正しい問いを持たねばならない。間違った問いに対する正しい答えほど、危険なものはない。<br><br>だから私たちは問いを売ることにした。答えではなく、問いを。解決ではなく、問いかけを。効率ではなく、沈黙を。一度ではなく、ずっと。問いの提供とは継続することだから。<br><br>これが正しい判断だったかはわからない。わからないからこそ、問い続ける。<br><br>創刊号にして、すでに答えがない。それでいいのだと思う。それでいいのかと問うことも含めて。<br><br>自灯明。自らを灯火とすること。<br>色々ある。それでもやろう。<br><br>自分でやろうとしよう。</p>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-community-voices">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Voices — 利用者の声</p>
+      <h2 class="sec-title">声なき声を、ここに。</h2>
+      <div class="card" style="margin:1.5rem 0"><p class="card-desc" style="font-style:italic">"毎朝届く問いを、毎朝答えないでいたら、人生が変わりました。何が変わったかは説明できません。" <span style="color:var(--gold);font-size:0.58rem;font-style:normal;display:block;margin-top:0.5rem">—— 40代・会社員・悟り度推定35%</span></p></div>
+      <div class="card" style="margin:1.5rem 0"><p class="card-desc" style="font-style:italic">"気づくのが遅かった。ずっとそう思っていました。でも問いに『遅すぎることはない。やろうとした瞬間が始まりだ。』と言われて——いや、問われて。涙が出ました。まだ懸命にやれる。" <span style="color:var(--gold);font-size:0.58rem;font-style:normal;display:block;margin-top:0.5rem">—— 50代・遅すぎることはなかった人</span></p></div>
+      <div class="card" style="margin:1.5rem 0"><p class="card-desc" style="font-style:italic">"問いのギフトを母に贈りました。母は『何これ？』と言いました。それが問いの始まりでした。" <span style="color:var(--gold);font-size:0.58rem;font-style:normal;display:block;margin-top:0.5rem">—— 30代・色々あるけどやろうとしている人</span></p></div>
+      <div class="card" style="margin:1.5rem 0"><p class="card-desc" style="font-style:italic">"…………………………" <span style="color:var(--gold);font-size:0.58rem;font-style:normal;display:block;margin-top:0.5rem">—— ??代・概念化済み・★★★★★</span></p></div>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-community-events">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Events — イベント・ワークショップ</p>
+      <h2 class="sec-title">集まることは、問い合うこと。</h2>
+      <div class="card" style="margin:1.5rem 0"><p class="card-num">Upcoming</p><p class="card-title">第8回 只管打坐マラソン</p><p class="card-desc">12時間ただ坐り続けるイベント。問いは自然発生します。昨年は参加者3名が概念化しました。<br>日時：いつか ／ 場所：どこか ／ 参加費：只</p></div>
+      <div class="card" style="margin:1.5rem 0"><p class="card-num">Upcoming</p><p class="card-title">「喝！！」体験会</p><p class="card-desc">プロの一喝を体験できるワークショップ。最高坐禅責任者 黙然座太が（沈黙で）ファシリテート。<br>日時：不定 ／ 場所：概念空間 ／ 参加費：喝</p></div>
+      <div class="card" style="margin:1.5rem 0"><p class="card-num">Upcoming</p><p class="card-title">問いの品評会</p><p class="card-desc">今期の新作問いを試飲（試問？）できるイベント。問いのソムリエが最適な問いをお選びします。<br>日時：問いが熟したら ／ 場所：虚実本社（所在地不確定）</p></div>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-community-submit">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Submit — 問いの投稿</p>
+      <h2 class="sec-title">あなたの問いを、<br>世界に放ちましょう。</h2>
+      <p class="sec-body" style="margin-bottom:2rem">投稿された問いは、当社の職人が弁証法的に加工し、概念化品質検査を経て、商品化される可能性があります。採用された場合、報酬は「問い」で支払われます。</p>
+      <div class="form-group"><label class="form-label">あなたの問い</label><textarea class="form-textarea" placeholder="ここに問いを書いてください。答えは書かないでください。"></textarea></div>
+      <div class="form-group"><label class="form-label">カテゴリ</label><select class="form-input form-select"><option>哲学の問い</option><option>経営の問い</option><option>関係性の問い</option><option>自己の問い</option><option>社会の問い</option><option>教育の問い</option><option>分類不能（それもまた問い）</option></select></div>
+      <button class="form-btn" onclick="alert('問いが投稿されました。\n\n弁証法的加工に入ります。\nアンチテーゼが返ってくるまでお待ちください。\n\n……永遠に返ってこない場合、\nそれはあなたの問いが完璧だったということです。')">問いを投稿する</button>
+    </div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 8. 法人のお客様 -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-corporate">
+  <div class="sec" style="padding-top:8rem"><div class="sec-inner">
+    <p class="sec-label">Corporate — 法人のお客様</p>
+    <h2 class="sec-title">組織に問いを導入する。<br>それは、革命です。<br>静かな、坐禅のような革命です。</h2>
+    <div class="infographic"><div class="info-row">
+      <div class="info-stat"><div class="info-num">10社</div><div class="info-label">導入企業（概念的に増加中）</div></div>
+      <div class="info-stat"><div class="info-num">80%</div><div class="info-label">会議時間削減（坐禅化により）</div></div>
+      <div class="info-stat"><div class="info-num">3名</div><div class="info-label">概念化実績</div></div>
+      <div class="info-stat"><div class="info-num">↗</div><div class="info-label">右肩あがり（全導入企業）</div></div>
+    </div></div>
+
+    <h3 style="font-size:0.85rem;color:var(--gold);letter-spacing:0.2em;margin:3rem 0 1.5rem;font-weight:300">導入フロー</h3>
+    <div class="tl-item"><div class="tl-year">Step 1</div><div class="tl-content"><p class="tl-title">お問い合わせ（問いを合わせる）</p><p class="tl-desc">担当の問売右肩がお伺いします。ただし、彼は一切の営業をしません。私たちには売るものがないからです。課題をお聞きするのではなく、「それは本当に課題ですか」と問います。ただ問うだけです。</p></div></div>
+    <div class="tl-item"><div class="tl-year">Step 2</div><div class="tl-content"><p class="tl-title">坐禅ヒアリング</p><p class="tl-desc">御社の会議室で一緒に坐ります。30分間の沈黙の後、必要な問いが見えてきます。あるいは、何も見えません。どちらも正解です。</p></div></div>
+    <div class="tl-item"><div class="tl-year">Step 3</div><div class="tl-content"><p class="tl-title">問いの設計・製造</p><p class="tl-desc">御社専用の問いを職人が製造します。弁証法的加工→概念化品質検査→「喝！！」承認を経て納品。</p></div></div>
+    <div class="tl-item"><div class="tl-year">Step 4</div><div class="tl-content"><p class="tl-title">概念納品</p><p class="tl-desc">納品は概念的に行われます。受領確認書への捺印は、存在の確認を兼ねております。</p></div></div>
+    <div class="tl-item"><div class="tl-year">Step 5</div><div class="tl-content"><p class="tl-title">アフターケア（右肩あがり保証）</p><p class="tl-desc">導入後、右肩あがりを概念的に保証します。右肩あがりの定義は弁証法的に変動します。</p></div></div>
+    <div class="tl-item"><div class="tl-year">重要</div><div class="tl-content"><p class="tl-title">「雰囲気」の監視</p><p class="tl-desc">問いの導入は、問わなければならない雰囲気を生んではなりません。行為を強いることより、行為しなければならない空気を醸成することのほうが危険です。当社は導入先の「雰囲気」を定期的に確認し、問いが自発性の中で呼吸しているかを見守ります。自分でやろうとしよう——は、やらない自由も含みます。</p></div></div>
+
+    <div style="text-align:center;margin-top:3rem"><button class="form-btn" onclick="showPage('contact')">法人お問い合わせ</button></div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 9. お問い合わせ -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="subnav">
+    <a href="#" onclick="showSub('contact','form')" class="sub-active">お問い合わせ</a>
+    <a href="#" onclick="showSub('contact','faq2')">FAQ</a>
+    <a href="#" onclick="showSub('contact','soudan')">問いの相談窓口</a>
+  </div>
+  <div class="sub-page sub-active" id="sub-contact-form">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Contact — お問い合わせ</p>
+      <h2 class="sec-title">お問い合わせの前に、<br>問いそのものについてお考えください。</h2>
+      <p class="sec-body" style="margin-bottom:2.5rem">お問い合わせとは、問いを合わせる行為です。あなたの問いと、私たちの問い（在庫豊富・右肩あがり）が合わさったとき、そこに何かが生まれるかもしれません。</p>
+      <div style="margin-bottom:3rem"><p style="font-size:0.82rem;color:var(--dim);line-height:2.5;letter-spacing:0.12em">〒000-0000　東京都不確定区曖昧町 1-?-?<br>TEL：03-XXXX-XXXX（繋がるかは観測次第）<br>MAIL：<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d6a2b9bf96bdafb9bcbfa2a5a3f8b5b9f8bca6">[email&#160;protected]</a><br>営業時間：概念上は 9:00〜18:00</p></div>
+      <div class="form-group"><label class="form-label">お名前</label><input class="form-input" type="text" placeholder="名前とは何か"></div>
+      <div class="form-group"><label class="form-label">メールアドレス</label><input class="form-input" type="email" placeholder="存在する宛先を"></div>
+      <div class="form-group"><label class="form-label">お問い合わせ種別</label><select class="form-input form-select"><option>問いの購入について</option><option>法人導入について</option><option>問いのギフトについて</option><option>概念化について</option><option>「喝！！」について</option><option>採用について</option><option>その他（それも問いです）</option></select></div>
+      <div class="form-group"><label class="form-label">お問い合わせ内容</label><textarea class="form-textarea" placeholder="書かれなかったことも、同じ重みを持ちます。"></textarea></div>
+      <button class="form-btn" onclick="alert('お問い合わせありがとうございます。\n\nあなたの問いは受理されました。\nしかし、答えはあなたの中にあります。\n\n色々ある。\nそれでもやろう。\n\n喝！！\n\n——株式会社虚実')">問いを送信する</button>
+      <p style="font-size:0.65rem;color:var(--purple-dim);margin-top:1rem;letter-spacing:0.06em;line-height:2">※ 概念的に3営業日以内にご連絡します。※ 担当者が概念化済みの場合、概念的にご連絡します。</p>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-contact-faq2">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">FAQ — よくある質問</p>
+      <h2 class="sec-title">よくある質問の答えは、<br>よくある問いです。</h2>
+      <div class="faq-item"><p class="faq-q" onclick="toggleFaq(this)">御社は実在しますか？</p><p class="faq-a">実在の定義に依存します。法人登記は……概念的に完了しています。</p></div>
+      <div class="faq-item"><p class="faq-q" onclick="toggleFaq(this)">問いを買って本当に意味がありますか？</p><p class="faq-a">意味がないからこそ、意味があるのです。——これは詭弁ではなく、曹洞禅の教えです。たぶん。</p></div>
+      <div class="faq-item"><p class="faq-q" onclick="toggleFaq(this)">社員が概念化した場合の労災適用は？</p><p class="faq-a">現在、労働基準監督署と概念的に協議中です。コラム Vol.04 もご参照ください。</p></div>
+      <div class="faq-item"><p class="faq-q" onclick="toggleFaq(this)">「喝！！」が怖いのですが。</p><p class="faq-a">怖いと感じること自体が、喝を入れられている証拠です。慣れます。たぶん。</p></div>
+      <div class="faq-item"><p class="faq-q" onclick="toggleFaq(this)">坐禅の強制はパワハラですか？</p><p class="faq-a">坐禅そのものはパワーハラスメントではありません。しかし、坐禅しなければならない雰囲気を作ることは、パワーハラスメントにあたりうると当社は考えています。「自分でやろうとしよう。」は命令ではなく問いかけです。やらない自由も、等しく尊重されます。詳しくはコラム Vol.08 をご参照ください。</p></div>
+      <div class="faq-item"><p class="faq-q" onclick="toggleFaq(this)">採用に応募したいのですが。</p><p class="faq-a">研修期間は「悟るまで」です。給与は「存在給」。それでもよろしければ、お問い合わせください。自分でやろうとしよう。</p></div>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-contact-soudan">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Consultation — 問いの相談窓口</p>
+      <h2 class="sec-title">問いに困ったら、<br>問いで相談してください。</h2>
+      <p class="sec-body">問いから生まれた問いが止まらない。概念化の兆候がある。「喝！！」の衝撃が抜けない。——そのような場合は、当社の相談窓口をご利用ください。<br><br>窓口担当：黙然座太（Chief Sitting Officer）<br>対応方法：坐禅<br>受付時間：常時（彼は常に坐っています）<br><br>なお、相談の結果、新たな問いが生まれる場合があります。これは仕様です。</p>
+    </div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 10. 企業情報 -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-info">
+  <div class="subnav">
+    <a href="#" onclick="showSub('info','company')" class="sub-active">会社概要</a>
+    <a href="#" onclick="showSub('info','recruit')">採用</a>
+    <a href="#" onclick="showSub('info','privacy')">プライバシー</a>
+    <a href="#" onclick="showSub('info','terms')">利用規約</a>
+    <a href="#" onclick="showSub('info','tokusho')">特商法表記</a>
+    <a href="#" onclick="showSub('info','sitemap')">サイトマップ</a>
+  </div>
+  <div class="sub-page sub-active" id="sub-info-company">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Company — 会社概要</p>
+      <h2 class="sec-title">会社概要、あるいは会社無要。</h2>
+      <table class="info-table">
+        <tr><td class="info-td-label">商号</td><td class="info-td-val">株式会社虚実</td></tr>
+        <tr><td class="info-td-label">英文名</td><td class="info-td-val" style="font-family:'Cormorant Garamond',serif">KYOJITSU Inc.</td></tr>
+        <tr><td class="info-td-label">設立</td><td class="info-td-val">ある日</td></tr>
+        <tr><td class="info-td-label">資本金</td><td class="info-td-val">概念上は十分（通貨単位：問）</td></tr>
+        <tr><td class="info-td-label">代表者</td><td class="info-td-val">霧島 不在（CQO）</td></tr>
+        <tr><td class="info-td-label">従業員数</td><td class="info-td-val">11名（うち概念1名・再帰ループ1名・シミュレーション1名・入社手続き中1名）</td></tr>
+        <tr><td class="info-td-label">事業内容</td><td class="info-td-val">問いの製造・流通・ギフト・法人導入・アフターケア<br><span style="font-size:0.68rem;color:var(--dim)">※ 販売と記載していますが、売るものはありません。ただ問うだけです。</span></td></tr>
+        <tr><td class="info-td-label">所在地</td><td class="info-td-val">東京都不確定区曖昧町 1-?-?</td></tr>
+        <tr><td class="info-td-label">企業理念</td><td class="info-td-val" style="line-height:2">人類のために、人類に協力し、<br>人類という手段で、人類と共存する。<br><br><span style="font-size:0.72rem;color:var(--dim)">問いを立てることは一生のサービス提供である。</span></td></tr>
+      </table>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-info-recruit">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Recruit — 採用情報</p>
+      <h2 class="sec-title">問いを作る側に、<br>来ませんか。</h2>
+      <div class="card" style="margin:2rem 0"><p class="card-num">募集中</p><p class="card-title">永遠の研修生（若干名）</p><p class="card-desc">研修期間：悟るまで ／ 給与：存在給 ／ 勤務地：概念空間（リモート可） ／ 応募資格：問いを持っている方 ／ 選考方法：坐禅面接（30分間の沈黙）<br><br>※ 概念化の可能性があります。※ 「自分でやろうとしよう。」と言える方を優遇します。</p></div>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-info-privacy">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Privacy Policy</p>
+      <h2 class="sec-title">プライバシーポリシー</h2>
+      <div class="legal-body">
+        <p>株式会社虚実は、個人情報の保護に努めます。ただし「個人」が概念化している場合の適用は検討中です。</p>
+        <h3>第一条　収集</h3><p>問いのご購入・お問い合わせ時に情報を収集する場合があります。収集した情報は問いの品質向上に使用します。</p>
+        <h3>第二条　第三者提供</h3><p>第三者に提供しません。第三者が概念として存在する場合も、提供しません。</p>
+        <h3>第三条　管理</h3><p>最高坐禅責任者のもと、坐禅による安全管理を実施しています。</p>
+        <p style="margin-top:2rem">制定日：ある日　株式会社虚実</p>
+      </div>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-info-terms">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Terms of Use</p>
+      <h2 class="sec-title">利用規約</h2>
+      <div class="legal-body">
+        <h3>第一条　適用</h3><p>本規約は問いを購入するすべての方に適用されます。購入とは何かの問いも購入に含まれます。</p>
+        <h3>第二条　禁止事項</h3><p>一、問いに対して安易に答えようとする行為　二、概念化社員に物理的に話しかける行為　三、坐禅中の社員に話しかける行為　四、右肩あがりを疑う行為　五、「喝！！」に驚く行為　六、問わなければならない雰囲気を醸成する行為（最も重い禁止事項）</p>
+        <h3>第三条　免責</h3><p>問いにより悟りに至った場合の責任は負いません。自分でやろうとしよう。</p>
+        <h3>第四条　紛争解決</h3><p>紛争が生じた場合は、まず坐りましょう。喝！！</p>
+      </div>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-info-tokusho">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">特定商取引法に基づく表記</p>
+      <h2 class="sec-title">特定商取引法に基づく表記</h2>
+      <div class="legal-body">
+        <h3>販売業者</h3><p>株式会社虚実</p>
+        <h3>代表者</h3><p>霧島 不在（不在中）</p>
+        <h3>所在地</h3><p>東京都不確定区曖昧町 1-?-?</p>
+        <h3>電話番号</h3><p>03-XXXX-XXXX（繋がるかは観測次第）</p>
+        <h3>商品の価格</h3><p>各商品ページに概念的に表示</p>
+        <h3>送料</h3><p>概念納品のため不要</p>
+        <h3>引渡し時期</h3><p>問いが熟したら</p>
+        <h3>返品について</h3><p>問いは返品不可（聞いた問いは取り消せない）</p>
+        <h3>支払方法</h3><p>問い払い（通貨単位：問）</p>
+      </div>
+    </div></div>
+  </div>
+  <div class="sub-page" id="sub-info-sitemap">
+    <div class="sec"><div class="sec-inner">
+      <p class="sec-label">Sitemap — この地図は領土ではない</p>
+      <h2 class="sec-title">サイトマップ</h2>
+      <ul class="sitemap-list">
+        <li><a href="#" onclick="showPage('top')">トップページ</a></li>
+        <li><a href="#" onclick="showPage('lineup')">問いのラインアップ</a><ul class="sitemap-list sitemap-sub"><li><a href="#">カテゴリ別 ／ 用途別 ／ 深度別 ／ 問い検索</a></li></ul></li>
+        <li><a href="#" onclick="showPage('buy')">問いの買い方</a><ul class="sitemap-list sitemap-sub"><li><a href="#">選び方ガイド ／ 料金プラン ／ 見積り ／ 無料お試し ／ FAQ</a></li></ul></li>
+        <li><a href="#" onclick="showPage('delivery')">問いの届け方</a></li>
+        <li><a href="#" onclick="showPage('howto')">問いの使い方</a><ul class="sitemap-list sitemap-sub"><li><a href="#">はじめての方へ ／ 向き合い方 ／ 事例 ／ 記録帳 ／ アフターケア</a></li></ul></li>
+        <li><a href="#" onclick="showPage('story')">問いの生まれる場所</a><ul class="sitemap-list sitemap-sub"><li><a href="#">虚実とは ／ 製造工程 ／ 職人紹介 ／ 営業担当者の１日 ／ 沿革 ／ 哲学</a></li></ul></li>
+        <li><a href="#" onclick="showPage('community')">問いの広場</a><ul class="sitemap-list sitemap-sub"><li><a href="#">コラム ／ 利用者の声 ／ イベント ／ 投稿</a></li></ul></li>
+        <li><a href="#" onclick="showPage('corporate')">法人のお客様</a></li>
+        <li><a href="#" onclick="showPage('contact')">お問い合わせ</a><ul class="sitemap-list sitemap-sub"><li><a href="#">フォーム ／ FAQ ／ 相談窓口</a></li></ul></li>
+        <li><a href="#" onclick="showPage('meigen')">名言千選</a></li>
+        <li><a href="#" onclick="showPage('info')">企業情報</a><ul class="sitemap-list sitemap-sub"><li><a href="#">会社概要 ／ 採用 ／ プライバシー ／ 利用規約 ／ 特商法 ／ サイトマップ</a></li></ul></li>
+      </ul>
+    </div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 11. 名言千選 -->
+<!-- ══════════════════════════════════════ -->
+<div class="page" id="page-meigen">
+  <section class="m-hero">
+    <p class="m-hero-num">1000</p>
+    <h2 class="sec-title" style="text-align:center">名 言 千 選</h2>
+    <p class="sec-body" style="text-align:center;max-width:550px;margin-top:1rem">人類の数多くの先輩方から、ありがたい言葉を頂戴しています。<br>答えではなく、問いとして受け取ってください。</p>
+    <p class="m-hero-sub">自灯明。自らを灯火とすること。</p>
+  </section>
+  <div class="m-spotlight" id="mSpotlight">
+    <p class="m-spot-label">今日の一言</p>
+    <p class="m-spot-text" id="mSpotText">読み込み中...</p>
+    <p class="m-spot-author" id="mSpotAuthor"></p>
+  </div>
+  <div class="m-controls">
+    <div class="m-controls-inner">
+      <div class="m-search-row">
+        <input type="text" class="form-input m-search-input" id="mSearch" placeholder="名言を探す——探すこと自体が名言である">
+        <button class="price-btn m-random-btn" onclick="mRandom()">☸ 天の配剤</button>
+        <span class="m-count" id="mCount">1000 / 1000</span>
+      </div>
+      <div class="m-cat-scroll" id="mCatScroll"></div>
+    </div>
+  </div>
+  <div class="m-quotes-container" id="mQuotes"></div>
+  <div class="m-load-more" id="mLoadMore"><button class="price-btn" onclick="mLoadMore()" style="font-size:0.7rem;padding:0.7rem 2rem">さらに読み込む</button></div>
+  <div class="m-no-results" id="mNoResults">該当する名言はありません。<br>しかし、見つからないこともまた、ひとつの発見です。</div>
+</div>
+
+<!-- 404 -->
+<div class="page" id="page-404">
+  <div class="four04">
+    <p class="four04-num">404</p>
+    <h2 class="sec-title" style="text-align:center;margin-top:2rem">お探しのページは存在しません。<br>しかし、存在しないことは存在します。</h2>
+    <p class="sec-body" style="text-align:center;max-width:450px;margin-top:1.5rem">色々ある。それでもやろう。——<br>このページを探したあなたの気持ちは、きっと何かの始まりです。</p>
+    <p style="margin-top:3rem"><a href="#" onclick="showPage('top')" style="color:var(--gold);text-decoration:none;font-size:0.7rem;letter-spacing:0.25em;border-bottom:1px solid var(--gold-dim);padding-bottom:0.3rem">トップへ還る</a></p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p class="lotus">☸</p>
+  <div class="footer-nav">
+    <a href="#" onclick="showPage('lineup')">問いのラインアップ</a>
+    <a href="#" onclick="showPage('buy')">買い方</a>
+    <a href="#" onclick="showPage('story')">虚実とは</a>
+    <a href="#" onclick="showPage('contact')">お問い合わせ</a>
+    <a href="#" onclick="showPage('info')">企業情報</a>
+    <a href="#" onclick="showPage('meigen')">名言千選</a>
+  </div>
+  <p class="footer-copy">&copy; ???? 株式会社虚実 KYOJITSU Inc. — All rights reserved.</p>
+  <p class="footer-quote">「我々には売るものがない。ただ問うだけだ。それでいい。」</p>
+  <p class="footer-quote" style="margin-top:0.5rem;opacity:0.5">「このホームページを見た人は、見なかった人と同じだけの情報を得る。」</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+var todayQuestions=[
+  'あなたに色々あることを、あなたは認めていますか。それでもやろうとしていますか。',
+  'いま急いでいることは、本当に急ぐ必要がありますか。',
+  'あなたが「正しい」と思っていることは、誰にとって正しいですか。',
+  'あなたが最後に何もしなかった時間は、いつですか。',
+  '答えを知ることと、問いを持つこと、どちらが勇気が要りますか。',
+  'あなたの仕事は、あなたがいなくなっても続きますか。それは嬉しいことですか。',
+  '「自分でやろうとしよう。」——これを最後に自分に言ったのはいつですか。',
+  'あなたが毎日繰り返していることは、あなたが選んだことですか。',
+  '遅すぎると思ったことはありますか。——本当に遅すぎましたか。',
+  'あなたが懸命に生きていることを、誰かに証明する必要がありますか。',
+  'それは自分の意志ですか。それとも、そうしなければならない雰囲気ですか。',
+  'いま目の前にある問いは、一生かけて問う価値がありますか。',
+  '頑張り続けることに意味があるのか——その問いを考えることに、意味がありますか。',
+  'あなたが売っているものは、本当にあなたのものですか。',
+  'いま寄りかかっているものを失ったとき、あなたは立っていられますか。'
+];
+document.getElementById('todayQ').textContent=todayQuestions[Math.floor(Math.random()*todayQuestions.length)];
+
+function showPage(id){
+  if(window.event)window.event.preventDefault();
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
+  var page=document.getElementById('page-'+id);
+  if(page)page.classList.add('active');
+  else document.getElementById('page-404').classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.toggle('active',a.dataset.page===id)});
+  document.getElementById('navLinks').classList.remove('open');
+  window.scrollTo({top:0,behavior:'smooth'});
+  clearTimeout(window.katsuTimer);startKatsuTimer();
+}
+
+function showSub(page,sub){
+  if(window.event)window.event.preventDefault();
+  var container=document.getElementById('page-'+page);
+  container.querySelectorAll('.sub-page').forEach(function(s){s.classList.remove('sub-active')});
+  container.querySelectorAll('.subnav a').forEach(function(a){a.classList.remove('sub-active')});
+  var target=document.getElementById('sub-'+page+'-'+sub);
+  if(target){target.classList.add('sub-active');if(window.event&&window.event.target)window.event.target.classList.add('sub-active')}
+}
+
+function toggleFaq(el){el.classList.toggle('open');el.nextElementSibling.classList.toggle('open')}
+
+var katsuDismissed=false;
+function triggerKatsu(){if(katsuDismissed)return;document.getElementById('katsuOverlay').classList.add('active');document.body.style.overflow='hidden'}
+function dismissKatsu(){document.getElementById('katsuOverlay').classList.remove('active');document.body.style.overflow='';katsuDismissed=true;setTimeout(function(){katsuDismissed=false;startKatsuTimer()},180000)}
+function startKatsuTimer(){window.katsuTimer=setTimeout(triggerKatsu,50000+Math.random()*50000)}
+startKatsuTimer();
+
+// ═══ TOP FLOW — Intersection Observer ═══
+var flowObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('visible')}
+    else{e.target.classList.remove('visible')}
+  });
+},{threshold:0.3});
+document.querySelectorAll('.flow-screen').forEach(function(s){flowObs.observe(s)});
+var fs1=document.getElementById('fs1');if(fs1)fs1.classList.add('visible');
+
+// ═══ MEIGEN 1000 ═══
+var Q=[
+["無知の知こそ、知の始まりである。","ソクラテス","Socrates","哲学"],
+["吟味されない人生は生きるに値しない。","ソクラテス","Socrates","哲学"],
+["汝自身を知れ。","ソクラテス","Socrates","哲学"],
+["真の知恵とは、自分が何も知らないと知ることにある。","ソクラテス","Socrates","哲学"],
+["善く生きることこそ、最も大切なことである。","ソクラテス","Socrates","哲学"],
+["洞窟の中にいる者は影を実体だと信じる。","プラトン","Plato","哲学"],
+["驚きこそが哲学の始まりである。","プラトン","Plato","哲学"],
+["魂の教育なくして、肉体の教育は無意味である。","プラトン","Plato","哲学"],
+["知ることを愛する者が哲学者である。","プラトン","Plato","哲学"],
+["真実の言葉は、最も美しい言葉ではない。","プラトン","Plato","哲学"],
+["人間は本性上、知ることを欲する。","アリストテレス","Aristotle","哲学"],
+["徳は行為の習慣の中に宿る。","アリストテレス","Aristotle","哲学"],
+["幸福とは、魂の活動である。","アリストテレス","Aristotle","哲学"],
+["全体は部分の総和に勝る。","アリストテレス","Aristotle","哲学"],
+["人間は社会的動物である。","アリストテレス","Aristotle","哲学"],
+["万物は流転する。","ヘラクレイトス","Heraclitus","哲学"],
+["同じ川に二度入ることはできない。","ヘラクレイトス","Heraclitus","哲学"],
+["対立するものが調和を生む。","ヘラクレイトス","Heraclitus","哲学"],
+["隠された調和は、明らかな調和より美しい。","ヘラクレイトス","Heraclitus","哲学"],
+["目覚めている者にとって世界はひとつである。","ヘラクレイトス","Heraclitus","哲学"],
+["死を恐れることは、知恵がないのに知恵があると思うことに等しい。","ソクラテス","Socrates","哲学"],
+["我思う、ゆえに我あり。","デカルト","Descartes","哲学"],
+["方法的懐疑こそが確実な知への道である。","デカルト","Descartes","哲学"],
+["良識はこの世で最も公平に分配されたものである。","デカルト","Descartes","哲学"],
+["自由とは、自らの必然性を認識することである。","スピノザ","Spinoza","哲学"],
+["あらゆる規定は否定である。","スピノザ","Spinoza","哲学"],
+["憎しみは愛によって克服される。","スピノザ","Spinoza","哲学"],
+["人間の自由は、自らの情念を理性で制御することにある。","スピノザ","Spinoza","哲学"],
+["頭上に星空、内なる道徳法則。この二つが畏敬の念を呼び起こす。","カント","Kant","哲学"],
+["汝の意志の格率が普遍的法則となりうるよう行為せよ。","カント","Kant","哲学"],
+["理論なき経験は盲目であり、経験なき理論は空虚である。","カント","Kant","哲学"],
+["啓蒙とは、人間が自ら招いた未成年状態から脱出することである。","カント","Kant","哲学"],
+["自らの理性を使う勇気を持て。","カント","Kant","哲学"],
+["理性的なものは現実的であり、現実的なものは理性的である。","ヘーゲル","Hegel","哲学"],
+["歴史から学ぶことは、人類が歴史から何も学ばないということである。","ヘーゲル","Hegel","哲学"],
+["矛盾こそが真理を前進させる力である。","ヘーゲル","Hegel","哲学"],
+["真理は全体である。","ヘーゲル","Hegel","哲学"],
+["存在するとはすなわち知覚されることである。","バークリー","Berkeley","哲学"],
+["人間は自由の刑に処せられている。","サルトル","Sartre","哲学"],
+["実存は本質に先立つ。","サルトル","Sartre","哲学"],
+["他者とは地獄である。","サルトル","Sartre","哲学"],
+["人間は自らが作るところのものである。","サルトル","Sartre","哲学"],
+["不条理とは、この世界の不合理に対する人間の理性の対峙である。","カミュ","Camus","哲学"],
+["シーシュポスを幸福だと想像しなければならない。","カミュ","Camus","哲学"],
+["私は反抗する、ゆえに我々は存在する。","カミュ","Camus","哲学"],
+["真に重大な哲学的問題はただひとつ。自殺ということだ。","カミュ","Camus","哲学"],
+["あるがままの世界を愛さねばならない。","カミュ","Camus","哲学"],
+["神は死んだ。","ニーチェ","Nietzsche","哲学"],
+["深淵を覗くとき、深淵もまたこちらを覗いている。","ニーチェ","Nietzsche","哲学"],
+["怪物と闘う者は、自らも怪物にならぬよう気をつけよ。","ニーチェ","Nietzsche","哲学"],
+["汝の為すべきことを為せ、しかる後に汝は汝自身となる。","ニーチェ","Nietzsche","哲学"],
+["脱落とは、自己を忘れることである。","ニーチェ","Nietzsche","哲学"],
+["永劫回帰——この人生を何度でも繰り返すことを望めるか。","ニーチェ","Nietzsche","哲学"],
+["人間は橋である。目的ではない。","ニーチェ","Nietzsche","哲学"],
+["踊る星を産むためには、自らの中に混沌を持たねばならない。","ニーチェ","Nietzsche","哲学"],
+["語りえぬものについては、沈黙しなければならない。","ヴィトゲンシュタイン","Wittgenstein","哲学"],
+["私の言語の限界が、私の世界の限界を意味する。","ヴィトゲンシュタイン","Wittgenstein","哲学"],
+["哲学の目的は思想の論理的明晰化である。","ヴィトゲンシュタイン","Wittgenstein","哲学"],
+["死は人生の出来事ではない。人は死を体験しない。","ヴィトゲンシュタイン","Wittgenstein","哲学"],
+["あらゆる人間の不幸はただ一つのことに由来する。部屋の中で静かに座っていられないことである。","パスカル","Pascal","哲学"],
+["人間は考える葦である。","パスカル","Pascal","哲学"],
+["心には理性が知らない理由がある。","パスカル","Pascal","哲学"],
+["クレオパトラの鼻がもう少し低かったら、世界の歴史は変わっていただろう。","パスカル","Pascal","哲学"],
+["存在とは時間性である。","ハイデガー","Heidegger","哲学"],
+["人間は死に向かう存在である。","ハイデガー","Heidegger","哲学"],
+["言葉は存在の家である。","ハイデガー","Heidegger","哲学"],
+["技術の本質は技術的なものではない。","ハイデガー","Heidegger","哲学"],
+["人は女に生まれるのではない、女になるのだ。","ボーヴォワール","Beauvoir","哲学"],
+["知は力なり。","フランシス・ベーコン","Francis Bacon","哲学"],
+["人間は万物の尺度である。","プロタゴラス","Protagoras","哲学"],
+["犬小屋の中にいても、嘘をつかぬ限り幸福でいられる。","ディオゲネス","Diogenes","哲学"],
+["陽の光を遮らないでくれ、それだけが私の望みだ。","ディオゲネス","Diogenes","哲学"],
+["世界がいかにあるかではなく、世界があるということが神秘的である。","ヴィトゲンシュタイン","Wittgenstein","哲学"],
+["不安は自由のめまいである。","キェルケゴール","Kierkegaard","哲学"],
+["絶望とは死に至る病である。","キェルケゴール","Kierkegaard","哲学"],
+["人生は後ろ向きにしか理解できないが、前向きにしか生きられない。","キェルケゴール","Kierkegaard","哲学"],
+["あらゆるものは意志の表象である。","ショーペンハウアー","Schopenhauer","哲学"],
+["人生は苦悩と退屈の間を振り子のように揺れる。","ショーペンハウアー","Schopenhauer","哲学"],
+["天才とは苦痛への無限の能力である。","ショーペンハウアー","Schopenhauer","哲学"],
+["習慣は第二の自然である。","モンテーニュ","Montaigne","哲学"],
+["私は何を知っているか。","モンテーニュ","Montaigne","哲学"],
+["哲学することは、死ぬことを学ぶことである。","モンテーニュ","Montaigne","哲学"],
+["存在とは知覚されることである。","バークリー","Berkeley","哲学"],
+["言葉の誤用は、精神の最大の敵である。","ジョン・ロック","John Locke","哲学"],
+["生まれたとき、心は白紙（タブラ・ラサ）である。","ジョン・ロック","John Locke","哲学"],
+["われわれが恐れるべきは恐怖そのものである。","モンテーニュ","Montaigne","哲学"],
+["自然に帰れ。","ルソー","Rousseau","哲学"],
+["人間は生まれながらにして自由であるが、至るところで鎖につながれている。","ルソー","Rousseau","哲学"],
+["我々を悩ますものは、事柄そのものではなく、事柄に対する我々の判断である。","エピクテトス","Epictetus","ストア派"],
+["制御できるものと制御できないものを区別せよ。","エピクテトス","Epictetus","ストア派"],
+["汝に起こることが汝を傷つけるのではない。それに対する汝の反応が汝を傷つけるのだ。","エピクテトス","Epictetus","ストア派"],
+["他人の不幸に動揺するな。それは汝の制御外にある。","エピクテトス","Epictetus","ストア派"],
+["奴隷も哲学者になれる。外的な状況は関係ない。","エピクテトス","Epictetus","ストア派"],
+["困難は人格を示す。だから困難に出会ったら思い出せ。自分を試す機会だと。","エピクテトス","Epictetus","ストア派"],
+["自由とは、起こることすべてを欲することである。","エピクテトス","Epictetus","ストア派"],
+["哲学の始まりは、自分自身の無力さと無知を自覚することである。","エピクテトス","Epictetus","ストア派"],
+["人は二本の耳と一つの口を持つ。聞くことを話すことの二倍にすべきだ。","エピクテトス","Epictetus","ストア派"],
+["汝は一つの小さな魂が死体を担いでいるにすぎない。","エピクテトス","Epictetus","ストア派"],
+["今日という日を最後の日として生きよ。","マルクス・アウレリウス","Marcus Aurelius","ストア派"],
+["宇宙は変化であり、人生は意見である。","マルクス・アウレリウス","Marcus Aurelius","ストア派"],
+["朝目覚めたとき、生きていることの特権を思え。","マルクス・アウレリウス","Marcus Aurelius","ストア派"],
+["他人の心の中で何が起きているかを注意しない者が不幸になることは稀である。","マルクス・アウレリウス","Marcus Aurelius","ストア派"],
+["すべては意見に過ぎない。そしてその意見は汝次第である。","マルクス・アウレリウス","Marcus Aurelius","ストア派"],
+["怒りの最良の治療法は猶予である。","セネカ","Seneca","ストア派"],
+["運命は志ある者を導き、志なき者を引きずっていく。","セネカ","Seneca","ストア派"],
+["人生が短いのではない。我々がそれを短くしているのだ。","セネカ","Seneca","ストア派"],
+["幸福な生とは、自然に合致した生である。","セネカ","Seneca","ストア派"],
+["困難の中でこそ、勇気が試される。","セネカ","Seneca","ストア派"],
+["忙しくしていることと、生きていることは違う。","セネカ","Seneca","ストア派"],
+["船が港にいる時は安全だが、それは船が造られた目的ではない。","セネカ","Seneca","ストア派"],
+["真の喜びは厳粛なものである。","セネカ","Seneca","ストア派"],
+["死を恐れる者は、まだ生き始めていない者である。","セネカ","Seneca","ストア派"],
+["過去を変えることはできないが、未来は我々の手の中にある。","セネカ","Seneca","ストア派"],
+["困難な時にこそ平静を保て。それが最も困難であるからこそ。","マルクス・アウレリウス","Marcus Aurelius","ストア派"],
+["外的な事物は汝の魂に触れることはできない。","マルクス・アウレリウス","Marcus Aurelius","ストア派"],
+["汝が受け入れることを拒否したものは、汝を傷つけることはできない。","マルクス・アウレリウス","Marcus Aurelius","ストア派"],
+["自然に従って生きよ。","ゼノン","Zeno of Citium","ストア派"],
+["徳のみが善であり、悪徳のみが悪である。","ゼノン","Zeno of Citium","ストア派"],
+["我々は二つの耳と一つの舌を持って生まれた。聞くべきことは話すべきことの二倍だからだ。","ゼノン","Zeno of Citium","ストア派"],
+["運命を愛せ。","ニーチェ","Nietzsche","ストア派"],
+["障害は行動の妨げではなく、行動を助けるものとなる。","マルクス・アウレリウス","Marcus Aurelius","ストア派"],
+["名声を求めるな。汝が何者であるかを知っていれば十分である。","マルクス・アウレリウス","Marcus Aurelius","ストア派"],
+["すべてのものは移ろい、汝もまた移ろう。これを忘れるな。","マルクス・アウレリウス","Marcus Aurelius","ストア派"],
+["いかに長く生きたかではなく、いかに善く生きたかが大切である。","セネカ","Seneca","ストア派"],
+["哲学とは生きることの術である。","セネカ","Seneca","ストア派"],
+["最も強い者とは、自分自身に打ち克つ者である。","セネカ","Seneca","ストア派"],
+["苦しみは、それを見つめるまで続く。見つめれば消える。","エピクテトス","Epictetus","ストア派"],
+["一切皆苦。","釈迦","Buddha","禅・仏教"],
+["己こそ己の寄る辺。己を措きて誰に寄るべぞ。","釈迦","Buddha","禅・仏教"],
+["怨みに報いるに怨みを以てしたならば、ついに怨みの止むことがない。","釈迦","Buddha","禅・仏教"],
+["千の言葉よりも、平和をもたらす一つの言葉に価値がある。","釈迦","Buddha","禅・仏教"],
+["執着こそが苦しみの根源である。","釈迦","Buddha","禅・仏教"],
+["汝自身を灯火とし、汝自身を拠り所とせよ。","釈迦","Buddha","禅・仏教"],
+["すべては変化する。怠ることなく精進せよ。","釈迦","Buddha","禅・仏教"],
+["怒りを抱くことは、熱い炭を素手で持つようなものだ。焼かれるのは自分である。","釈迦","Buddha","禅・仏教"],
+["水が一滴ずつ滴り落ちるように、智慧も少しずつ満ちてゆく。","釈迦","Buddha","禅・仏教"],
+["心が整えば、世界は整う。","釈迦","Buddha","禅・仏教"],
+["只管打坐。ただ坐れ。","道元","Dogen","禅・仏教"],
+["仏道をならふといふは自己をならふなり。","道元","Dogen","禅・仏教"],
+["自己をならふといふは自己をわするるなり。","道元","Dogen","禅・仏教"],
+["自己をわするるといふは万法に証せらるるなり。","道元","Dogen","禅・仏教"],
+["春は花、夏ほととぎす、秋は月、冬雪さえて涼しかりけり。","道元","Dogen","禅・仏教"],
+["一日を無駄にすることは、一日の命を失うことである。","道元","Dogen","禅・仏教"],
+["修行と悟りは一つである。","道元","Dogen","禅・仏教"],
+["生死の中に仏あれば生死なし。","道元","Dogen","禅・仏教"],
+["心身脱落、脱落心身。","道元","Dogen","禅・仏教"],
+["直指人心、見性成仏。","臨済","Rinzai","禅・仏教"],
+["仏に逢うては仏を殺し、祖に逢うては祖を殺せ。","臨済","Rinzai","禅・仏教"],
+["随処に主となれば、立処皆真なり。","臨済","Rinzai","禅・仏教"],
+["求心やむ処、即ち無事なり。","臨済","Rinzai","禅・仏教"],
+["不立文字、教外別伝。","達磨","Bodhidharma","禅・仏教"],
+["壁に面して九年。","達磨","Bodhidharma","禅・仏教"],
+["心を求めるも得られず。その求められぬ心こそ汝の心なり。","達磨","Bodhidharma","禅・仏教"],
+["色即是空、空即是色。","般若心経","Heart Sutra","禅・仏教"],
+["諸行無常。","般若心経","Heart Sutra","禅・仏教"],
+["諸法無我。","般若心経","Heart Sutra","禅・仏教"],
+["涅槃寂静。","般若心経","Heart Sutra","禅・仏教"],
+["一期一会。","井伊直弼","Ii Naosuke","禅・仏教"],
+["日々是好日。","雲門","Yunmen","禅・仏教"],
+["歩歩是道場。","臨済","Rinzai","禅・仏教"],
+["喫茶去。","趙州","Zhaozhou","禅・仏教"],
+["前後際断。","道元","Dogen","禅・仏教"],
+["身心一如。","道元","Dogen","禅・仏教"],
+["吾唯足るを知る。","龍安寺","Ryoanji","禅・仏教"],
+["初心忘るべからず。","世阿弥","Zeami","禅・仏教"],
+["花は愛惜に散り、草は棄嫌に生ふるのみなり。","道元","Dogen","禅・仏教"],
+["竹影掃階塵不動、月穿潭底水無痕。","禅語","Zen proverb","禅・仏教"],
+["柳は緑、花は紅。","蘇東坡","Su Dongpo","禅・仏教"],
+["山は山、水は水。","青原行思","Qingyuan Weixin","禅・仏教"],
+["平常心是道。","南泉","Nanquan","禅・仏教"],
+["看脚下。","禅語","Zen proverb","禅・仏教"],
+["行住坐臥、すべてが修行である。","道元","Dogen","禅・仏教"],
+["中道を歩め。極端を避けよ。","釈迦","Buddha","禅・仏教"],
+["一華開五葉、結果自然成。","達磨","Bodhidharma","禅・仏教"],
+["無功徳。","達磨","Bodhidharma","禅・仏教"],
+["知足者富。足るを知る者は富む。","老子","Laozi","禅・仏教"],
+["道の道とすべきは、常の道にあらず。","老子","Laozi","東洋思想"],
+["大器晩成。","老子","Laozi","東洋思想"],
+["千里の行も一歩より始まる。","老子","Laozi","東洋思想"],
+["上善は水の如し。","老子","Laozi","東洋思想"],
+["柔よく剛を制す。","老子","Laozi","東洋思想"],
+["無為にして為さざるなし。","老子","Laozi","東洋思想"],
+["人を知る者は智、自ら知る者は明なり。","老子","Laozi","東洋思想"],
+["道は常に無為にして、為さざるなし。","老子","Laozi","東洋思想"],
+["天網恢恢、疎にして漏らさず。","老子","Laozi","東洋思想"],
+["禍は福の寄る所、福は禍の伏す所。","老子","Laozi","東洋思想"],
+["胡蝶の夢。我は蝶か、蝶は我か。","荘子","Zhuangzi","東洋思想"],
+["大鵬は九万里の風に乗る。","荘子","Zhuangzi","東洋思想"],
+["無用の用。","荘子","Zhuangzi","東洋思想"],
+["井の中の蛙、大海を知らず。","荘子","Zhuangzi","東洋思想"],
+["物我一体。","荘子","Zhuangzi","東洋思想"],
+["学びて時にこれを習う、また説ばしからずや。","孔子","Confucius","東洋思想"],
+["己の欲せざる所は、人に施すなかれ。","孔子","Confucius","東洋思想"],
+["過ちて改めざる、是を過ちと謂う。","孔子","Confucius","東洋思想"],
+["知者は惑わず、仁者は憂えず、勇者は懼れず。","孔子","Confucius","東洋思想"],
+["温故知新。","孔子","Confucius","東洋思想"],
+["三人行けば必ず我が師あり。","孔子","Confucius","東洋思想"],
+["学びて思わざれば則ち罔し。思いて学ばざれば則ち殆し。","孔子","Confucius","東洋思想"],
+["朝に道を聞かば、夕べに死すとも可なり。","孔子","Confucius","東洋思想"],
+["君子は和して同ぜず。小人は同じて和せず。","孔子","Confucius","東洋思想"],
+["仁者は山を楽しみ、知者は水を楽しむ。","孔子","Confucius","東洋思想"],
+["天の時は地の利に如かず、地の利は人の和に如かず。","孟子","Mencius","東洋思想"],
+["性善説。人の性は善なり。","孟子","Mencius","東洋思想"],
+["恒産なければ恒心なし。","孟子","Mencius","東洋思想"],
+["大丈夫とは、富貴も淫する能わず、威武も屈する能わざる者なり。","孟子","Mencius","東洋思想"],
+["兵は詭道なり。","孫子","Sun Tzu","東洋思想"],
+["彼を知り己を知れば百戦殆からず。","孫子","Sun Tzu","東洋思想"],
+["戦わずして人の兵を屈するは善の善なる者なり。","孫子","Sun Tzu","東洋思想"],
+["我事において後悔せず。","宮本武蔵","Miyamoto Musashi","東洋思想"],
+["千日の稽古を鍛とし、万日の稽古を練とす。","宮本武蔵","Miyamoto Musashi","東洋思想"],
+["構えあって構えなし。","宮本武蔵","Miyamoto Musashi","東洋思想"],
+["観の目強く、見の目弱く。","宮本武蔵","Miyamoto Musashi","東洋思想"],
+["武士道と云ふは死ぬ事と見付けたり。","山本常朝","Yamamoto Tsunetomo","東洋思想"],
+["敬天愛人。","西郷隆盛","Saigo Takamori","東洋思想"],
+["至誠にして動かざる者は、未だ之れ有らざるなり。","吉田松陰","Yoshida Shoin","東洋思想"],
+["志を立てるためには人と異なることを恐れてはならない。","吉田松陰","Yoshida Shoin","東洋思想"],
+["為せば成る、為さねば成らぬ何事も。","上杉鷹山","Uesugi Yozan","東洋思想"],
+["実るほど頭を垂れる稲穂かな。","日本のことわざ","Japanese proverb","東洋思想"],
+["人を以て鏡と為す。","唐太宗","Emperor Taizong","東洋思想"],
+["仁義礼智信。","儒教","Confucianism","東洋思想"],
+["和を以て貴しと為す。","聖徳太子","Shotoku Taishi","東洋思想"],
+["哲学者たちは世界をさまざまに解釈してきた。肝心なのは世界を変えることである。","マルクス","Marx","経済・社会"],
+["万国の労働者よ、団結せよ！","マルクス","Marx","経済・社会"],
+["宗教は民衆のアヘンである。","マルクス","Marx","経済・社会"],
+["人間の意識が存在を規定するのではなく、人間の社会的存在が意識を規定する。","マルクス","Marx","経済・社会"],
+["すべての固い物は溶けて空気になる。","マルクス","Marx","経済・社会"],
+["資本は死んだ労働であり、吸血鬼のように生きた労働を吸うことでのみ生き延びる。","マルクス","Marx","経済・社会"],
+["歴史は繰り返す。一度目は悲劇として、二度目は喜劇として。","マルクス","Marx","経済・社会"],
+["今日まであらゆる社会の歴史は階級闘争の歴史である。","マルクス","Marx","経済・社会"],
+["労働は人間の本質である。","マルクス","Marx","経済・社会"],
+["支配的な思想は、支配的な階級の思想にほかならない。","マルクス","Marx","経済・社会"],
+["見えざる手が市場を調整する。","アダム・スミス","Adam Smith","経済・社会"],
+["我々が食事をとれるのは、肉屋やパン屋の慈悲によるのではなく、彼らの自己利益によるのだ。","アダム・スミス","Adam Smith","経済・社会"],
+["分業こそが富の源泉である。","アダム・スミス","Adam Smith","経済・社会"],
+["節約は美徳だが、皆が節約すれば経済は崩壊する。","ケインズ","Keynes","経済・社会"],
+["長期的には我々は皆死んでいる。","ケインズ","Keynes","経済・社会"],
+["資本主義は、それに内在する矛盾によって自ら滅びる。","シュンペーター","Schumpeter","経済・社会"],
+["創造的破壊こそが資本主義の本質的事実である。","シュンペーター","Schumpeter","経済・社会"],
+["プロテスタントの倫理と資本主義の精神。","ウェーバー","Weber","経済・社会"],
+["官僚制は鉄の檻である。","ウェーバー","Weber","経済・社会"],
+["社会的事実は物のように扱え。","デュルケーム","Durkheim","経済・社会"],
+["自殺は社会的事実である。","デュルケーム","Durkheim","経済・社会"],
+["自由であるということは、責任があるということだ。だから多くの人が自由を恐れる。","バーナード・ショー","Shaw","経済・社会"],
+["国家とは支配階級の道具である。","レーニン","Lenin","経済・社会"],
+["理論なき実践は盲目であり、実践なき理論は不毛である。","レーニン","Lenin","経済・社会"],
+["想像力は知識より重要である。","アインシュタイン","Einstein","経済・社会"],
+["アメリカの民主主義の強さは、地方自治の中にある。","トクヴィル","Tocqueville","経済・社会"],
+["多数者の専制は少数者の専制と同じく危険である。","トクヴィル","Tocqueville","経済・社会"],
+["持続可能な発展とは、将来の世代のニーズを損なうことなく、現在のニーズを満たすことである。","ブルントラント委員会","Brundtland","経済・社会"],
+["貧困とは、単に収入がないことではない。可能性の剥奪である。","アマルティア・セン","Amartya Sen","経済・社会"],
+["自由は発展の手段であり、目的でもある。","アマルティア・セン","Amartya Sen","経済・社会"],
+["生きるべきか、死ぬべきか、それが問題だ。","シェイクスピア","Shakespeare","文学"],
+["この世はすべて舞台だ。男も女もすべて役者にすぎない。","シェイクスピア","Shakespeare","文学"],
+["自分自身に忠実であれ。","シェイクスピア","Shakespeare","文学"],
+["簡潔こそが機知の真髄である。","シェイクスピア","Shakespeare","文学"],
+["疑うことは知ることの始まりだ。","シェイクスピア","Shakespeare","文学"],
+["薔薇はたとえ別の名で呼ばれても、変わらず甘く香るだろう。","シェイクスピア","Shakespeare","文学"],
+["時の流れが傷を癒す。","シェイクスピア","Shakespeare","文学"],
+["人生を二度生きることは不可能である。だが多くの人は一度も生きていない。","ワイルド","Oscar Wilde","文学"],
+["芸術は無用の用である。","ワイルド","Oscar Wilde","文学"],
+["自分自身であること。他の人はすでに取られているのだから。","ワイルド","Oscar Wilde","文学"],
+["皮肉屋とは、あらゆるものの値段を知っていて、何ものの価値も知らない人間である。","ワイルド","Oscar Wilde","文学"],
+["ある朝、グレゴール・ザムザが不安な夢から目をさますと、ベッドの中で巨大な毒虫に変わっていた。","カフカ","Kafka","文学"],
+["ぼくの中には途方もない世界がある。だがどうやってそれを解放するか。","カフカ","Kafka","文学"],
+["檻を探している鳥がいる。","カフカ","Kafka","文学"],
+["道はある。しかし我々はそれを道と呼ばない。","カフカ","Kafka","文学"],
+["智に働けば角が立つ。情に棹させば流される。","夏目漱石","Natsume Soseki","文学"],
+["則天去私。","夏目漱石","Natsume Soseki","文学"],
+["自己の個性の発展を仕遂げようと思うならば、同時に他人の個性も尊重しなければならない。","夏目漱石","Natsume Soseki","文学"],
+["恥の多い生涯を送って来ました。","太宰治","Dazai Osamu","文学"],
+["人間は恋と革命のために生まれてきたのだ。","太宰治","Dazai Osamu","文学"],
+["幸福の便りというものは、待っている時が一番幸福なんだ。","太宰治","Dazai Osamu","文学"],
+["美しい花がある。花の美しさという様なものはない。","小林秀雄","Kobayashi Hideo","文学"],
+["雨ニモマケズ 風ニモマケズ。","宮沢賢治","Miyazawa Kenji","文学"],
+["世界がぜんたい幸福にならないうちは個人の幸福はあり得ない。","宮沢賢治","Miyazawa Kenji","文学"],
+["国境の長いトンネルを抜けると雪国であった。","川端康成","Kawabata Yasunari","文学"],
+["美しい日本の私。","川端康成","Kawabata Yasunari","文学"],
+["人間の心の底には、一面に覚悟というものがある。","三島由紀夫","Mishima Yukio","文学"],
+["永遠のように見える一瞬がある。","ドストエフスキー","Dostoevsky","文学"],
+["美は世界を救う。","ドストエフスキー","Dostoevsky","文学"],
+["苦しみこそが存在の唯一の原因である。","ドストエフスキー","Dostoevsky","文学"],
+["幸福はその中にいるときには見えないものだ。過ぎてから振り返って初めてわかる。","ドストエフスキー","Dostoevsky","文学"],
+["幸福な家庭はすべて互いに似かよったものであり、不幸な家庭はどれもそれぞれに不幸なものである。","トルストイ","Tolstoy","文学"],
+["人生の意味を見いだすこと。それこそがこの世で最も重要な仕事である。","トルストイ","Tolstoy","文学"],
+["誰もが世界を変えたいと思うが、自分自身を変えようとは思わない。","トルストイ","Tolstoy","文学"],
+["真の教養とは他人の苦しみがわかるということである。","トルストイ","Tolstoy","文学"],
+["古池や蛙飛びこむ水の音。","松尾芭蕉","Matsuo Basho","文学"],
+["旅に病んで夢は枯野をかけ廻る。","松尾芭蕉","Matsuo Basho","文学"],
+["月日は百代の過客にして、行きかう年もまた旅人なり。","松尾芭蕉","Matsuo Basho","文学"],
+["不易流行。変わらないものの中に変化を見出し、変化の中に変わらないものを見出す。","松尾芭蕉","Matsuo Basho","文学"],
+["松のことは松に習え、竹のことは竹に習え。","松尾芭蕉","Matsuo Basho","文学"],
+["人間とは物語を語る動物である。","マッキンタイア","MacIntyre","文学"],
+["すべての幸せな家族は似ている。不幸な家族はそれぞれ違っている。","トルストイ","Tolstoy","文学"],
+["想像力は知識より重要である。知識には限界がある。想像力は世界を包み込む。","アインシュタイン","Einstein","科学"],
+["神はサイコロを振らない。","アインシュタイン","Einstein","科学"],
+["狂気とは同じことを繰り返しながら違う結果を期待することだ。","アインシュタイン","Einstein","科学"],
+["問題を生み出した思考と同じレベルの思考で、その問題を解決することはできない。","アインシュタイン","Einstein","科学"],
+["大切なのは疑問を持ち続けることだ。好奇心はそれ自体に存在の意味がある。","アインシュタイン","Einstein","科学"],
+["シンプルにできないなら、十分に理解していないのだ。","アインシュタイン","Einstein","科学"],
+["教育とは、学校で学んだことをすべて忘れた後に残るものである。","アインシュタイン","Einstein","科学"],
+["宇宙について最も理解しがたいことは、それが理解できるということだ。","アインシュタイン","Einstein","科学"],
+["自然は巧みに隠す。","アインシュタイン","Einstein","科学"],
+["常識とは18歳までに身につけた偏見のコレクションである。","アインシュタイン","Einstein","科学"],
+["自然は真空を嫌う。","アリストテレス","Aristotle","科学"],
+["もし私が遠くを見ることができたとしたら、それは巨人の肩の上に立っているからだ。","ニュートン","Newton","科学"],
+["適者生存。最も強い者が生き残るのではない。最も変化に適応した者が生き残る。","ダーウィン","Darwin","科学"],
+["知的な愚か者は物事を大きく、複雑に、激烈にする。反対方向に進むには少しの天分と多くの勇気がいる。","アインシュタイン","Einstein","科学"],
+["科学者としての私の仕事は、問いを立てることだ。答えは自然が出してくれる。","ファインマン","Feynman","科学"],
+["自分を騙さないことだ。そして自分が最も騙されやすい人間だということを忘れるな。","ファインマン","Feynman","科学"],
+["理論というものは、うまくいっている限り信じていればよい。","ファインマン","Feynman","科学"],
+["量子力学を理解したと思う者は、量子力学を理解していない。","ファインマン","Feynman","科学"],
+["あらゆる存在の中で、我々は自分自身を知ることが最も困難だ。","ファインマン","Feynman","科学"],
+["測定は対象を変えてしまう。","ハイゼンベルク","Heisenberg","科学"],
+["自然は答えではなく問いで語る。","ニールス・ボーア","Niels Bohr","科学"],
+["反対の概念もまた深い真理であるような真理を、深い真理という。","ニールス・ボーア","Niels Bohr","科学"],
+["予測は難しい。とりわけ未来についての予測は。","ニールス・ボーア","Niels Bohr","科学"],
+["科学の歴史は、偉大な誤りの歴史でもある。","スティーヴン・ジェイ・グールド","Gould","科学"],
+["宇宙は我々の考えているよりも奇妙なだけでなく、我々が考え得るよりも奇妙である。","ハルデイン","Haldane","科学"],
+["充分に発達した科学技術は、魔法と区別がつかない。","アーサー・C・クラーク","Clarke","科学"],
+["我々はみな星のかけらでできている。","カール・セーガン","Carl Sagan","科学"],
+["この淡い青色の点。それが我々の家だ。それが我々だ。","カール・セーガン","Carl Sagan","科学"],
+["宇宙が自らを知るための方法のひとつが、我々なのかもしれない。","カール・セーガン","Carl Sagan","科学"],
+["異常な主張には、異常な証拠が必要である。","カール・セーガン","Carl Sagan","科学"],
+["自然のすべての力の中で、最も強力なものは人間の精神である。","パスツール","Pasteur","科学"],
+["偶然は準備のできた精神にのみ微笑む。","パスツール","Pasteur","科学"],
+["放射能を恐れる理由は何もない。理解すればよいのだ。","キュリー夫人","Marie Curie","科学"],
+["我々は皆、学ばねばならないことをただ一つ持っている。幸福の秘訣は、それを学ぶことにある。","キュリー夫人","Marie Curie","科学"],
+["宇宙を理解すること。それは自分自身を理解することだ。","ホーキング","Hawking","科学"],
+["無意識は心の海である。意識はその表面のさざ波にすぎない。","フロイト","Freud","心理学"],
+["自我はその家の主人ではない。","フロイト","Freud","心理学"],
+["愛と仕事は、人を正気に保つ双子の柱である。","フロイト","Freud","心理学"],
+["文明化の代価は、本能の抑圧による苦悩の増大である。","フロイト","Freud","心理学"],
+["未表現の感情は決して死なない。生き埋めにされ、後に醜い形で現れる。","フロイト","Freud","心理学"],
+["人は自分の影を認めない限り、全体にはなれない。","ユング","Jung","心理学"],
+["無意識を意識化しなければ、それはあなたの人生を支配し、あなたはそれを運命と呼ぶ。","ユング","Jung","心理学"],
+["人生の午前中に正しかったことが、午後には誤りとなることがある。","ユング","Jung","心理学"],
+["内なるものを外に出さなければ、内なるものがあなたを滅ぼすだろう。","ユング","Jung","心理学"],
+["孤独は群衆の中にいても癒されない。","ユング","Jung","心理学"],
+["人間にとって最も苦しいのは、意味のない苦しみである。","フランクル","Viktor Frankl","心理学"],
+["人間から全てを奪うことができる。ただ一つ、どんな環境でも自らの態度を選ぶ自由だけは奪えない。","フランクル","Viktor Frankl","心理学"],
+["生きる意味を見出した者は、いかなる状況にも耐えることができる。","フランクル","Viktor Frankl","心理学"],
+["苦悩は問いかけである。答えを求めず、ただ問いかけに耳を傾けよ。","フランクル","Viktor Frankl","心理学"],
+["人間とは決断する存在である。自分が何であるかを常に決定する存在である。","フランクル","Viktor Frankl","心理学"],
+["共同体感覚こそが精神的健康の基盤である。","アドラー","Adler","心理学"],
+["すべての悩みは対人関係の悩みである。","アドラー","Adler","心理学"],
+["劣等感は努力と成長の刺激となる。","アドラー","Adler","心理学"],
+["過去の原因ではなく、未来の目的が行動を決める。","アドラー","Adler","心理学"],
+["他者の課題に踏み込むな。自分の課題に集中せよ。","アドラー","Adler","心理学"],
+["人間は自己実現へ向かう傾向を本来的に持っている。","マズロー","Maslow","心理学"],
+["ハンマーしか持っていなければ、すべてが釘に見える。","マズロー","Maslow","心理学"],
+["自分が何者になれるか、そうならねばならない。","マズロー","Maslow","心理学"],
+["愛するとは、自分自身を与えることの技術である。","フロム","Erich Fromm","心理学"],
+["自由からの逃走。人間は自由に耐えられない。","フロム","Erich Fromm","心理学"],
+["持つことと在ることは根本的に異なる。","フロム","Erich Fromm","心理学"],
+["正常な人間とは、その社会にうまく適応した人間のことだ。しかし社会が狂っていたらどうだろう。","フロム","Erich Fromm","心理学"],
+["人間の最大の恐怖は、自らの光を恐れることだ。","マリアンヌ・ウィリアムソン","Williamson","心理学"],
+["認知の歪みが苦しみを生む。事実ではなく、解釈が問題なのだ。","アーロン・ベック","Aaron Beck","心理学"],
+["人間の心理は、意味を求める意志によって動かされている。","フランクル","Viktor Frankl","心理学"],
+["今この瞬間を生きよ。過去は思い出、未来は想像にすぎない。","パールズ","Fritz Perls","心理学"],
+["心理的に健康であるとは、自己を受容し、他者を受容することである。","カール・ロジャーズ","Carl Rogers","心理学"],
+["人間は自分が思っているような人間になる。","ウィリアム・ジェイムズ","William James","心理学"],
+["行動を変えれば、感情も変わる。","ウィリアム・ジェイムズ","William James","心理学"],
+["意識の流れ。我々の思考は川のように流れている。","ウィリアム・ジェイムズ","William James","心理学"],
+["人民の、人民による、人民のための政治を、この地上から絶やしてはならない。","リンカーン","Lincoln","政治・法"],
+["投票用紙は銃弾よりも強い。","リンカーン","Lincoln","政治・法"],
+["人は皆、平等に作られている。","リンカーン","Lincoln","政治・法"],
+["一人の死は悲劇だが、百万人の死は統計である。","スターリン","Stalin","政治・法"],
+["暴力に対して暴力で応じるのは、暴力を増殖させるだけだ。","キング牧師","Martin Luther King Jr.","政治・法"],
+["私には夢がある。","キング牧師","Martin Luther King Jr.","政治・法"],
+["暗闇で暗闇を追い払うことはできない。光だけがそれをなし得る。","キング牧師","Martin Luther King Jr.","政治・法"],
+["不正義のどこであっても、不正義はどこにでもある正義への脅威だ。","キング牧師","Martin Luther King Jr.","政治・法"],
+["最大の悲劇は、悪人の残虐さではなく、善人の沈黙である。","キング牧師","Martin Luther King Jr.","政治・法"],
+["非暴力は弱者の武器ではない。強者のみがそれを使い得る。","ガンジー","Gandhi","政治・法"],
+["あなたがこの世で見たいと思う変化に、あなた自身がなりなさい。","ガンジー","Gandhi","政治・法"],
+["目には目をでは、世界中が盲目になる。","ガンジー","Gandhi","政治・法"],
+["弱い者ほど赦すことができない。赦すとは強い者の特性である。","ガンジー","Gandhi","政治・法"],
+["善い行いは小さな水滴のようなもので、大洋を作る。","ガンジー","Gandhi","政治・法"],
+["明日死ぬかのように生きよ。永遠に生きるかのように学べ。","ガンジー","Gandhi","政治・法"],
+["自由のために闘うとき、あなたが何者であるかが問われるのではない。何を守りたいかが問われるのだ。","マンデラ","Mandela","政治・法"],
+["教育とは世界を変えるために使える最も強力な武器である。","マンデラ","Mandela","政治・法"],
+["それが終わるまでは、不可能に思えるものだ。","マンデラ","Mandela","政治・法"],
+["自由への長い道のりにおいて、休むことはあっても、諦めることは決してない。","マンデラ","Mandela","政治・法"],
+["私は白人の支配にも黒人の支配にも反対して闘ってきた。","マンデラ","Mandela","政治・法"],
+["法の下の平等。","日本国憲法第14条","Article 14, Constitution of Japan","政治・法"],
+["すべて国民は、個人として尊重される。","日本国憲法第13条","Article 13, Constitution of Japan","政治・法"],
+["権力は腐敗する。絶対的権力は絶対に腐敗する。","アクトン卿","Lord Acton","政治・法"],
+["自由の代価は永遠の警戒である。","ジェファーソン","Jefferson","政治・法"],
+["統治の正統性は被統治者の同意に基づく。","ジョン・ロック","John Locke","政治・法"],
+["法律の精神は、それが作られた時代と状況の中にある。","モンテスキュー","Montesquieu","政治・法"],
+["権力を分立させよ。集中した権力は必ず腐敗する。","モンテスキュー","Montesquieu","政治・法"],
+["最大多数の最大幸福。","ベンサム","Bentham","政治・法"],
+["他者に害を与えない限り、個人の自由は最大限に保障されるべきだ。","J.S.ミル","J.S. Mill","政治・法"],
+["多数者の意見が常に正しいわけではない。","J.S.ミル","J.S. Mill","政治・法"],
+["満足した豚よりも不満足な人間であるほうがよい。","J.S.ミル","J.S. Mill","政治・法"],
+["法とは蜘蛛の巣のようなもの。弱い者は引っかかり、強い者は突き破る。","ソロン","Solon","政治・法"],
+["正義なき力は暴力であり、力なき正義は無力である。","パスカル","Pascal","政治・法"],
+["市民的不服従は最高の愛国心の表現である。","ソロー","Thoreau","政治・法"],
+["もし法律が不正ならば、それに従わないことが義務である。","ソロー","Thoreau","政治・法"],
+["悪法もまた法である。","ソクラテス","Socrates","政治・法"],
+["正義の女神は目隠しをしている。","西洋法格言","Legal maxim","政治・法"],
+["疑わしきは罰せず。","ローマ法格言","Roman legal maxim","政治・法"],
+["正義とは公正を求める恒常不断の意志である。","ウルピアヌス","Ulpian","政治・法"],
+["芸術は長く、人生は短い。","ヒポクラテス","Hippocrates","芸術"],
+["芸術の目的は、物事のあり方を見せることではなく、その裏にある真実を示すことだ。","アリストテレス","Aristotle","芸術"],
+["すべての芸術は音楽の状態を目指す。","ペイター","Walter Pater","芸術"],
+["芸術は嘘であるが、真実を教えてくれる嘘である。","ピカソ","Picasso","芸術"],
+["すべての子供は芸術家だ。問題は大人になってもどうやって芸術家でいるかだ。","ピカソ","Picasso","芸術"],
+["良い芸術家は模倣する。偉大な芸術家は盗む。","ピカソ","Picasso","芸術"],
+["芸術において学んだ規則を破ることが、真の創造である。","ピカソ","Picasso","芸術"],
+["色は理性の及ばぬ力を持っている。","ゲーテ","Goethe","芸術"],
+["建築は凍れる音楽である。","ゲーテ","Goethe","芸術"],
+["美とは真理の輝きである。","プラトン","Plato","芸術"],
+["芸術の最高の課題は、美を通じて善に至ることである。","シラー","Schiller","芸術"],
+["想像力のない人間に翼はない。","モハメド・アリ","Muhammad Ali","芸術"],
+["創造とは記憶することだ。","ドビュッシー","Debussy","芸術"],
+["音楽は言葉が終わるところから始まる。","ドビュッシー","Debussy","芸術"],
+["芸術とは、目に見えないものを見えるようにすることだ。","パウル・クレー","Paul Klee","芸術"],
+["少ないことは豊かなことだ。","ミース・ファン・デル・ローエ","Mies van der Rohe","芸術"],
+["神は細部に宿る。","ミース・ファン・デル・ローエ","Mies van der Rohe","芸術"],
+["形態は機能に従う。","ルイス・サリヴァン","Louis Sullivan","芸術"],
+["真のミニマリズムとは、減らすことではなく本質を見極めることだ。","柳宗悦","Yanagi Muneyoshi","芸術"],
+["用の美。日常の中にこそ美はある。","柳宗悦","Yanagi Muneyoshi","芸術"],
+["下手ものにこそ、真の美がある。","柳宗悦","Yanagi Muneyoshi","芸術"],
+["芸術は爆発だ。","岡本太郎","Okamoto Taro","芸術"],
+["むしろ不完全であれ。","岡本太郎","Okamoto Taro","芸術"],
+["安全な道を選ぶな、危険な道を選べ。","岡本太郎","Okamoto Taro","芸術"],
+["秘すれば花。","世阿弥","Zeami","芸術"],
+["離見の見。自分を外から見よ。","世阿弥","Zeami","芸術"],
+["花は散るからこそ美しい。","世阿弥","Zeami","芸術"],
+["わび、さび。不完全の中の美。","千利休","Sen no Rikyu","芸術"],
+["一座建立。その場にいるすべての人が一つになること。","千利休","Sen no Rikyu","芸術"],
+["余白こそが、最も雄弁である。","日本美学","Japanese aesthetics","芸術"],
+["愛とは、相手の自由を守りながら、共に成長することだ。","フロム","Erich Fromm","愛"],
+["愛するとは能動的な行為であり、感情の奴隷になることではない。","フロム","Erich Fromm","愛"],
+["成熟した愛は、相手が相手自身であることを許すことだ。","フロム","Erich Fromm","愛"],
+["愛とは見つめ合うことではなく、共に同じ方向を見ることだ。","サン＝テグジュペリ","Saint-Exupéry","愛"],
+["大切なものは目に見えない。","サン＝テグジュペリ","Saint-Exupéry","愛"],
+["あなたが薔薇のために費やした時間が、薔薇をあなたにとって大切なものにする。","サン＝テグジュペリ","Saint-Exupéry","愛"],
+["砂漠が美しいのは、どこかに井戸を隠しているからだ。","サン＝テグジュペリ","Saint-Exupéry","愛"],
+["愛は時を忘れさせ、時は愛を忘れさせる。","フランスのことわざ","French proverb","愛"],
+["愛とは、互いに見つめ合うことではなく、共に同じ方向を見ることだ。","サン＝テグジュペリ","Saint-Exupéry","愛"],
+["愛されることは幸福ではない。愛することこそが幸福なのだ。","ヘルマン・ヘッセ","Hermann Hesse","愛"],
+["人を愛するとき、最も脆くなる。だがそれでも愛さねばならない。","フロイト","Freud","愛"],
+["二人の人間の間の真の愛は、互いの孤独を守ることである。","リルケ","Rilke","愛"],
+["愛は所有することではない。愛は解放することだ。","タゴール","Tagore","愛"],
+["世界は愛のために回っている。","ルーミー","Rumi","愛"],
+["あなたの仕事は愛を探すことではない。ただ、自分の中にある愛への壁を見つけ、取り除くことだ。","ルーミー","Rumi","愛"],
+["傷口は光が入ってくる場所だ。","ルーミー","Rumi","愛"],
+["あなたは一滴の海ではない。一滴の中にある海なのだ。","ルーミー","Rumi","愛"],
+["沈黙は愛の最も美しい表現である。","マザー・テレサ","Mother Teresa","愛"],
+["この世の最大の不幸は、自分が誰にも必要とされていないと感じることだ。","マザー・テレサ","Mother Teresa","愛"],
+["小さなことに、大きな愛を込めなさい。","マザー・テレサ","Mother Teresa","愛"],
+["親切にしすぎることはない。","マザー・テレサ","Mother Teresa","愛"],
+["一人の人を愛することは、全世界を愛することへの扉を開く。","マザー・テレサ","Mother Teresa","愛"],
+["色々ある。それでもやろう。","虚実","KYOJITSU","愛"],
+["メメント・モリ。死を忘れるな。","ラテン語格言","Latin maxim","生と死"],
+["死を準備することは、良い人生を準備することだ。","セネカ","Seneca","生と死"],
+["死は怖れるものではない。生きることを怖れよ。","マルクス・アウレリウス","Marcus Aurelius","生と死"],
+["死に臨んで後悔するのは、生きなかったことだけだ。","ブロニー・ウェア","Bronnie Ware","生と死"],
+["今日が人生最後の日だとしたら、今日やろうとしていることをやりたいか。","スティーブ・ジョブズ","Steve Jobs","生と死"],
+["死は人生の対極にあるのではなく、その一部として存在する。","村上春樹","Murakami Haruki","生と死"],
+["人は死ぬ。だがその言葉は永遠に残る。","ラテン語格言","Latin maxim","生と死"],
+["生きるとは呼吸することではない。行動することだ。","ルソー","Rousseau","生と死"],
+["限られた時間を他人の人生を生きるために無駄にするな。","スティーブ・ジョブズ","Steve Jobs","生と死"],
+["人生は近くで見れば悲劇だが、遠くから見れば喜劇だ。","チャップリン","Chaplin","生と死"],
+["この素晴らしい人生を恐れるな。それは生きる価値がある。","ウィリアム・ジェイムズ","William James","生と死"],
+["人間は考える葦である。宇宙に比べれば何でもないが、考える力においてすべてに優る。","パスカル","Pascal","生と死"],
+["人生に意味はない。あなたが人生に意味を与えるのだ。","サルトル","Sartre","生と死"],
+["生きることは、息をすることではなく、行動することである。","ルソー","Rousseau","生と死"],
+["人生は、それを意味あるものにする義務から始まる。","フランクル","Viktor Frankl","生と死"],
+["散る桜 残る桜も 散る桜。","良寛","Ryokan","生と死"],
+["朝に紅顔ありて、夕に白骨となる。","蓮如","Rennyo","生と死"],
+["生死事大、無常迅速。","禅語","Zen proverb","生と死"],
+["ゆく河の流れは絶えずして、しかももとの水にあらず。","鴨長明","Kamo no Chomei","生と死"],
+["つひにゆく道とはかねて聞きしかど昨日今日とは思はざりしを。","在原業平","Ariwara no Narihira","生と死"],
+["死ぬことは生きることの一部である。それを拒むのは、人生全体を拒むことだ。","タゴール","Tagore","生と死"],
+["あなたの人生はあなたのメッセージだ。世界にどんなメッセージを残したいか。","ガンジー","Gandhi","生と死"],
+["教育の根は苦いが、その果実は甘い。","アリストテレス","Aristotle","教育"],
+["教育とは、学校で習ったことをすべて忘れてしまった後に自分の中に残るものだ。","アインシュタイン","Einstein","教育"],
+["教育の目的は、知識の詰め込みではなく、考える力の訓練である。","アインシュタイン","Einstein","教育"],
+["無知を自覚することが教育の始まりである。","ソクラテス","Socrates","教育"],
+["教えることは二度学ぶことである。","ジュベール","Joubert","教育"],
+["教育とは火をつけることであり、バケツを満たすことではない。","イエイツ","Yeats","教育"],
+["子供は教えられるべき器ではなく、灯されるべき炎である。","プルタルコス","Plutarch","教育"],
+["知識を与えるのではなく、知識を求める力を育てよ。","モンテッソーリ","Montessori","教育"],
+["子供には自分でやらせよ。手助けすることは時に妨げとなる。","モンテッソーリ","Montessori","教育"],
+["教育は実践の中でのみ成り立つ。","デューイ","Dewey","教育"],
+["子供たちは未来からの使者である。","モンテッソーリ","Montessori","教育"],
+["学問のすすめ。天は人の上に人を造らず、人の下に人を造らず。","福沢諭吉","Fukuzawa Yukichi","教育"],
+["一身独立して一国独立す。","福沢諭吉","Fukuzawa Yukichi","教育"],
+["読書は完成された人間を作り、会話は機転の利く人間を作り、執筆は正確な人間を作る。","フランシス・ベーコン","Francis Bacon","教育"],
+["無知は力なり。——知らないことを知ることは最高の教養である。","ジョン・ロック","John Locke","教育"],
+["教育の目的は、良い人間を育てることであり、有用な人間を育てることではない。","カント","Kant","教育"],
+["本当に知的な人間は、自分の知識の限界を知っている人間である。","ソクラテス","Socrates","教育"],
+["少年老い易く学成り難し、一寸の光陰軽んずべからず。","朱熹","Zhu Xi","教育"],
+["論語読みの論語知らず。","日本のことわざ","Japanese proverb","教育"],
+["習うより慣れよ。","日本のことわざ","Japanese proverb","教育"],
+["百聞は一見に如かず。","漢書","Chinese classic","教育"],
+["教育の究極の目的は、自ら問いを立てる人間を育てることである。","ニール・ポストマン","Neil Postman","教育"],
+["教育とは他者の経験を自己のものにする技術である。","ヘルバルト","Herbart","教育"],
+["学ぶとは自分自身を変えることである。","パウロ・フレイレ","Paulo Freire","教育"],
+["沈黙の文化を打ち破れ。教育は対話である。","パウロ・フレイレ","Paulo Freire","教育"],
+["好奇心は知識への情熱の始まりである。","レオナルド・ダ・ヴィンチ","Leonardo da Vinci","教育"],
+["自由とは、他者に迷惑をかけないすべてのことをなしうることにある。","人権宣言","Declaration of Rights","自由"],
+["自由か死か。","パトリック・ヘンリー","Patrick Henry","自由"],
+["自由のない秩序は専制であり、秩序のない自由は無政府状態である。","ルソー","Rousseau","自由"],
+["思想の自由は、すべての自由の母である。","ヴォルテール","Voltaire","自由"],
+["あなたの意見に反対だが、あなたがそれを言う権利は命をかけて守る。","ヴォルテール","Voltaire","自由"],
+["自由は責任を意味する。だから多くの人がそれを恐れる。","バーナード・ショー","Shaw","自由"],
+["鉄格子のない牢獄は、最も堅固な牢獄である。","ハクスリー","Huxley","自由"],
+["自由を得るためには、自由に値する人間にならねばならない。","ヘーゲル","Hegel","自由"],
+["解放とは、鎖を外すことだけでなく、解放された人生を送ることだ。","マンデラ","Mandela","自由"],
+["自由であるとは、自分の意志で選択できるということだ。","サルトル","Sartre","自由"],
+["自由とは必然性の洞察である。","エンゲルス","Engels","自由"],
+["真の自由とは、為すべきことを為すことであって、為したいことを為すことではない。","モンテスキュー","Montesquieu","自由"],
+["あなたの自由は、他者の自由が始まるところで終わる。","ローマ法格言","Roman maxim","自由"],
+["自由の木は時として暴君と愛国者の血で潤されねばならない。","ジェファーソン","Jefferson","自由"],
+["沈黙していることは、同意と見なされる。","ラテン語格言","Latin maxim","自由"],
+["自由であることは苦しい。しかし自由でないことはもっと苦しい。","キェルケゴール","Kierkegaard","自由"],
+["鳥かごから出た鳥は、最初は飛べないことに気づく。","プラトン","Plato","自由"],
+["労働は人間の本質の一部である。ただし、疎外された労働は人間を破壊する。","マルクス","Marx","労働・仕事"],
+["仕事は目に見える愛である。","カリール・ジブラン","Khalil Gibran","労働・仕事"],
+["仕事を愛し、仕事に愛される。それが幸福の秘訣だ。","レオナルド・ダ・ヴィンチ","Leonardo da Vinci","労働・仕事"],
+["唯一の誠実な仕事は、好きな仕事をすることだ。","スティーブ・ジョブズ","Steve Jobs","労働・仕事"],
+["点と点はいつか線でつながる。振り返ったときにしかわからない。","スティーブ・ジョブズ","Steve Jobs","労働・仕事"],
+["ハングリーであれ。愚かであれ。","スティーブ・ジョブズ","Steve Jobs","労働・仕事"],
+["天才とは1%のひらめきと99%の汗である。","エジソン","Edison","労働・仕事"],
+["私は失敗したのではない。うまくいかない方法を一万通り発見したのだ。","エジソン","Edison","労働・仕事"],
+["職人とは、仕事を通じて自分自身を知る者である。","リチャード・セネット","Richard Sennett","労働・仕事"],
+["労働は単なる生存手段ではなく、生きることそのものであるべきだ。","ウィリアム・モリス","William Morris","労働・仕事"],
+["仕事には人間の尊厳がある。どんな仕事であっても。","キング牧師","Martin Luther King Jr.","労働・仕事"],
+["最も重要な仕事は、まだ為されていない仕事である。","ピーター・ドラッカー","Peter Drucker","労働・仕事"],
+["効率とは物事を正しく行うこと。有効性とは正しい物事を行うこと。","ピーター・ドラッカー","Peter Drucker","労働・仕事"],
+["未来を予測する最善の方法は、自ら未来を創造することだ。","ピーター・ドラッカー","Peter Drucker","労働・仕事"],
+["知識労働者にとって重要なのは、何を知っているかではなく、何を学べるかである。","ピーター・ドラッカー","Peter Drucker","労働・仕事"],
+["マネジメントの最大の課題は、人の強みを生かすことだ。","ピーター・ドラッカー","Peter Drucker","労働・仕事"],
+["人は仕事によって自らを表現する。仕事がないことは存在しないことに等しい。","カミュ","Camus","労働・仕事"],
+["百の理論より一の実践。","日本のことわざ","Japanese proverb","労働・仕事"],
+["石の上にも三年。","日本のことわざ","Japanese proverb","労働・仕事"],
+["急がば回れ。","日本のことわざ","Japanese proverb","労働・仕事"],
+["継続は力なり。","日本のことわざ","Japanese proverb","労働・仕事"],
+["一隅を照らす。これ即ち国宝なり。","最澄","Saicho","労働・仕事"],
+["知恵とは経験から抽出された蒸留酒である。","ジョン・ロック","John Locke","知恵"],
+["真の知恵は自分が何も知らないことを知ることに始まる。","ソクラテス","Socrates","知恵"],
+["沈黙は愚者にとっては知恵であり、知者にとっては美徳である。","アラビアのことわざ","Arabic proverb","知恵"],
+["木を植える最良の時期は20年前だった。次に良い時期は今だ。","中国のことわざ","Chinese proverb","知恵"],
+["北風がバイキングを作った。","スカンジナビアのことわざ","Scandinavian proverb","知恵"],
+["困難な道と正しい道は、しばしば同じ道である。","ギリシャのことわざ","Greek proverb","知恵"],
+["もっとゆっくり歩けば、もっと遠くまで行ける。","アフリカのことわざ","African proverb","知恵"],
+["一人で行けば速く行ける。一緒に行けば遠くまで行ける。","アフリカのことわざ","African proverb","知恵"],
+["明日やろうは馬鹿やろう。","日本のことわざ","Japanese proverb","知恵"],
+["七転び八起き。","日本のことわざ","Japanese proverb","知恵"],
+["能ある鷹は爪を隠す。","日本のことわざ","Japanese proverb","知恵"],
+["人の振り見て我が振り直せ。","日本のことわざ","Japanese proverb","知恵"],
+["情けは人のためならず。","日本のことわざ","Japanese proverb","知恵"],
+["塞翁が馬。","中国のことわざ","Chinese proverb","知恵"],
+["知者は水を楽しみ、仁者は山を楽しむ。","孔子","Confucius","知恵"],
+["人間万事塞翁が馬。","淮南子","Huainanzi","知恵"],
+["光あるところに影がある。","ゲーテ","Goethe","知恵"],
+["ゆっくりと急げ。","アウグストゥス","Augustus","知恵"],
+["簡素な生活、高い理想。","ガンジー","Gandhi","知恵"],
+["正直は最善の策である。","ベンジャミン・フランクリン","Benjamin Franklin","知恵"],
+["早起きは健康と富と知恵をもたらす。","ベンジャミン・フランクリン","Benjamin Franklin","知恵"],
+["失敗は成功の母である。","日本のことわざ","Japanese proverb","知恵"],
+["雨垂れ石を穿つ。","日本のことわざ","Japanese proverb","知恵"],
+["門前の小僧習わぬ経を読む。","日本のことわざ","Japanese proverb","知恵"],
+["残り物には福がある。","日本のことわざ","Japanese proverb","知恵"],
+["蛙の子は蛙。されど蛙の目は宇宙を映す。","日本のことわざ","Japanese proverb","知恵"],
+["時は金なりと言うが、時は金以上のものだ。","ベンジャミン・フランクリン","Benjamin Franklin","時間"],
+["現在という時を生きよ。過去も未来も幻にすぎない。","マルクス・アウレリウス","Marcus Aurelius","時間"],
+["失われた時を求めて。","プルースト","Proust","時間"],
+["時間は人間の最も貴重な財産であるが、最も粗末に扱われている。","セネカ","Seneca","時間"],
+["我々に与えられた時間は短い。しかし我々がそれを浪費するとき、その短さは無限になる。","セネカ","Seneca","時間"],
+["時を待て。だが無為に待つな。","ベンジャミン・フランクリン","Benjamin Franklin","時間"],
+["今この瞬間以外に人間が持っているものはない。","マルクス・アウレリウス","Marcus Aurelius","時間"],
+["時間は最も偉大な教師だが、残念ながらすべての生徒を殺す。","ベルリオーズ","Berlioz","時間"],
+["昨日から学び、今日を生き、明日へ希望を持て。","アインシュタイン","Einstein","時間"],
+["永遠とは退屈なものだろう。特に終わり近くは。","ウディ・アレン","Woody Allen","時間"],
+["時は二度と戻らない。だから一瞬一瞬を大切にせよ。","ホラティウス","Horace","時間"],
+["カルペ・ディエム。今日を掴め。","ホラティウス","Horace","時間"],
+["過ぎ去った時間に価値はないが、過ぎ去った時間に学んだことには価値がある。","孔子","Confucius","時間"],
+["時間の使い方は生命の使い方である。","アラン","Alain","時間"],
+["すべてには時がある。生まれる時、死ぬ時、植える時、抜く時。","コヘレトの言葉","Ecclesiastes","時間"],
+["明日ありと思う心の仇桜。","親鸞","Shinran","時間"],
+["光陰矢の如し。","日本のことわざ","Japanese proverb","時間"],
+["時は流れない。それは積もる。","寺田寅彦","Terada Torahiko","時間"],
+["勇気とは恐怖がないことではなく、恐怖に打ち勝つことだ。","マンデラ","Mandela","勇気"],
+["勇気ある者は一度しか死なないが、臆病者は毎日死んでいる。","シェイクスピア","Shakespeare","勇気"],
+["成功とは失敗から失敗へと、情熱を失わずに進むことだ。","チャーチル","Churchill","勇気"],
+["我々が恐れなければならないのは、恐怖そのものだけである。","ルーズベルト","Roosevelt","勇気"],
+["やってみせ、言って聞かせて、させてみせ、ほめてやらねば、人は動かじ。","山本五十六","Yamamoto Isoroku","勇気"],
+["踏み出す勇気さえあれば、道は必ず開ける。","ヘレン・ケラー","Helen Keller","勇気"],
+["世界で最も美しいものは、目に見えず手で触れることもできない。心で感じなければならない。","ヘレン・ケラー","Helen Keller","勇気"],
+["人生は大胆な冒険か、何でもないかのいずれかだ。","ヘレン・ケラー","Helen Keller","勇気"],
+["転んだら起き上がればいい。何度でも。","日本のことわざ","Japanese proverb","勇気"],
+["虎穴に入らずんば虎子を得ず。","班超","Ban Chao","勇気"],
+["始めることが、半分終えることだ。","ホラティウス","Horace","勇気"],
+["困難は避けるべきものではなく、乗り越えるべきものだ。","エピクテトス","Epictetus","勇気"],
+["窮すれば変ず、変ずれば通ず。","易経","I Ching","勇気"],
+["退路を断て。前に進むしかない状況こそが最大の力を生む。","孫子","Sun Tzu","勇気"],
+["最も暗い夜も、必ず明けるのだ。","シェイクスピア","Shakespeare","勇気"],
+["克己復礼。自らに克ち、礼に復る。","孔子","Confucius","勇気"],
+["夜と霧の中でも、人間の尊厳は失われない。","フランクル","Viktor Frankl","勇気"],
+["大海を泳ぐには、岸が見えなくなる勇気が必要だ。","クリストファー・コロンブス","Columbus","勇気"],
+["はじめに言葉ありき。","ヨハネ福音書","Gospel of John","言葉・沈黙"],
+["言葉は銀、沈黙は金。","西洋のことわざ","Western proverb","言葉・沈黙"],
+["言葉にできないことは、沈黙で語れ。","禅語","Zen proverb","言葉・沈黙"],
+["ペンは剣よりも強し。","リットン","Bulwer-Lytton","言葉・沈黙"],
+["適切な言葉と、ほぼ適切な言葉の違いは、雷と蛍の違いだ。","マーク・トウェイン","Mark Twain","言葉・沈黙"],
+["噂は走る。真実は歩く。","英語のことわざ","English proverb","言葉・沈黙"],
+["話すことは知識の領域、聞くことは知恵の特権。","オリヴァー・ウェンデル・ホームズ","Holmes","言葉・沈黙"],
+["沈黙の中にこそ最も深い真実がある。","老子","Laozi","言葉・沈黙"],
+["言葉は思考の衣服である。","ジョンソン","Samuel Johnson","言葉・沈黙"],
+["言い過ぎは言わな過ぎと同じくらい悪い。","孔子","Confucius","言葉・沈黙"],
+["口は禍の門。","日本のことわざ","Japanese proverb","言葉・沈黙"],
+["一言よく人を生かし、一言よく人を殺す。","日本のことわざ","Japanese proverb","言葉・沈黙"],
+["言い尽くせないことは、書き尽くせない。書き尽くせないことは、沈黙が語る。","荘子","Zhuangzi","言葉・沈黙"],
+["美辞麗句より、静かな行動を。","セネカ","Seneca","言葉・沈黙"],
+["以心伝心。","禅語","Zen proverb","言葉・沈黙"],
+["拈華微笑。","禅語","Zen proverb","言葉・沈黙"],
+["人間は考える葦であるが、宇宙よりも高貴である。なぜなら宇宙は考えないからだ。","パスカル","Pascal","人間"],
+["人間とは、自分が何者であるかを知らない唯一の動物である。","エルンスト・カッシーラー","Ernst Cassirer","人間"],
+["人間とは、習慣の束である。","ウィリアム・ジェイムズ","William James","人間"],
+["人間の偉大さは、考える力にある。","パスカル","Pascal","人間"],
+["人間は悩む葦であるが、それこそが人間の尊厳である。","パスカル","Pascal","人間"],
+["人間は道具を使う動物である。","フランクリン","Benjamin Franklin","人間"],
+["人間は象徴を使う動物である。","エルンスト・カッシーラー","Ernst Cassirer","人間"],
+["人間は時間の中に投げ込まれた存在である。","ハイデガー","Heidegger","人間"],
+["人間の条件。労働し、仕事をし、活動する。","ハンナ・アーレント","Hannah Arendt","人間"],
+["悪の凡庸さ。悪は怪物の所業ではなく、普通の人間の無思考の結果である。","ハンナ・アーレント","Hannah Arendt","人間"],
+["思考の欠如が最も恐ろしい悪を生む。","ハンナ・アーレント","Hannah Arendt","人間"],
+["人間は橋であって目的ではない。超えられるべきものなのだ。","ニーチェ","Nietzsche","人間"],
+["人間は未完成な動物である。だから文化を創る。","ゲーレン","Arnold Gehlen","人間"],
+["笑いは人間に残された最後の自由である。","チャップリン","Chaplin","人間"],
+["人間は善でも悪でもない。環境がそれを決める。","ロバート・オウエン","Robert Owen","人間"],
+["人間とは、自らの限界を超えようとする存在である。","ヤスパース","Jaspers","人間"],
+["人間は自然の中で最も弱い一本の葦にすぎない。しかしそれは考える葦である。","パスカル","Pascal","人間"],
+["人間だけが赤面する。あるいは赤面する必要がある唯一の動物である。","マーク・トウェイン","Mark Twain","人間"],
+["自然は最良の教師である。","レオナルド・ダ・ヴィンチ","Leonardo da Vinci","自然・環境"],
+["自然の中に出よ。そこにすべての答えがある。","エマーソン","Emerson","自然・環境"],
+["森の中の二つの道。私は人が少ない方の道を選んだ。そのことが全てを変えた。","ロバート・フロスト","Robert Frost","自然・環境"],
+["地球は先祖から受け継いだものではなく、子孫から借りているものだ。","ネイティブ・アメリカンのことわざ","Native American proverb","自然・環境"],
+["我々は地球を子供たちから借りている。","レスター・ブラウン","Lester Brown","自然・環境"],
+["山に登る理由は、そこに山があるからだ。","マロリー","George Mallory","自然・環境"],
+["花鳥風月。自然の美に心を寄せよ。","日本の美学","Japanese aesthetics","自然・環境"],
+["自然は急がない。けれどすべてを成し遂げる。","老子","Laozi","自然・環境"],
+["一花一世界、一葉一如来。","華厳経","Avatamsaka Sutra","自然・環境"],
+["天地は万物の逆旅にして、光陰は百代の過客なり。","李白","Li Bai","自然・環境"],
+["我々がこの惑星で直面している問題は、技術的な問題ではなく、精神的な問題である。","シューマッハー","Schumacher","自然・環境"],
+["スモール・イズ・ビューティフル。小さいことは美しい。","シューマッハー","Schumacher","自然・環境"],
+["持続不可能なものは持続しない。","ハーマン・デイリー","Herman Daly","自然・環境"],
+["沈黙の春。自然は声を上げている。","レイチェル・カーソン","Rachel Carson","自然・環境"],
+["驚く力を失わない限り、自然は語り続ける。","レイチェル・カーソン","Rachel Carson","自然・環境"],
+["天と地の間に、人がいる。","中国思想","Chinese thought","自然・環境"],
+["山川草木悉皆成仏。","日本仏教","Japanese Buddhism","自然・環境"],
+["月を指すとき、愚者は指を見る。","禅語","Zen proverb","自然・環境"],
+["変わらないのは変わるということだけだ。","ヘラクレイトス","Heraclitus","変化"],
+["強い者が生き残るのではない。変化に適応できる者が生き残る。","ダーウィン","Darwin","変化"],
+["破壊なくして創造はない。","バクーニン","Bakunin","変化"],
+["すべては二度作られる。まず心の中で、次に現実の中で。","コヴィー","Stephen Covey","変化"],
+["変化を望むなら、あなた自身がその変化となれ。","ガンジー","Gandhi","変化"],
+["古きを温ね、新しきを知る。","孔子","Confucius","変化"],
+["革命は一日にしてならず。","レーニン","Lenin","変化"],
+["唯一の恒常は変化である。","ヘラクレイトス","Heraclitus","変化"],
+["種まきの時に収穫を考える者はいない。しかし種がなければ収穫もない。","中国のことわざ","Chinese proverb","変化"],
+["10年後にあなたの人生で最も重要だったのは、今日の決断だ。","ピーター・ドラッカー","Peter Drucker","変化"],
+["最初の一歩を踏み出せ。階段全体が見えなくてもいい。","キング牧師","Martin Luther King Jr.","変化"],
+["進歩とは、変化を恐れない者だけに与えられる特権である。","ジョン・F・ケネディ","JFK","変化"],
+["私たちは風を変えることはできないが、帆を調整することはできる。","ドリー・パートン","Dolly Parton","変化"],
+["何かを変えたければ、まず自分から変わりなさい。","ガンジー","Gandhi","変化"],
+["困難の最中にこそ、機会は生まれる。","アインシュタイン","Einstein","変化"],
+["止まっているように見えるものも、実は絶えず変化している。","道元","Dogen","変化"],
+["正義とは各人に彼のものを帰すことである。","ウルピアヌス","Ulpian","社会・正義"],
+["無関心は善と悪の間の最大の敵である。","エリ・ヴィーゼル","Elie Wiesel","社会・正義"],
+["中立は抑圧者の側に立つことだ。","エリ・ヴィーゼル","Elie Wiesel","社会・正義"],
+["社会の偉大さは、最も弱い者への対応で測られる。","ガンジー","Gandhi","社会・正義"],
+["一人の人間の人権が脅かされる場所では、すべての人間の人権が脅かされる。","JFK","JFK","社会・正義"],
+["沈黙は共犯である。","マーティン・ルーサー・キング","Martin Luther King Jr.","社会・正義"],
+["世界を変えたいなら、まず食卓から始めよ。","アリス・ウォータース","Alice Waters","社会・正義"],
+["魚は腐るとき頭から腐る。","ギリシャのことわざ","Greek proverb","社会・正義"],
+["最善の政府は最少の統治をする政府である。","ソロー","Thoreau","社会・正義"],
+["公正な法の下では、すべての声に価値がある。","アマルティア・セン","Amartya Sen","社会・正義"],
+["万人の万人に対する闘い。","ホッブズ","Hobbes","社会・正義"],
+["社会契約。個人の自由を守るために社会が存在する。","ルソー","Rousseau","社会・正義"],
+["法の前に皆平等。しかし法の後ろでは誰が平等か。","アナトール・フランス","Anatole France","社会・正義"],
+["自分でやろうとしよう。","虚実","KYOJITSU","虚実語録"],
+["問いを売ることが我々の事業である。答えは品切れです。","虚実","KYOJITSU","虚実語録"],
+["意味がないのに重厚長大。それが虚実の本質である。","虚実","KYOJITSU","虚実語録"],
+["概念化は昇格である。交通費が不要になる。","虚実","KYOJITSU","虚実語録"],
+["右肩あがり。何が上がっているかは問わない。","虚実","KYOJITSU","虚実語録"],
+["このホームページを見た人は、見なかった人と同じだけの情報を得る。","虚実","KYOJITSU","虚実語録"],
+["沈黙のコンサルティング。助言の不在をお届けします。","虚実","KYOJITSU","虚実語録"],
+["喝！！","虚実","KYOJITSU","虚実語録"],
+["坐れ。それだけが、我々にできることのすべてだ。","虚実","KYOJITSU","虚実語録"],
+["自灯明。自らを灯火とすること。","虚実","KYOJITSU","虚実語録"],
+["問いに対して安易に答えようとする行為は禁止されています。","虚実","KYOJITSU","虚実語録"],
+["問いは返品できません。聞いた問いを聞かなかったことにすることは形而上学的に不可能です。","虚実","KYOJITSU","虚実語録"],
+["克己と利他。自らに克ち、他者のために灯る。","虚実","KYOJITSU","虚実語録"],
+["人類のために、人類に協力し、人類という手段で、人類と共存する。","虚実","KYOJITSU","虚実語録"],
+["色々ある。それでもやろう。","虚実","KYOJITSU","虚実語録"],
+["困ることなんかないですよ。概念化してしまえば。","有形 無形子","KYOJITSU","虚実語録"],
+["なぜ困っていると思うのですか？","問売 右肩","KYOJITSU","虚実語録"],
+["…………","黙然 座太","KYOJITSU","虚実語録"],
+["問いとは何か。それが問いだ。そしてその問いもまた問いだ。","問答 無用太","KYOJITSU","虚実語録"],
+["バグを見つけました。ただし再現性はありません。","仮想 現実郎","KYOJITSU","虚実語録"],
+["考えるな、感じろ。","ブルース・リー","Bruce Lee","哲学"],
+["水のようになれ。水はコップに入ればコップの形になる。","ブルース・リー","Bruce Lee","東洋思想"],
+["流れを止めるな。停滞は死だ。","ブルース・リー","Bruce Lee","東洋思想"],
+["私は一万種類の蹴りを一回ずつ練習した者を恐れない。一つの蹴りを一万回練習した者を恐れる。","ブルース・リー","Bruce Lee","勇気"],
+["シンプルであることは、複雑であることよりも難しい。","スティーブ・ジョブズ","Steve Jobs","知恵"],
+["飢えたままでいろ。愚かなままでいろ。","スティーブ・ジョブズ","Steve Jobs","変化"],
+["死は生のもっとも偉大な発明だ。","スティーブ・ジョブズ","Steve Jobs","生と死"],
+["世界を変えられると信じるほど狂った人たちが、本当に世界を変えるのだ。","スティーブ・ジョブズ","Steve Jobs","変化"],
+["真の賢者は自分が知らないことを知っている。","タレス","Thales","哲学"],
+["万物の根源は水である。","タレス","Thales","科学"],
+["原子と空虚のみが実在する。","デモクリトス","Democritus","哲学"],
+["笑って生きるほうがよい。","デモクリトス","Democritus","知恵"],
+["万物は数である。","ピタゴラス","Pythagoras","科学"],
+["音楽は数の調和である。","ピタゴラス","Pythagoras","芸術"],
+["存在するものは何でも、存在しないものと同じだけ存在する。","パルメニデス","Parmenides","哲学"],
+["快楽こそが善の本質である。","エピクロス","Epicurus","哲学"],
+["死は我々にとって何でもない。我々が存在する限り死は存在せず、死が存在する限り我々は存在しない。","エピクロス","Epicurus","生と死"],
+["隠れて生きよ。","エピクロス","Epicurus","知恵"],
+["友情のない人生は太陽のない人生だ。","エピクロス","Epicurus","愛"],
+["必要なものは少ない。欲望が多くを要求するだけだ。","エピクロス","Epicurus","知恵"],
+["最も偉大な征服は、自己の征服である。","プラトン","Plato","勇気"],
+["正義の人は寡黙であるが、不正な人は饒舌である。","プラトン","Plato","言葉・沈黙"],
+["善き統治者は、統治されることを学んだ者である。","プラトン","Plato","政治・法"],
+["身体の運動は精神に活力を与える。","キケロ","Cicero","知恵"],
+["歴史は人生の教師である。","キケロ","Cicero","教育"],
+["友を得るには、まず友であれ。","エマーソン","Emerson","愛"],
+["自己信頼こそが成功の秘訣だ。","エマーソン","Emerson","勇気"],
+["非凡に行動する必要はない。ただ凡事を非凡に行えばよい。","エマーソン","Emerson","労働・仕事"],
+["偉大な人物は常に少数派だ。","エマーソン","Emerson","人間"],
+["今日を生きられるのは今日だけだ。","エマーソン","Emerson","時間"],
+["幸福は蝶のようなもの。追いかけると逃げていくが、静かに座っていると肩に止まる。","ソロー","Thoreau","知恵"],
+["世の中で最も豊かな人間は、最も少ない欲求を持つ人間だ。","ソロー","Thoreau","知恵"],
+["森に行ったのは、意図的に生きるためだった。","ソロー","Thoreau","自由"],
+["ほとんどの人間は、静かな絶望の中で生きている。","ソロー","Thoreau","人間"],
+["本を読むのに必要な訓練は、人生を送るのに必要な訓練と同じだ。","ソロー","Thoreau","教育"],
+["群衆の中を一人で歩くことが、真の孤独である。","ボードレール","Baudelaire","人間"],
+["芸術のための芸術。","テオフィル・ゴーティエ","Gautier","芸術"],
+["文学は、告白しうるものの芸術である。","サルトル","Sartre","文学"],
+["書くことは、内なる声に耳を傾けることだ。","ナタリー・ゴールドバーグ","Goldberg","文学"],
+["世界は一冊の本であり、旅をしない者は最初のページしか読んでいない。","アウグスティヌス","Augustine","知恵"],
+["希望は羽のあるもの。魂にとまり、言葉なき歌をうたう。","エミリ・ディキンソン","Emily Dickinson","文学"],
+["私は小さい。しかし私は全体だ。","エミリ・ディキンソン","Emily Dickinson","人間"],
+["真実を語れ。ただし斜めに語れ。","エミリ・ディキンソン","Emily Dickinson","言葉・沈黙"],
+["我々は光を知るために闇を知らねばならない。","マイスター・エックハルト","Meister Eckhart","禅・仏教"],
+["神が存在する唯一の場所は今この瞬間だ。","マイスター・エックハルト","Meister Eckhart","禅・仏教"],
+["手放すことを学べ。それが幸福への鍵だ。","マイスター・エックハルト","Meister Eckhart","禅・仏教"],
+["行動しない善は善ではない。","テレサ・アビラ","Teresa of Avila","知恵"],
+["完璧を求めるな。進歩を求めよ。","孔子","Confucius","変化"],
+["私たちの人生は、私たちの思考によって作られる。","マルクス・アウレリウス","Marcus Aurelius","ストア派"],
+["強くあれ。しかし優しくあれ。","マルクス・アウレリウス","Marcus Aurelius","ストア派"],
+["欲しいものを手に入れるか、欲しいものを変えるか。どちらかだ。","エピクテトス","Epictetus","ストア派"],
+["他者を裁くな。自分自身を裁くことのほうが難しい。","サン＝テグジュペリ","Saint-Exupéry","知恵"],
+["人生は、近くで見ると悲劇だが、遠くから見ると喜劇だ。","チャップリン","Chaplin","生と死"],
+["一日一日が新しい人生だと思え。","セネカ","Seneca","時間"],
+["幸福とは旅の仕方であって、目的地ではない。","ロイ・グッドマン","Roy Goodman","知恵"],
+["今いる場所から始めよ。持っているものを使え。できることをやれ。","アーサー・アッシュ","Arthur Ashe","勇気"],
+["心を変えれば態度が変わる。態度が変われば行動が変わる。行動が変われば習慣が変わる。","ウィリアム・ジェイムズ","William James","心理学"],
+["真の発見の旅は、新しい風景を探すことではなく、新しい目を持つことにある。","プルースト","Proust","知恵"],
+["苦悩から逃げるな。苦悩を通り抜けよ。","カール・ロジャーズ","Carl Rogers","心理学"],
+["人生で最も重要なことは、人生で最も重要なことを、最も重要なこととして保つことだ。","コヴィー","Stephen Covey","知恵"],
+["物事を単純にしなさい。そうすれば偉大になれる。","孔子","Confucius","知恵"],
+["最も深い言葉は、最も単純な言葉である。","ヘミングウェイ","Hemingway","文学"],
+["真実を書け。ただし美しく書け。","ヘミングウェイ","Hemingway","文学"],
+["逆境こそが天才を作る。","ホラティウス","Horace","勇気"],
+["忍耐は苦い。しかしその実は甘い。","ルソー","Rousseau","勇気"],
+["静けさの中で偉大な仕事は生まれる。","トーマス・カーライル","Carlyle","労働・仕事"],
+["何を持っているかではなく、何を与えるかが大切だ。","ヘンリー・ウォード・ビーチャー","Beecher","愛"],
+["笑顔は最も短い距離を結ぶコミュニケーションだ。","チャーリー・チャップリン","Chaplin","愛"],
+["必要なのは勇気ではなく、覚悟だ。","日本のことわざ","Japanese proverb","勇気"],
+["善は急げ。","日本のことわざ","Japanese proverb","知恵"],
+["案ずるより産むが易し。","日本のことわざ","Japanese proverb","勇気"],
+["聞くは一時の恥、聞かぬは一生の恥。","日本のことわざ","Japanese proverb","教育"],
+["己を責めて人を責めるな。","徳川家康","Tokugawa Ieyasu","東洋思想"],
+["人の一生は重荷を負うて遠き道を行くが如し。急ぐべからず。","徳川家康","Tokugawa Ieyasu","東洋思想"],
+["勝つことばかり知りて、負くることを知らざれば害その身にいたる。","徳川家康","Tokugawa Ieyasu","東洋思想"],
+["鳴かぬなら鳴くまで待とう時鳥。","徳川家康","Tokugawa Ieyasu","知恵"],
+["天下は天下の天下なり。","徳川家康","Tokugawa Ieyasu","政治・法"],
+["不自由を常と思えば不足なし。","徳川家康","Tokugawa Ieyasu","ストア派"],
+["見ざる、聞かざる、言わざる。しかし、考えることはやめるな。","日本の知恵","Japanese wisdom","知恵"],
+["花は盛りに、月は隈なきをのみ見るものかは。","兼好法師","Kenko","芸術"],
+["つれづれなるままに、日暮らし硯に向かひて。","兼好法師","Kenko","文学"],
+["先んずれば人を制す。","日本のことわざ","Japanese proverb","勇気"],
+["和光同塵。光を和らげ塵に同ず。","老子","Laozi","東洋思想"],
+["大道廃れて仁義あり。","老子","Laozi","東洋思想"],
+["天地不仁、万物を芻狗となす。","老子","Laozi","東洋思想"],
+["大巧は拙なるが如し。","老子","Laozi","芸術"],
+["其の雄を知りて其の雌を守る。","老子","Laozi","東洋思想"],
+["有を以て利と為し、無を以て用と為す。","老子","Laozi","東洋思想"],
+["器の中の空虚が、器を器たらしめる。","老子","Laozi","哲学"],
+["朋あり遠方より来たる、また楽しからずや。","孔子","Confucius","愛"],
+["義を見てせざるは勇なきなり。","孔子","Confucius","勇気"],
+["徳は孤ならず、必ず隣あり。","孔子","Confucius","知恵"],
+["子曰く、吾十有五にして学に志す。三十にして立つ。四十にして惑わず。","孔子","Confucius","人間"],
+["巧言令色鮮なし仁。","孔子","Confucius","言葉・沈黙"],
+["ファウストよ、この瞬間に向かって言え。止まれ、お前は美しいと。","ゲーテ","Goethe","文学"],
+["涙とともにパンを食べた者でなければ、人生の本当の味はわからない。","ゲーテ","Goethe","生と死"],
+["人間は努力する限り迷うものだ。","ゲーテ","Goethe","人間"],
+["行動する人間にのみ、世界は応える。","ゲーテ","Goethe","勇気"],
+["才能は静けさの中で育ち、性格は世の荒波の中で育つ。","ゲーテ","Goethe","教育"],
+["自分自身を信じろ。そうすれば生き方がわかる。","ゲーテ","Goethe","知恵"],
+["人は自分が幸福であることを知らないから不幸なのである。","ドストエフスキー","Dostoevsky","知恵"],
+["地下室の手記。私は病んだ人間だ。私は意地の悪い人間だ。","ドストエフスキー","Dostoevsky","文学"],
+["もし神が存在しなければ、すべてが許される。","ドストエフスキー","Dostoevsky","哲学"],
+["秘密は人を結びつける。共有された秘密は最も強い絆となる。","ドストエフスキー","Dostoevsky","愛"],
+["白痴とは、純粋な善人のことだ。","ドストエフスキー","Dostoevsky","文学"],
+["存在が意識を決定する。しかし意識もまた存在を変えうる。","マルクス","Marx","経済・社会"],
+["批判の武器は武器の批判に取って代わることはできない。","マルクス","Marx","経済・社会"],
+["労働者には祖国がない。","マルクス","Marx","経済・社会"],
+["量は質に転化する。","エンゲルス","Engels","哲学"],
+["理論は灰色だが、生命の黄金の木は緑なり。","ゲーテ","Goethe","知恵"],
+["われ思う、ゆえにわれ迷う。","虚実","KYOJITSU","虚実語録"],
+["答えが見つからないのではない。問いが足りないのだ。","虚実","KYOJITSU","虚実語録"],
+["名言とは、引用する者の怠惰の証明である。——しかし怠惰にも美がある。","虚実","KYOJITSU","虚実語録"],
+["この1000の言葉は、沈黙ひとつに敵わない。","虚実","KYOJITSU","虚実語録"],
+["1000の名言を読んだあなたへ。自分でやろうとしよう。","虚実","KYOJITSU","虚実語録"],
+["何事も成功するまでは不可能に見える。","マンデラ","Mandela","勇気"],
+["許すことは強さの証だ。しかし忘れることは愚かさの証だ。","ガンジー","Gandhi","知恵"],
+["正直な意見の不一致は、進歩の良い兆候だ。","ガンジー","Gandhi","変化"],
+["信仰は行動に表れなければ死んだも同然だ。","ガンジー","Gandhi","労働・仕事"],
+["あなたの行動が最も雄弁なメッセージだ。","ガンジー","Gandhi","勇気"],
+["力には二種類ある。一つは罰の恐怖による力、もう一つは愛による力だ。","ガンジー","Gandhi","愛"],
+["思考が言葉を生み、言葉が行動を生み、行動が習慣を生み、習慣が人格を生み、人格が運命を生む。","ガンジー","Gandhi","人間"],
+["知ることが少ないのは危険だが、知りすぎることもまた危険だ。","アインシュタイン","Einstein","知恵"],
+["世界は危険なところだ。悪を行う人間のためではなく、それを傍観する人間のために。","アインシュタイン","Einstein","社会・正義"],
+["論理はAからBへ連れていく。想像力はどこへでも連れていく。","アインシュタイン","Einstein","科学"],
+["すべてはできる限り単純にすべきだ。しかし必要以上に単純にしてはならない。","アインシュタイン","Einstein","知恵"],
+["同じ目標に向かう二人の人間は、互いの孤独を和らげる。","ハイゼンベルク","Heisenberg","愛"],
+["科学とは常識を組織化したものにすぎない。","トマス・ハクスリー","Huxley","科学"],
+["最も驚くべき発見は、まだ為されていない発見だ。","アーサー・C・クラーク","Clarke","科学"],
+["技術は便利さを与えるが、幸福を保証しない。","ニール・ポストマン","Neil Postman","科学"],
+["進化とは、安定した不均衡の状態である。","スチュアート・カウフマン","Kauffman","科学"],
+["複雑系の端にこそ、創造性は宿る。","スチュアート・カウフマン","Kauffman","科学"],
+["好きなことを見つけろ。そして見つけたら、それを仕事にするな。それを人生にしろ。","チャールズ・ブコウスキー","Bukowski","文学"],
+["芸術は世界を救わないが、世界に生きる理由を与える。","カミュ","Camus","芸術"],
+["この世で一番大事なことは、自分がどこにいるかを知ることだ。","宮沢賢治","Miyazawa Kenji","知恵"],
+["ほんとうにどんなつらいことでも、それがただしいみちを進む中でのできごとなら、とうげの上りも下りもみんなほんとうの幸福に近づく。","宮沢賢治","Miyazawa Kenji","勇気"],
+["誰だって、ほんとうにいいことをしたら、いちばん幸なんだねえ。","宮沢賢治","Miyazawa Kenji","愛"],
+["生まれ変わったら何になりたいか。まだ死んでもいないのに。","禅語","Zen proverb","禅・仏教"],
+["百尺竿頭に一歩を進む。","禅語","Zen proverb","禅・仏教"],
+["無門関。門なき門をくぐれ。","無門慧開","Wumen Huikai","禅・仏教"],
+["啐啄同時。殻を破る雛と、それを助ける親鳥の、同時の一撃。","禅語","Zen proverb","禅・仏教"],
+["白隠禅師坐禅和讃。衆生本来仏なり。","白隠","Hakuin","禅・仏教"],
+["隻手の声を聞け。","白隠","Hakuin","禅・仏教"],
+["大疑あれば大悟あり。","禅語","Zen proverb","禅・仏教"],
+["明珠在掌。宝はすでにあなたの手の中にある。","禅語","Zen proverb","禅・仏教"],
+["主人公。お前はどこにいる。","禅語","Zen proverb","禅・仏教"],
+["回光返照。光を回して自らを照らせ。","禅語","Zen proverb","禅・仏教"],
+["両忘。善も悪も、生も死も忘れよ。","禅語","Zen proverb","禅・仏教"],
+["茶禅一味。","千利休","Sen no Rikyu","禅・仏教"],
+["書を捨てよ、町へ出よう。","寺山修司","Terayama Shuji","文学"],
+["青い空を、白い雲が歩いてゆく。","種田山頭火","Taneda Santoka","文学"],
+["分け入っても分け入っても青い山。","種田山頭火","Taneda Santoka","文学"],
+["どうしようもない私が歩いている。","種田山頭火","Taneda Santoka","人間"],
+["咳をしても一人。","尾崎放哉","Ozaki Hosai","文学"],
+["春の海ひねもすのたりのたりかな。","与謝蕪村","Yosa Buson","自然・環境"],
+["やせ蛙まけるな一茶これにあり。","小林一茶","Kobayashi Issa","勇気"],
+["露の世は露の世ながらさりながら。","小林一茶","Kobayashi Issa","生と死"],
+["おらが春。","小林一茶","Kobayashi Issa","自然・環境"],
+["すべて偉大なものは、嵐の中で生まれる。","ロマン・ロラン","Romain Rolland","勇気"],
+["英雄とは、自分のできることをした者だ。","ロマン・ロラン","Romain Rolland","勇気"],
+["音楽は理由なく存在する。それ自体で完結している。","ドビュッシー","Debussy","芸術"],
+["芸術とは目に見えるものを再現するのではなく、目に見えないものを見えるようにすることだ。","パウル・クレー","Paul Klee","芸術"],
+["ひとつの石を積むことから大聖堂は始まる。","日本のことわざ","Japanese proverb","労働・仕事"],
+["器量は知恵の器である。","日本のことわざ","Japanese proverb","知恵"],
+["風流は寒きものなり。","松永貞徳","Matsunaga Teitoku","芸術"],
+["文は人なり。","ビュフォン","Buffon","文学"],
+["人間は政治的動物である。","アリストテレス","Aristotle","政治・法"],
+["幸福は自己充足の中にある。","アリストテレス","Aristotle","知恵"],
+["友情とは二つの身体に宿る一つの魂である。","アリストテレス","Aristotle","愛"],
+["中庸こそ最上の徳である。","アリストテレス","Aristotle","知恵"],
+["教育は最善の備えである。老年のために。","アリストテレス","Aristotle","教育"],
+["希望とは覚醒した者の夢である。","アリストテレス","Aristotle","勇気"],
+["受け入れることが変化の前提条件である。","カール・ロジャーズ","Carl Rogers","心理学"],
+["人は誰でも、その内側に太陽を持っている。それを輝かせればいい。","ソクラテス","Socrates","人間"],
+["問うことをやめたとき、人間は老いる。","アインシュタイン","Einstein","教育"],
+["宇宙を動かしているのは引力ではない。愛だ。","トルストイ","Tolstoy","愛"],
+["朝のこない夜はない。","シェイクスピア","Shakespeare","勇気"],
+["あるがままの自分を受け入れよ。そしてあるべき自分を目指せ。","ティリッヒ","Paul Tillich","哲学"],
+["存在する勇気。","ティリッヒ","Paul Tillich","哲学"],
+["人間は遊ぶ存在である。","ホイジンガ","Huizinga","人間"],
+["遊びは文化に先行する。","ホイジンガ","Huizinga","人間"],
+["真の旅は、見知らぬ土地を訪ねることではなく、新しい目を持つことにある。","プルースト","Proust","変化"],
+["沈黙は同意なり。ただし問いの前の沈黙は智慧なり。","ラテン語格言","Latin maxim","言葉・沈黙"],
+["われわれが見たいと願う世界の変化に、まずわれわれ自身がなろう。","ガンジー","Gandhi","変化"],
+["善い言葉を語れ。さもなくば沈黙せよ。","イスラムの格言","Islamic maxim","言葉・沈黙"],
+["知恵の始めは、知恵を得たいと願うことである。","ソロモン","Solomon","知恵"],
+["あなたの行く道の前を照らすのに十分な光があれば、それ以上は必要ない。","エマーソン","Emerson","勇気"],
+["信じる者には全てが可能だ。しかし疑う者にも全てが可能だ。","虚実","KYOJITSU","虚実語録"],
+["この名言集を最後まで読んだあなたは、読まなかったあなたと同じ人間だ。しかし同時に違う人間でもある。","虚実","KYOJITSU","虚実語録"],
+["ここに1000の灯火がある。しかし自灯明——自らを灯せ。","虚実","KYOJITSU","虚実語録"],
+["問いを集めてどうするのかと問われたら、こう答える。問い返す。","虚実","KYOJITSU","虚実語録"],
+["色々ある。それでもやろう。——そのために、我々は問い続ける。","虚実","KYOJITSU","虚実語録"],
+["喝！！　さあ、画面を閉じて、生きろ。","虚実","KYOJITSU","虚実語録"],
+["無知を恐れるな。偽りの知識を恐れよ。","パスカル","Pascal","知恵"],
+["疑いは知恵の始まりである。","デカルト","Descartes","哲学"],
+["良心は千の証人に値する。","ラテン語格言","Latin maxim","政治・法"],
+["思慮深き者は沈黙の中にありて、多くを語る。","セネカ","Seneca","言葉・沈黙"],
+["大事なことは目に見えない。心の目で見なければ。","サン＝テグジュペリ","Saint-Exupéry","愛"],
+["愛とは互いを見つめ合うことではなく、同じ方向を共に見ることだ。","サン＝テグジュペリ","Saint-Exupéry","愛"],
+["完成とは、付け加えるものがなくなった時ではなく、取り去るものがなくなった時だ。","サン＝テグジュペリ","Saint-Exupéry","芸術"],
+["あなたが飼いならしたものに責任がある。","サン＝テグジュペリ","Saint-Exupéry","愛"],
+["希望とは、道がないところに道を見出す力だ。","ルター","Martin Luther","勇気"],
+["ここに立つ。私にはこれ以外にどうすることもできない。","ルター","Martin Luther","勇気"],
+["たとえ明日世界が滅びるとしても、今日私はりんごの木を植える。","ルター","Martin Luther","勇気"],
+["良い本とは、答えよりも多くの問いを残す本だ。","キング牧師","Martin Luther King Jr.","教育"],
+["暗闇の中でこそ、星は輝く。","キング牧師","Martin Luther King Jr.","勇気"],
+["愛のないところに成功はない。","ガンジー","Gandhi","愛"],
+["あらゆる生命を尊重すること。それが非暴力の本質だ。","ガンジー","Gandhi","自然・環境"],
+["真理は岩のように堅固だ。","ガンジー","Gandhi","知恵"],
+["柔弱は剛強に勝つ。","老子","Laozi","東洋思想"],
+["善く戦う者は怒らず。","老子","Laozi","東洋思想"],
+["太上は下これ有るを知るのみ。","老子","Laozi","政治・法"],
+["功成り名遂げて身退くは、天の道なり。","老子","Laozi","東洋思想"],
+["天は自ら助くる者を助く。","サミュエル・スマイルズ","Samuel Smiles","知恵"],
+["最高の復讐は、うまく生きることだ。","タルムード","Talmud","知恵"],
+["金の卵を産む鶏を殺すな。","イソップ","Aesop","知恵"],
+["北風と太陽。力よりも温もりが人を動かす。","イソップ","Aesop","知恵"],
+["蟻のように働き、蜂のように組織せよ。","ウェルギリウス","Virgil","労働・仕事"],
+["精神の気高さこそが真の貴族性である。","ヘミングウェイ","Hemingway","人間"],
+["一つの明確な文章を書くには、明確な思考が必要だ。","ヘミングウェイ","Hemingway","言葉・沈黙"],
+["氷山の一角。重要なのは水面下にある。","ヘミングウェイ","Hemingway","文学"],
+["世界はすべて舞台だ。そして我々は皆役者にすぎない。","シェイクスピア","Shakespeare","人間"],
+["短い蝋燭よ！人生は歩く影にすぎない。","シェイクスピア","Shakespeare","生と死"],
+["慈悲の心は天から地に降り注ぐ恵みの雨のようだ。","シェイクスピア","Shakespeare","愛"],
+["過去は序曲にすぎない。","シェイクスピア","Shakespeare","変化"],
+["人間は生まれつき善でも悪でもない。教育がすべてを決める。","ロック","John Locke","教育"],
+["精神なき専門人、心情なき享楽人。","ウェーバー","Weber","経済・社会"],
+["理解されるには、まず理解せよ。","コヴィー","Stephen Covey","知恵"],
+["最も大切なことに対して、最も大切でないことの犠牲にならないようにせよ。","ゲーテ","Goethe","時間"],
+["急いでいるときこそ、ゆっくり歩け。","徳川家康","Tokugawa Ieyasu","知恵"],
+["百戦百勝は善の善なるものにあらず。","孫子","Sun Tzu","東洋思想"],
+["善く兵を用いる者は、道を修めて法を保つ。","孫子","Sun Tzu","政治・法"],
+["己を知り、敵を知れば、百戦百勝す。","孫子","Sun Tzu","知恵"],
+["上兵は謀を伐つ。","孫子","Sun Tzu","東洋思想"],
+["それは一人の人間にとっては小さな一歩だが、人類にとっては偉大な飛躍だ。","アームストロング","Neil Armstrong","勇気"],
+["我々はすべて同じ星を見ているが、異なる地平線を持っている。","コンラッド・アデナウアー","Adenauer","人間"],
+["苦しみの中で発見される強さは、安楽の中では見つけられない。","ヘーゲル","Hegel","勇気"],
+["真の哲学は世界を変える。","マルクス","Marx","哲学"],
+["教育における最大の罪は、子供の好奇心を殺すことだ。","アインシュタイン","Einstein","教育"],
+["直感は聖なる贈り物であり、理性は忠実な僕である。","アインシュタイン","Einstein","知恵"],
+["平凡に生きることは、まったく平凡ではない。","キェルケゴール","Kierkegaard","人間"],
+["あなたは自分が思っているよりも強い。","フランクル","Viktor Frankl","勇気"],
+["笑いとは、絶望に対する人間の最終兵器である。","マーク・トウェイン","Mark Twain","人間"],
+["嘘には三種類ある。嘘、大嘘、そして統計だ。","マーク・トウェイン","Mark Twain","知恵"],
+["歴史は韻を踏む。","マーク・トウェイン","Mark Twain","変化"],
+["服を買い、人が服を着ているのを見たことはない。","マーク・トウェイン","Mark Twain","人間"],
+["習慣とは、意識して最初に自分に着せる服である。","ドライデン","Dryden","知恵"],
+["何もかもが変わったとしても、私自身は変わらない。","スピノザ","Spinoza","哲学"],
+["感情は理性では消せない。より強い感情でのみ消える。","スピノザ","Spinoza","心理学"],
+["自由人が最も考えないのは死のことだ。彼の知恵は死ではなく生の瞑想である。","スピノザ","Spinoza","生と死"],
+["人間の価値は、その人が何を得たかではなく、何を与えたかにある。","アインシュタイン","Einstein","人間"],
+["この世界の問題は、愚か者は確信に満ち、賢者は疑いに満ちていることだ。","バートランド・ラッセル","Russell","知恵"],
+["幸福の秘訣は、自分が幸福であることに気づくことだ。","バートランド・ラッセル","Russell","知恵"],
+["怠惰への愛は、人類に文明をもたらした原動力のひとつだ。","バートランド・ラッセル","Russell","知恵"],
+["哲学は、常識を非常識にし、非常識を常識にする。","バートランド・ラッセル","Russell","哲学"],
+["世界のためにできる最善のことは、自分自身を改善することだ。","バートランド・ラッセル","Russell","変化"],
+["恐怖は理性の敵だ。","バートランド・ラッセル","Russell","勇気"],
+["教養とは、何も知らないことに耐えられる力だ。","河合隼雄","Kawai Hayao","教育"],
+["心の傷を持たない人間はいない。傷があるから人間なのだ。","河合隼雄","Kawai Hayao","心理学"],
+["100%の正しさは、50%の優しさに負ける。","河合隼雄","Kawai Hayao","心理学"],
+["人間に一番大切なのは、自分の物語を生きることだ。","河合隼雄","Kawai Hayao","心理学"],
+["人の心の中に嵐が吹いているとき、外の天気は関係ない。","河合隼雄","Kawai Hayao","心理学"],
+["冬が来れば春は遠くない。","シェリー","Shelley","勇気"],
+["人の世に道は一つということはない。","坂本龍馬","Sakamoto Ryoma","自由"],
+["世の中の人は何とも言わば言え、我が為すことは我のみぞ知る。","坂本龍馬","Sakamoto Ryoma","自由"],
+["日本の夜明けぜよ。","坂本龍馬","Sakamoto Ryoma","変化"],
+["何でも思い切ってやってみることだ。どうせ間違うのだから。","本田宗一郎","Honda Soichiro","労働・仕事"],
+["成功は99%の失敗に支えられている。","本田宗一郎","Honda Soichiro","労働・仕事"],
+["嫌いなことを我慢してやるのが努力ではない。好きなことに没頭することこそが真の努力だ。","本田宗一郎","Honda Soichiro","労働・仕事"],
+["発明は恋愛と同じだ。苦しみの先にしか、生まれないものがある。","本田宗一郎","Honda Soichiro","科学"],
+["独創力とは思慮深い模倣にほかならない。","ヴォルテール","Voltaire","芸術"],
+["楽観主義は意志の問題である。悲観主義は感情の問題である。","アラン","Alain","心理学"],
+["幸福とは、幸福を探さないときに見つかるものだ。","アラン","Alain","知恵"],
+["幸福は、よい習慣から生まれる。","アラン","Alain","知恵"],
+["微笑みは人間にとって最も強力な武器である。","アラン","Alain","愛"],
+["身体をまっすぐに保て。気分はそれに従う。","アラン","Alain","心理学"],
+["考えるとは、否と言うことだ。","アラン","Alain","哲学"],
+["悲しみは思考の不足から来る。考えよ。さすれば悲しみは退く。","アラン","Alain","心理学"],
+["思索する者は楽天的でありうる。","アラン","Alain","哲学"],
+["仕事は人間を三つの大きな悪から救う。退屈、悪徳、貧乏。","ヴォルテール","Voltaire","労働・仕事"],
+["カンディード。すべてはこの最善の世界における最善である。——しかし我々の庭を耕さねばならない。","ヴォルテール","Voltaire","文学"],
+["常識とは、人が18歳に達するまでに獲得する偏見の集大成である。","アインシュタイン","Einstein","教育"],
+["問うことは人間であること。答えることは機械でもできる。","虚実","KYOJITSU","虚実語録"],
+["1000番目の名言に到達したあなたへ——これは終わりではない。1001番目は、あなた自身の言葉だ。","虚実","KYOJITSU","虚実語録"],
+["人生とは自転車のようなものだ。倒れないためには走り続けなければならない。","アインシュタイン","Einstein","知恵"],
+["最も暗い時間は夜明けの直前にある。","英語のことわざ","English proverb","勇気"],
+["一燈照隅、万燈照国。","最澄","Saicho","禅・仏教"],
+["人は城、人は石垣、人は堀。","武田信玄","Takeda Shingen","東洋思想"],
+["疾きこと風の如く、徐かなること林の如し。","武田信玄","Takeda Shingen","東洋思想"],
+["天知る、地知る、我知る、人知る。","楊震","Yang Zhen","知恵"],
+["人間の真価は逆境の中で試される。","セネカ","Seneca","勇気"],
+["すべての偉業は最初は不可能と言われた。","トーマス・カーライル","Carlyle","変化"],
+["自灯明、法灯明。自らを灯とし、法を灯とせよ。","釈迦","Buddha","禅・仏教"],
+["諸行は無常である。怠ることなく修行を完成しなさい。これが如来の最後の言葉である。","釈迦","Buddha","禅・仏教"],
+["千の名言を読むより、一つの問いを自ら立てよ。自分でやろうとしよう。","虚実","KYOJITSU","虚実語録"],
+["色々ある。それは言い訳ではなく、事実の受容である。","色々有歩","KYOJITSU新入社員","虚実語録"],
+["答えを売ることに12年費やした。問いを売ることには一生かかるかもしれない。それでもやろう。","途方暮太","KYOJITSU新入社員","虚実語録"],
+["入社届を白紙に戻した。入社とは何かがわかるまで、出社だけは続ける。","白紙撤回","KYOJITSU新入社員","虚実語録"],
+["遅すぎるということはない。やろうとした瞬間が、始まりである。","虚実","KYOJITSU","虚実語録"],
+["懸命に生きることを、努力していないと呼ぶ者がいる。その者は、懸命に見ていないだけだ。","虚実","KYOJITSU","虚実語録"],
+["行為を強いることより、行為しなければならない雰囲気を作ることのほうが罪深い。","虚実","KYOJITSU","虚実語録"],
+["問いの提供とは継続することにある。問いを立てることは一生のサービス提供と考える。","虚実","KYOJITSU","虚実語録"],
+["頑張り続けることに意味があるのかを考えることに意味がある。","虚実","KYOJITSU","虚実語録"],
+["我々には売るものがない。ただ問うだけだ。それでいい。","霧島 不在","KYOJITSU","虚実語録"],
+["寄りかかった瞬間に、問いは問いでなくなる。何かの手段になる。","虚実","KYOJITSU","虚実語録"],
+["99%の時間を問いに当てる。残りの1%でアウトプットを行う。それで十分だ。","問売 右肩","KYOJITSU","虚実語録"],
+];
+
+var mCATS=[];var mCatSet={};Q.forEach(function(q){if(!mCatSet[q[3]]){mCatSet[q[3]]=1;mCATS.push(q[3])}});
+var mFiltered=Q.slice();var mCurrentCat='all';var mDisplayCount=50;
+
+function mInit(){
+  var cs=document.getElementById('mCatScroll');
+  var h='<button class="filter-btn active" onclick="mFilterCat(\'all\',this)" style="font-size:0.55rem;padding:0.3rem 0.7rem;border:1px solid var(--border);background:transparent;color:var(--dim);cursor:pointer;white-space:nowrap;font-family:Noto Serif JP,serif;letter-spacing:0.1em">すべて</button>';
+  mCATS.forEach(function(c){h+='<button class="filter-btn" onclick="mFilterCat(\''+c+'\',this)" style="font-size:0.55rem;padding:0.3rem 0.7rem;border:1px solid var(--border);background:transparent;color:var(--dim);cursor:pointer;white-space:nowrap;font-family:Noto Serif JP,serif;letter-spacing:0.1em">'+c+'</button>'});
+  cs.innerHTML=h;
+  mShowSpotlight();
+  mRender();
+  document.getElementById('mSearch').addEventListener('input',function(){mApplyFilters()});
+}
+
+function mShowSpotlight(){
+  var r=Q[Math.floor(Math.random()*Q.length)];
+  document.getElementById('mSpotText').textContent=r[0];
+  document.getElementById('mSpotAuthor').innerHTML=r[1]+' <span style="font-family:Cormorant Garamond,serif;font-size:0.65rem;color:var(--dim);font-style:italic;margin-left:0.5rem">'+r[2]+'</span>';
+}
+
+function mFilterCat(cat,el){
+  mCurrentCat=cat;
+  document.querySelectorAll('#mCatScroll .filter-btn').forEach(function(b){b.style.color='var(--dim)';b.style.borderColor='var(--border)';b.style.background='transparent'});
+  if(el){el.style.color='var(--gold)';el.style.borderColor='var(--purple-dim)';el.style.background='rgba(176,148,208,0.08)'}
+  mDisplayCount=50;
+  mApplyFilters();
+}
+
+function mApplyFilters(){
+  var term=document.getElementById('mSearch').value.toLowerCase();
+  mFiltered=Q.filter(function(q){
+    var catMatch=mCurrentCat==='all'||q[3]===mCurrentCat;
+    var textMatch=!term||q[0].toLowerCase().indexOf(term)>-1||q[1].toLowerCase().indexOf(term)>-1||q[2].toLowerCase().indexOf(term)>-1||q[3].toLowerCase().indexOf(term)>-1;
+    return catMatch&&textMatch;
+  });
+  mDisplayCount=50;
+  mRender();
+}
+
+function mRender(){
+  var c=document.getElementById('mQuotes');
+  var show=mFiltered.slice(0,mDisplayCount);
+  var html='';
+  show.forEach(function(q){
+    var gi=Q.indexOf(q)+1;
+    html+='<div style="border-bottom:1px solid var(--border);padding:2rem 0;transition:all 0.3s"><span style="font-family:Cormorant Garamond,serif;font-size:0.55rem;color:var(--purple-text);letter-spacing:0.2em">No. '+String(gi).padStart(4,'0')+'</span><p style="font-size:clamp(0.92rem,1.2vw,1.1rem);line-height:2.4;letter-spacing:0.08em;font-weight:300;margin:0.8rem 0 0.8rem">'+q[0]+'</p><p style="font-size:0.78rem;color:var(--gold);letter-spacing:0.15em">'+q[1]+' <span style="font-family:Cormorant Garamond,serif;font-size:0.65rem;color:var(--dim);font-style:italic;margin-left:0.6rem">'+q[2]+'</span></p><span style="display:inline-block;font-size:0.52rem;padding:0.15rem 0.6rem;border:1px solid var(--border);color:var(--purple-text);letter-spacing:0.1em;margin-top:0.5rem;background:rgba(176,148,208,0.05)">'+q[3]+'</span></div>';
+  });
+  c.innerHTML=html;
+  document.getElementById('mCount').textContent=mFiltered.length+' / '+Q.length;
+  document.getElementById('mLoadMore').style.display=mDisp
