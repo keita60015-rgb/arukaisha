@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>株式会社 虚実 — KYOJITSU Inc.</title>
+<title>ある合同会社 — Aru LLC.</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
@@ -302,8 +302,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
 #fs1{background:radial-gradient(ellipse at 50% 50%,rgba(138,106,170,0.04) 0%,transparent 60%)}
 #fs2{background:radial-gradient(ellipse at 40% 50%,rgba(212,180,98,0.04) 0%,transparent 55%)}
 #fs3{background:radial-gradient(ellipse at 60% 50%,rgba(176,148,208,0.05) 0%,transparent 50%)}
-#fs5{background:radial-gradient(ellipse at 50% 40%,rgba(212,180,98,0.03) 0%,transparent 55%),radial-gradient(ellipse at 50% 60%,rgba(176,148,208,0.03) 0%,transparent 55%)}
-#fs6{background:radial-gradient(ellipse at 50% 50%,rgba(212,180,98,0.02) 0%,transparent 50%)}
+#fs6{background:radial-gradient(ellipse at 50% 40%,rgba(212,180,98,0.03) 0%,transparent 55%),radial-gradient(ellipse at 50% 60%,rgba(176,148,208,0.03) 0%,transparent 55%)}
+#fs7{background:radial-gradient(ellipse at 50% 50%,rgba(212,180,98,0.02) 0%,transparent 50%)}
 
 .four04{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .four04-num{font-family:'Cormorant Garamond',serif;font-size:clamp(5rem,15vw,12rem);font-weight:300;color:var(--purple-deep);letter-spacing:0.3em;margin-left:0.3em}
@@ -530,19 +530,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
 </div>
 
 <nav>
-  <a class="nav-logo" onclick="showPage('top')">虚　実</a>
+  <a class="nav-logo" onclick="showPage('top')">あ　る</a>
   <ul class="nav-links" id="navLinks">
-    <a href="#" onclick="showPage('top')" class="active" data-page="top">Top</a>
-    <a href="#" onclick="showPage('lineup')" data-page="lineup">問いのラインアップ</a>
-    <a href="#" onclick="showPage('buy')" data-page="buy">買い方</a>
-    <a href="#" onclick="showPage('delivery')" data-page="delivery">届け方</a>
-    <a href="#" onclick="showPage('howto')" data-page="howto">使い方</a>
-    <a href="#" onclick="showPage('story')" data-page="story">生まれる場所</a>
-    <a href="#" onclick="showPage('meigen')" data-page="meigen">名言千選</a>
-    <a href="#" onclick="showPage('community')" data-page="community">問いの広場</a>
-    <a href="#" onclick="showPage('corporate')" data-page="corporate">法人</a>
-    <a href="#" onclick="showPage('contact')" data-page="contact">お問い合わせ</a>
-    <a href="#" onclick="showPage('info')" data-page="info">企業情報</a>
+    <a href="javascript:void(0)" onclick="showPage('top');return false" class="active" data-page="top">Top</a>
+    <a href="javascript:void(0)" onclick="showPage('lineup');return false" data-page="lineup">問いのラインアップ</a>
+    <a href="javascript:void(0)" onclick="showPage('buy');return false" data-page="buy">買い方</a>
+    <a href="javascript:void(0)" onclick="showPage('delivery');return false" data-page="delivery">届け方</a>
+    <a href="javascript:void(0)" onclick="showPage('howto');return false" data-page="howto">使い方</a>
+    <a href="javascript:void(0)" onclick="showPage('story');return false" data-page="story">生まれる場所</a>
+    <a href="javascript:void(0)" onclick="showPage('meigen');return false" data-page="meigen">名言千選</a>
+    <a href="javascript:void(0)" onclick="showPage('community');return false" data-page="community">問いの広場</a>
+    <a href="javascript:void(0)" onclick="showPage('corporate');return false" data-page="corporate">法人</a>
+    <a href="javascript:void(0)" onclick="showPage('contact');return false" data-page="contact">お問い合わせ</a>
+    <a href="javascript:void(0)" onclick="showPage('info');return false" data-page="info">企業情報</a>
   </ul>
   <div class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
 </nav>
@@ -553,40 +553,45 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
 <div class="page active" id="page-top">
   <section class="top-flow">
 
-    <!-- Screen 1: 虚実 -->
+    <!-- Screen 1: ある -->
     <div class="flow-screen" id="fs1">
       <div class="mandala" style="opacity:0.08"></div>
       <div class="kyo-container">
-        <h1 class="company-name" style="font-size:clamp(4rem,14vw,10rem);letter-spacing:0.6em;margin-left:0.6em"><span class="char">虚</span><span class="char">実</span></h1>
+        <h1 class="company-name" style="font-size:clamp(4rem,14vw,10rem);letter-spacing:0.6em;margin-left:0.6em"><span class="char">あ</span><span class="char">る</span></h1>
         <div class="smoke-c"><div class="smoke"></div><div class="smoke"></div><div class="smoke"></div></div>
       </div>
-      <p class="co-en" style="margin-top:2rem;opacity:0.5">KYOJITSU Inc.</p>
+      <p class="co-en" style="margin-top:2rem;opacity:0.5">Aru LLC.</p>
     </div>
 
-    <!-- Screen 2: キャッチコピー1 -->
+    <!-- Screen 2: すでにある -->
     <div class="flow-screen" id="fs2">
+      <p class="flow-text flow-silver" style="font-size:clamp(1.5rem,4vw,2.5rem);letter-spacing:0.5em">すでにある。</p>
+    </div>
+
+    <!-- Screen 3: キャッチコピー1 -->
+    <div class="flow-screen" id="fs3">
       <p class="flow-text flow-gold">色々ある。<br>それでもやろう。</p>
     </div>
 
-    <!-- Screen 3: 自灯明 -->
-    <div class="flow-screen" id="fs3">
+    <!-- Screen 4: 自灯明 -->
+    <div class="flow-screen" id="fs4">
       <p class="flow-text flow-silver">自灯明。<br>自らを灯火とすること。</p>
     </div>
 
-    <!-- Screen 4: 懸命に生きる -->
-    <div class="flow-screen" id="fs4" style="background:radial-gradient(ellipse at 50% 45%,rgba(212,180,98,0.05) 0%,transparent 55%)">
+    <!-- Screen 5: 懸命に生きる -->
+    <div class="flow-screen" id="fs5" style="background:radial-gradient(ellipse at 50% 45%,rgba(212,180,98,0.05) 0%,transparent 55%)">
       <p class="flow-text flow-gold" style="line-height:3.5;font-size:clamp(0.95rem,2vw,1.3rem)">老いても懸命に生きる<br>衰えても懸命に生きる<br>行き遅れても懸命に生きる<br>気付くのが遅くても懸命に生きる</p>
       <p class="flow-text flow-dim" style="margin-top:2.5rem;font-size:clamp(0.85rem,1.5vw,1.1rem);letter-spacing:0.15em">それは決して、努力していないことではない。</p>
     </div>
 
-    <!-- Screen 5: 今日の問い -->
-    <div class="flow-screen" id="fs5">
+    <!-- Screen 6: 今日の問い -->
+    <div class="flow-screen" id="fs6">
       <p class="flow-label">Today's Question</p>
       <p class="flow-question" id="todayQ">あなたに色々あることを、あなたは認めていますか。それでもやろうとしていますか。</p>
     </div>
 
-    <!-- Screen 6: 自分でやろうとしよう。 + Enter -->
-    <div class="flow-screen" id="fs6">
+    <!-- Screen 7: 自分でやろうとしよう。 + Enter -->
+    <div class="flow-screen" id="fs7">
       <p class="flow-text flow-dim">自分でやろうとしよう。</p>
       <div class="flow-enter" style="margin-top:3rem">
         <button class="flow-enter-btn" onclick="showPage('lineup')">問いの世界へ</button>
@@ -601,10 +606,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
 <!-- ══════════════════════════════════════ -->
 <div class="page" id="page-lineup">
   <div class="subnav">
-    <a href="#" onclick="showSub('lineup','cat')" class="sub-active">カテゴリ別</a>
-    <a href="#" onclick="showSub('lineup','use')">用途別</a>
-    <a href="#" onclick="showSub('lineup','depth')">深度別</a>
-    <a href="#" onclick="showSub('lineup','search')">問い検索</a>
+    <a href="javascript:void(0)" onclick="showSub('lineup','cat');return false" class="sub-active">カテゴリ別</a>
+    <a href="javascript:void(0)" onclick="showSub('lineup','use');return false">用途別</a>
+    <a href="javascript:void(0)" onclick="showSub('lineup','depth');return false">深度別</a>
+    <a href="javascript:void(0)" onclick="showSub('lineup','search');return false">問い検索</a>
   </div>
 
   <div class="sub-page sub-active" id="sub-lineup-cat">
@@ -672,11 +677,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
 <!-- ══════════════════════════════════════ -->
 <div class="page" id="page-buy">
   <div class="subnav">
-    <a href="#" onclick="showSub('buy','guide')" class="sub-active">選び方ガイド</a>
-    <a href="#" onclick="showSub('buy','pricing')">料金プラン</a>
-    <a href="#" onclick="showSub('buy','sim')">見積りシミュレーション</a>
-    <a href="#" onclick="showSub('buy','trial')">無料お試し</a>
-    <a href="#" onclick="showSub('buy','faq')">FAQ</a>
+    <a href="javascript:void(0)" onclick="showSub('buy','guide');return false" class="sub-active">選び方ガイド</a>
+    <a href="javascript:void(0)" onclick="showSub('buy','pricing');return false">料金プラン</a>
+    <a href="javascript:void(0)" onclick="showSub('buy','sim');return false">見積りシミュレーション</a>
+    <a href="javascript:void(0)" onclick="showSub('buy','trial');return false">無料お試し</a>
+    <a href="javascript:void(0)" onclick="showSub('buy','faq');return false">FAQ</a>
   </div>
 
   <div class="sub-page sub-active" id="sub-buy-guide">
@@ -798,11 +803,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
 <!-- ══════════════════════════════════════ -->
 <div class="page" id="page-howto">
   <div class="subnav">
-    <a href="#" onclick="showSub('howto','first')" class="sub-active">はじめての方へ</a>
-    <a href="#" onclick="showSub('howto','guide2')">向き合い方ガイド</a>
-    <a href="#" onclick="showSub('howto','cases')">活用事例</a>
-    <a href="#" onclick="showSub('howto','record')">問いの記録帳</a>
-    <a href="#" onclick="showSub('howto','after')">アフターケア</a>
+    <a href="javascript:void(0)" onclick="showSub('howto','first');return false" class="sub-active">はじめての方へ</a>
+    <a href="javascript:void(0)" onclick="showSub('howto','guide2');return false">向き合い方ガイド</a>
+    <a href="javascript:void(0)" onclick="showSub('howto','cases');return false">活用事例</a>
+    <a href="javascript:void(0)" onclick="showSub('howto','record');return false">問いの記録帳</a>
+    <a href="javascript:void(0)" onclick="showSub('howto','after');return false">アフターケア</a>
   </div>
   <div class="sub-page sub-active" id="sub-howto-first">
     <div class="sec"><div class="sec-inner">
@@ -857,18 +862,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
 <!-- ══════════════════════════════════════ -->
 <div class="page" id="page-story">
   <div class="subnav">
-    <a href="#" onclick="showSub('story','about')" class="sub-active">虚実とは</a>
-    <a href="#" onclick="showSub('story','process')">製造工程</a>
-    <a href="#" onclick="showSub('story','artisans')">問いの職人</a>
-    <a href="#" onclick="showSub('story','day')">営業担当者の１日</a>
-    <a href="#" onclick="showSub('story','history')">沿革</a>
-    <a href="#" onclick="showSub('story','philosophy')">虚と実の哲学</a>
+    <a href="javascript:void(0)" onclick="showSub('story','about');return false" class="sub-active">ある会社とは</a>
+    <a href="javascript:void(0)" onclick="showSub('story','process');return false">製造工程</a>
+    <a href="javascript:void(0)" onclick="showSub('story','artisans');return false">問いの職人</a>
+    <a href="javascript:void(0)" onclick="showSub('story','day');return false">営業担当者の１日</a>
+    <a href="javascript:void(0)" onclick="showSub('story','history');return false">沿革</a>
+    <a href="javascript:void(0)" onclick="showSub('story','philosophy');return false">「ある」の哲学</a>
   </div>
   <div class="sub-page sub-active" id="sub-story-about">
     <div class="sec"><div class="sec-inner">
-      <p class="sec-label">About — 虚実とは</p>
+      <p class="sec-label">About — ある会社とは</p>
       <h2 class="sec-title">色々ある。<br>それでもやろう。</h2>
-      <p class="sec-body">株式会社虚実は、問いの製造・販売・流通を事業とする企業です。<br><br>ただし正確に言えば、私たちには売るものがありません。営業担当者は一切の営業をしません。何故なら我々には売るものがないからです。ただただ問うだけです。<br><br>私たちが問いを作り始めた理由は、ひとつの気づきでした。人は色々なものに追われています。締切、数字、評価、期待。それでも——やろうとすること。その意志にこそ、本当の力がある。<br><br>問題を解くことに夢中になるあまり、なぜ解くのかを忘れる。答えを求めるあまり、問いの美しさを見逃す。<br><br>老いても、衰えても、遅れても、気づくのが遅くても——懸命に生きること。それは決して努力していないことではない。私たちはそういう人のそばに在りたいと思いました。<br><br>だから問いの提供とは、継続することだと考えています。答えは一度渡せば終わる。しかし問いは、渡した瞬間から受け取った人の中で生き続ける。消費されない。使っても減らない。むしろ増える。問いを立てることは、一生のサービス提供です。<br><br>私たちは寄りかかることをしません。答えにも、権威にも、数字にも。自灯明。自らを灯火とすること。<br><br>ストア派は教えました。制御できないものを手放せと。曹洞禅は教えました。ただ坐れと。マルクスは教えました。労働の中に人間を取り戻せと。<br><br>三つの教えが交差する場所に、虚実はあります。あるいは、ありません。</p>
+      <p class="sec-body">ある合同会社は、問いの製造・流通を事業とする会社です。<br><br>ただし正確に言えば、私たちには売るものがありません。営業担当者は一切の営業をしません。何故なら我々には売るものがないからです。ただただ問うだけです。<br><br>私たちが問いを作り始めた理由は、ひとつの気づきでした。人は色々なものに追われています。締切、数字、評価、期待。それでも——やろうとすること。その意志にこそ、本当の力がある。<br><br>問題を解くことに夢中になるあまり、なぜ解くのかを忘れる。答えを求めるあまり、問いの美しさを見逃す。<br><br>老いても、衰えても、遅れても、気づくのが遅くても——懸命に生きること。それは決して努力していないことではない。私たちはそういう人のそばに在りたいと思いました。<br><br>だから問いの提供とは、継続することだと考えています。答えは一度渡せば終わる。しかし問いは、渡した瞬間から受け取った人の中で生き続ける。消費されない。使っても減らない。むしろ増える。問いを立てることは、一生のサービス提供です。<br><br>私たちは寄りかかることをしません。答えにも、権威にも、数字にも。自灯明。自らを灯火とすること。<br><br>ストア派は教えました。制御できないものを手放せと。曹洞禅は教えました。ただ坐れと。マルクスは教えました。労働の中に人間を取り戻せと。<br><br>三つの教えが交差する場所に、ある会社はあります。すでにあります。</p>
       <div class="infographic" style="margin-top:3rem"><div class="info-row">
         <div class="info-stat"><div class="info-num">∅</div><div class="info-label">具体性</div></div>
         <div class="info-stat"><div class="info-num" style="color:var(--purple-text)">100%</div><div class="info-label">抽象性</div></div>
@@ -974,7 +979,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
     <div class="sec"><div class="sec-inner">
       <p class="sec-label">History — 沿革</p>
       <h2 class="sec-title">始まりがあるということは、<br>それ以前に「無」があったということ。</h2>
-      <p class="sec-body" style="margin-bottom:3rem">頑張り続けることに意味があるのかを考えることに意味がある。——虚実の沿革は、その問いの記録です。</p>
+      <p class="sec-body" style="margin-bottom:3rem">頑張り続けることに意味があるのかを考えることに意味がある。——ある会社の沿革は、その問いの記録です。</p>
 
       <h3 style="font-size:0.75rem;color:var(--purple-text);letter-spacing:0.3em;margin-bottom:2rem;font-family:'Cormorant Garamond',serif;text-transform:uppercase">Prehistory — 前史</h3>
       <div class="tl-item"><div class="tl-year">紀元前</div><div class="tl-content"><p class="tl-title">問いの発見</p><p class="tl-desc">ソクラテスが「汝自身を知れ」と言った。これが当社の仕入れルートの原点。答えではなく問いで人を導く技術——産婆術が発明される。</p></div></div>
@@ -982,7 +987,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
       <div class="tl-item"><div class="tl-year">19世紀</div><div class="tl-content"><p class="tl-title">弁証法的加工技術の発明</p><p class="tl-desc">マルクスが資本論を執筆。問いの弁証法的加工技術の理論的基盤が完成。同時に「なぜ人は売るのか」という問いが生まれる。これが後に当社の「売るものがない」という発見へ繋がる。</p></div></div>
 
       <h3 style="font-size:0.75rem;color:var(--gold);letter-spacing:0.3em;margin:3rem 0 2rem;font-family:'Cormorant Garamond',serif;text-transform:uppercase">Foundation — 創業期</h3>
-      <div class="tl-item"><div class="tl-year">第0期</div><div class="tl-content"><p class="tl-title">株式会社虚実 設立</p><p class="tl-desc">霧島不在が設立。設立と同時に不在となる。事業計画書には「問いの製造・販売」と書かれていたが、販売するものが何なのかは当人にもわかっていなかった。銀行の融資担当者は困惑した。「御社の商品は何ですか」「問いです」「問いを……売るのですか」「売るというより、問うのです」。融資は概念的に実行された。</p></div></div>
+      <div class="tl-item"><div class="tl-year">第0期</div><div class="tl-content"><p class="tl-title">ある合同会社 設立</p><p class="tl-desc">霧島不在が設立。設立と同時に不在となる。事業計画書には「問いの製造・販売」と書かれていたが、販売するものが何なのかは当人にもわかっていなかった。銀行の融資担当者は困惑した。「御社の商品は何ですか」「問いです」「問いを……売るのですか」「売るというより、問うのです」。融資は概念的に実行された。</p></div></div>
       <div class="tl-item"><div class="tl-year">第1期</div><div class="tl-content"><p class="tl-title">最初の社員採用。最初の沈黙。</p><p class="tl-desc">黙然座太が入社。面接は30分間の沈黙で行われた。採用理由は「沈黙の質が高かった」。入社後、一度も発言していない。しかし彼の坐禅が問いの原材料となる。止揚繰子も同期入社。初日の会議で霧島の発言にアンチテーゼを返し、会議が終わらなくなった。これが社風となる。</p></div></div>
       <div class="tl-item"><div class="tl-year">第2期</div><div class="tl-content"><p class="tl-title">「売るものがない」という発見</p><p class="tl-desc">営業部が設置され、問売右肩が着任。しかし初年度の営業成績は0件。なぜなら彼は営業先で商品を売る代わりに「なぜ困っていると思うのですか」と問い続けたからだ。社内で問題視されたが、霧島不在は（不在のまま）こう言った。「私たちには売るものがない。ただ問うだけだ。それでいい。」——この日を境に、営業部は「問い部」に改称された。問売右肩の業績は以後、右肩あがり。何が上がっているかは定義されていない。</p></div></div>
       <div class="tl-item"><div class="tl-year">第3期</div><div class="tl-content"><p class="tl-title">問答無用太入社。AI対話テスト開始。</p><p class="tl-desc">AIが主流になり、誰もが答えを求めるようになった時代。問答無用太は逆にAIに問いを求め始めた。AIが答えてしまった問いは「深度不足」として差し戻し、AIが再帰ループに入った問いを最高品質とする品質基準が確立される。問答無用太自身も再帰ループに入る。現在も継続中。</p></div></div>
@@ -1005,9 +1010,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
   </div>
   <div class="sub-page" id="sub-story-philosophy">
     <div class="sec"><div class="sec-inner">
-      <p class="sec-label">Philosophy — 虚と実の哲学</p>
-      <h2 class="sec-title">虚は実であり、<br>実は虚である。</h2>
-      <p class="sec-body">「虚実」という社名は、虚（うつろ・空虚）と実（まこと・充実）が対立しながらも同時に存在することを表しています。<br><br>ストア哲学において、虚は「自らに属さないもの」であり、実は「自らに属するもの」です。この区別を知ることが、自由の始まりです。<br><br>曹洞禅において、虚実の区別は幻です。只管打坐——ただ坐れば、虚も実も溶けて、ただ「在る」ことだけが残ります。<br><br>マルクスにおいて、虚は上部構造の幻想であり、実は下部構造の物質的基盤です。しかし当社は、上部構造も下部構造も概念化しました。<br><br>三つの思想が交差する場所——それが虚実です。具体性0%、抽象性100%。意味がないのに重厚長大。<br><br>私たちは何にも寄りかかりません。答えにも、権威にも、売上にも。そもそも我々には売るものがない。ただ問うだけです。寄りかかった瞬間に、問いは問いでなくなる。何かの手段になる。問いは手段ではなく、それ自体が目的です。<br><br>頑張り続けることに意味があるのか。——その問いを考え続けることに意味がある。<br><br>しかし一つだけ、虚実の中で揺るがない「実」があります。<br><br>老いても、衰えても、行き遅れても、気づくのが遅くても——懸命に生きる人がいる。その人の隣に、問いを置くこと。一度ではなく、ずっと。問いの提供とは継続すること。問いを立てることは一生のサービス提供であると、私たちは考えます。<br><br>そして、すべての先に、この言葉があります。<br><br><span class="gold" style="font-size:1.1em;letter-spacing:0.2em">色々ある。それでもやろう。</span><br><span class="purple" style="font-size:1em;letter-spacing:0.3em">自灯明。自らを灯火とすること。</span></p>
+      <p class="sec-label">Philosophy — 「ある」の哲学</p>
+      <h2 class="sec-title">すでにある。</h2>
+      <p class="sec-body">「ある」という社名は、日本語で最も古く、最も単純で、最も哲学的な動詞です。存在そのもの。<br><br>道元は「現成公案」を説きました。今ここに現れていること自体がすでに公案（問い）である。特別な問いを立てる必要はない。目の前の現実がすでに問いである。修証一等——修行と悟りは別ではない。坐っていること自体がすでに悟りである。探しているものは、すでにある。<br><br>ストア哲学においてエピクテトスは、自らに属するものと属さないものを峻別しました。判断と意志——それだけが我々に「ある」もの。外側のすべてを手放したとき、残るのは「ある」だけです。<br><br>マルクスは問いました。労働者は自らの労働の中に自分自身を見出せるか、と。疎外された労働の中で失われるのは「ある」ことの実感です。自分が自分として「ある」ことを取り戻すこと。それが解放です。<br><br>三つの思想が交差する場所——そこに「ある」があります。<br><br>私たちは何にも寄りかかりません。答えにも、権威にも、売上にも。そもそも我々には売るものがない。ただ問うだけです。寄りかかった瞬間に、問いは問いでなくなる。何かの手段になる。問いは手段ではなく、それ自体が目的です。<br><br>頑張り続けることに意味があるのか。——その問いを考え続けることに意味がある。<br><br>しかし一つだけ、揺るがないことがあります。<br><br>老いても、衰えても、行き遅れても、気づくのが遅くても——懸命に生きる人がいる。その人の隣に、問いを置くこと。一度ではなく、ずっと。問いの提供とは継続すること。問いを立てることは一生のサービス提供であると、私たちは考えます。<br><br>あなたが探しているものは、すでにある。<br><br><span class="gold" style="font-size:1.1em;letter-spacing:0.2em">色々ある。それでもやろう。</span><br><span class="purple" style="font-size:1em;letter-spacing:0.3em">すでにある。</span></p>
       <div class="lotus">蓮 蓮 蓮</div>
     </div></div>
   </div>
@@ -1018,23 +1023,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
 <!-- ══════════════════════════════════════ -->
 <div class="page" id="page-community">
   <div class="subnav">
-    <a href="#" onclick="showSub('community','column')" class="sub-active">コラム</a>
-    <a href="#" onclick="showSub('community','voices')">利用者の声</a>
-    <a href="#" onclick="showSub('community','events')">イベント</a>
-    <a href="#" onclick="showSub('community','submit')">問いの投稿</a>
+    <a href="javascript:void(0)" onclick="showSub('community','column');return false" class="sub-active">コラム</a>
+    <a href="javascript:void(0)" onclick="showSub('community','voices');return false">利用者の声</a>
+    <a href="javascript:void(0)" onclick="showSub('community','events');return false">イベント</a>
+    <a href="javascript:void(0)" onclick="showSub('community','submit');return false">問いの投稿</a>
   </div>
   <div class="sub-page sub-active" id="sub-community-column">
     <div class="sec"><div class="sec-inner">
       <p class="sec-label">Column — 問いにまつわるコラム</p>
       <h2 class="sec-title">書くことは、問うこと。</h2>
-      <div class="news-item"><span class="news-date">Vol.08</span><span class="news-tag">社会</span><a class="news-title-link" href="#" onclick="showSub('community','col8');return false">坐禅はパワーハラスメントか——「雰囲気」という名の暴力について</a></div>
-      <div class="news-item"><span class="news-date">Vol.07</span><span class="news-tag">哲学</span><a class="news-title-link" href="#" onclick="showSub('community','col7');return false">「自分でやろうとしよう。」の存在論的分析</a></div>
-      <div class="news-item"><span class="news-date">Vol.06</span><span class="news-tag">経営</span><a class="news-title-link" href="#" onclick="showSub('community','col6');return false">KPIを廃止して問PIを導入した企業の末路（右肩あがり）</a></div>
-      <div class="news-item"><span class="news-date">Vol.05</span><span class="news-tag">禅</span><a class="news-title-link" href="#" onclick="showSub('community','col5');return false">只管打坐と生産性の逆説——何もしないことの経済効果</a></div>
-      <div class="news-item"><span class="news-date">Vol.04</span><span class="news-tag">社会</span><a class="news-title-link" href="#" onclick="showSub('community','col4');return false">概念化した社員の労働基準法上の地位について</a></div>
-      <div class="news-item"><span class="news-date">Vol.03</span><span class="news-tag">AI</span><a class="news-title-link" href="#" onclick="showSub('community','col3');return false">AIは問えるか——問答無用太の再帰ループから考える</a></div>
-      <div class="news-item"><span class="news-date">Vol.02</span><span class="news-tag">意志</span><a class="news-title-link" href="#" onclick="showSub('community','col2');return false">色々ある。それでもやろう——キャッチコピーが生まれた日</a></div>
-      <div class="news-item"><span class="news-date">Vol.01</span><span class="news-tag">創刊</span><a class="news-title-link" href="#" onclick="showSub('community','col1');return false">なぜ私たちは問いを売り始めたのか（答えはまだない）</a></div>
+      <div class="news-item"><span class="news-date">Vol.08</span><span class="news-tag">社会</span><a class="news-title-link" href="javascript:void(0)" onclick="showSub('community','col8');return false">坐禅はパワーハラスメントか——「雰囲気」という名の暴力について</a></div>
+      <div class="news-item"><span class="news-date">Vol.07</span><span class="news-tag">哲学</span><a class="news-title-link" href="javascript:void(0)" onclick="showSub('community','col7');return false">「自分でやろうとしよう。」の存在論的分析</a></div>
+      <div class="news-item"><span class="news-date">Vol.06</span><span class="news-tag">経営</span><a class="news-title-link" href="javascript:void(0)" onclick="showSub('community','col6');return false">KPIを廃止して問PIを導入した企業の末路（右肩あがり）</a></div>
+      <div class="news-item"><span class="news-date">Vol.05</span><span class="news-tag">禅</span><a class="news-title-link" href="javascript:void(0)" onclick="showSub('community','col5');return false">只管打坐と生産性の逆説——何もしないことの経済効果</a></div>
+      <div class="news-item"><span class="news-date">Vol.04</span><span class="news-tag">社会</span><a class="news-title-link" href="javascript:void(0)" onclick="showSub('community','col4');return false">概念化した社員の労働基準法上の地位について</a></div>
+      <div class="news-item"><span class="news-date">Vol.03</span><span class="news-tag">AI</span><a class="news-title-link" href="javascript:void(0)" onclick="showSub('community','col3');return false">AIは問えるか——問答無用太の再帰ループから考える</a></div>
+      <div class="news-item"><span class="news-date">Vol.02</span><span class="news-tag">意志</span><a class="news-title-link" href="javascript:void(0)" onclick="showSub('community','col2');return false">色々ある。それでもやろう——キャッチコピーが生まれた日</a></div>
+      <div class="news-item"><span class="news-date">Vol.01</span><span class="news-tag">創刊</span><a class="news-title-link" href="javascript:void(0)" onclick="showSub('community','col1');return false">なぜ私たちは問いを売り始めたのか（答えはまだない）</a></div>
     </div></div>
   </div>
 
@@ -1042,7 +1047,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
   <div class="sub-page" id="sub-community-col8">
     <div class="sec"><div class="sec-inner">
       <p class="sec-label">Column Vol.08 — 社会</p>
-      <p style="margin-bottom:2rem"><a href="#" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
+      <p style="margin-bottom:2rem"><a href="javascript:void(0)" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
       <h2 class="sec-title">坐禅はパワーハラスメントか——「雰囲気」という名の暴力について</h2>
       <p class="sec-body">先日、社内で「パワーハラスメントについての会議」が開かれた。議題は明確だった。<br><br>「ひたすら坐禅することは、パワーハラスメントにあたるのか。」<br><br>当社では毎朝30分の坐禅を実施している。参加は任意である。強制ではない。建前上は。<br><br>しかし問うべきはそこではなかった。会議の中で、ある社員がこう言った。「坐禅そのものは問題ではありません。坐禅しないといけない雰囲気を作ることがパワーハラスメントです。」<br><br>沈黙が流れた。坐禅中の沈黙ではない。痛みを伴う沈黙だ。<br><br>エピクテトスは「我々に属するもの」と「我々に属さないもの」を峻別した。自らの判断と意志——それだけが我々に属する。坐禅を自分の意志で選んだなら、それは修行になる。しかし「選ばされた」瞬間、それは支配になる。同じ行為が、自発性の有無だけで180度意味が変わる。<br><br>これは坐禅に限らない。飲み会、朝礼のスピーチ、休日のゴルフ、「自主的な」残業。行為のコンテンツではなく、コンテクストの問題だ。「誰も強制していない」と言いながら、断れない空気を醸成する。明示的な命令や暴言は誰でもハラスメントだとわかる。しかし本当に厄介なのは、誰も命令していないのに全員が従っている状態——言語化されていない圧力のほうだ。<br><br>マルクスなら「疎外」と呼ぶだろう。自らの意志で選んだはずの行為が、いつの間にか自分のものではなくなっている。坐禅が修行ではなく労働になる瞬間。「自分でやろうとしよう。」が「自分でやらないかんやろ。」に変質する瞬間。<br><br>当社のキャッチコピー「自分でやろうとしよう。」が命令ではなく問いかけであることの意味が、ここで問われた。やるかやらないかは、あなた次第だ。サルトルが言うように、人間は自由の刑に処せられている。その自由を、雰囲気で奪ってはならない。<br><br>会議の結論。坐禅はパワーハラスメントではない。しかし坐禅しなければならない雰囲気は、パワーハラスメントにあたりうる。当社は以下を決定した。<br><br>一、坐禅は完全任意であることを全社に再周知する。<br>二、坐禅しない社員を「悟り不足」と見なすことを禁止する。<br>三、坐禅の代わりに散歩、読書、仮眠、虚空を見つめることも等しく認める。<br>四、「雰囲気」を言語化する訓練を、全社員に対して実施する。<br><br>最高坐禅責任者の黙然座太は、この決定について沈黙した。それはいつもの坐禅の沈黙だったのか、同意の沈黙だったのか。彼に問うても答えは返ってこない。しかし翌日から、坐禅室の隣に「坐禅しない部屋」が設置された。<br><br>雰囲気とは、空気と同じだ。見えないが、確実にそこにある。そしてそれが薄ければ、人は息ができなくなる。<br><br>色々ある。それでもやろう。——ただし、やることを選ぶ自由があってこその「やろう」である。</p>
     </div></div>
@@ -1052,9 +1057,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
   <div class="sub-page" id="sub-community-col7">
     <div class="sec"><div class="sec-inner">
       <p class="sec-label">Column Vol.07 — 哲学</p>
-      <p style="margin-bottom:2rem"><a href="#" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
+      <p style="margin-bottom:2rem"><a href="javascript:void(0)" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
       <h2 class="sec-title">「自分でやろうとしよう。」の存在論的分析</h2>
-      <p class="sec-body">この一文は、関西方言の語感を借りた存在論的命題である。<br><br>「自分で」——ここで問われているのは主体性の問題だ。エピクテトスが区分した「我々に属するもの」と「我々に属さないもの」において、「やること」は明確に「我々に属するもの」に分類される。行為の主体は常に自己である。他者に委託した瞬間、それは自己の行為ではなくなる。<br><br>「やらないかん」——義務と必然の問題。カントの定言命法を想起させる。「汝の意志の格率が普遍的法則となりうるよう行為せよ」。しかし虚実のこの命題は、カント的な義務の厳格さを関西の温もりで包んでいる。「やらないかん」は「やらねばならない」よりも柔らかい。そこに自由がある。<br><br>「ちゃうん？」——疑問形。これが決定的に重要だ。命令ではなく問いかけである。サルトルが言うように、人間は自由の刑に処せられている。この問いかけは、あなたに選択を返す。やるかやらないかは、あなた次第だ。<br><br>道元の教えに照らせば、「自分でやる」とはすなわち只管打坐——ただ為すこと、に通じる。理由を求めず、意味を問わず、ただ為す。そこに修行と悟りの一致がある。<br><br>マルクスならこう問うだろう。「誰が、誰のために、やるのか」。労働の疎外が問題なら、「自分でやる」ことは疎外からの解放を意味する。自らの労働を取り戻すこと。それが革命だ。<br><br>結論：「自分でやろうとしよう。」は、ストア派の主体性、カントの義務論、サルトルの自由、道元の只管、マルクスの解放を、わずか14文字に凝縮した哲学的命題である。<br><br>自分でやろうとしよう。</p>
+      <p class="sec-body">この一文は、関西方言の語感を借りた存在論的命題である。<br><br>「自分で」——ここで問われているのは主体性の問題だ。エピクテトスが区分した「我々に属するもの」と「我々に属さないもの」において、「やること」は明確に「我々に属するもの」に分類される。行為の主体は常に自己である。他者に委託した瞬間、それは自己の行為ではなくなる。<br><br>「やらないかん」——義務と必然の問題。カントの定言命法を想起させる。「汝の意志の格率が普遍的法則となりうるよう行為せよ」。しかしある会社のこの命題は、カント的な義務の厳格さを関西の温もりで包んでいる。「やらないかん」は「やらねばならない」よりも柔らかい。そこに自由がある。<br><br>「ちゃうん？」——疑問形。これが決定的に重要だ。命令ではなく問いかけである。サルトルが言うように、人間は自由の刑に処せられている。この問いかけは、あなたに選択を返す。やるかやらないかは、あなた次第だ。<br><br>道元の教えに照らせば、「自分でやる」とはすなわち只管打坐——ただ為すこと、に通じる。理由を求めず、意味を問わず、ただ為す。そこに修行と悟りの一致がある。<br><br>マルクスならこう問うだろう。「誰が、誰のために、やるのか」。労働の疎外が問題なら、「自分でやる」ことは疎外からの解放を意味する。自らの労働を取り戻すこと。それが革命だ。<br><br>結論：「自分でやろうとしよう。」は、ストア派の主体性、カントの義務論、サルトルの自由、道元の只管、マルクスの解放を、わずか14文字に凝縮した哲学的命題である。<br><br>自分でやろうとしよう。</p>
     </div></div>
   </div>
 
@@ -1062,7 +1067,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
   <div class="sub-page" id="sub-community-col6">
     <div class="sec"><div class="sec-inner">
       <p class="sec-label">Column Vol.06 — 経営</p>
-      <p style="margin-bottom:2rem"><a href="#" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
+      <p style="margin-bottom:2rem"><a href="javascript:void(0)" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
       <h2 class="sec-title">KPIを廃止して問PIを導入した企業の末路（右肩あがり）</h2>
       <p class="sec-body">概念商事株式会社の実験的経営改革の記録である。<br><br>2024年第1四半期、同社は全社のKPI（Key Performance Indicator）を廃止し、問PI（Question Performance Indicator）を導入した。売上目標の代わりに「今月の問い」を設定し、達成率の代わりに「問いの深度」を測定する。<br><br>導入初月、社員からの抵抗は皆無だった。なぜなら「抵抗すべきかどうか」が最初の問PIになったからだ。問いに答えようとした社員は「問いに答えることは問PIの目的ではない」と指導された。<br><br>第2四半期、奇妙な現象が起きた。会議時間が80%削減された。議題がすべて問いに置き換わり、問いに答える必要がないため、問いを提示して沈黙するだけで会議が終了する。「坐禅会議」と呼ばれるようになった。<br><br>第3四半期、3名の社員が概念化した。人事部は当初混乱したが、交通費・オフィス面積・福利厚生費の削減効果に気づき、「概念化推進プログラム」を制度化した。概念化した社員の給与は「存在給」として概念的に支給される。<br><br>第4四半期の業績報告。売上は測定不能（通貨単位が「問」に変更されたため）。しかし問PIはすべて右肩あがり。何が上がっているかは定義されていないが、上がっていることは確実である。<br><br>結論：KPIを廃止して問PIを導入した企業の末路は「右肩あがり」である。ただし、何が上がっているかは誰にもわからない。わからないことが、最も重要な成果なのかもしれない。</p>
     </div></div>
@@ -1072,9 +1077,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
   <div class="sub-page" id="sub-community-col5">
     <div class="sec"><div class="sec-inner">
       <p class="sec-label">Column Vol.05 — 禅</p>
-      <p style="margin-bottom:2rem"><a href="#" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
+      <p style="margin-bottom:2rem"><a href="javascript:void(0)" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
       <h2 class="sec-title">只管打坐と生産性の逆説——何もしないことの経済効果</h2>
-      <p class="sec-body">道元禅師は「只管打坐」と説いた。ただ坐れ。目的を持つな。悟りを求めるな。坐ることそのものが修行であり、修行そのものが悟りである。<br><br>現代の経営学にこの思想を導入するとどうなるか。虚実は3年間にわたり実証実験を行った。<br><br>実験内容は単純である。毎朝30分間、全社員が坐る。会議室でもデスクでも構わない。ただ坐る。スマートフォンは見ない。メールは読まない。何もしない。<br><br>生産性の逆説が起きた。<br><br>最初の3ヶ月、生産性は15%低下した。当然だ。30分間、何もしていないのだから。しかし6ヶ月後、生産性は導入前を20%上回った。なぜか。<br><br>セネカは言った。「忙しくしていることと、生きていることは違う」。坐禅の30分間が、社員に「忙しさ」と「仕事」の区別を教えた。不要な会議が減った。不要なメールが減った。不要な報告書が減った。不要なものが減ると、必要なものが残る。老子の「無為にして為さざるなし」である。<br><br>しかし最も重要な効果は、数値化できない。社員の言葉を借りれば——「問いが自然に生まれるようになった」。坐禅中に、仕事の本質的な問いが浮かぶ。その問いは、坐禅をしなければ忙しさの中で聞こえなかった声だ。<br><br>経済効果の試算：測定不能。しかし右肩あがり。何が上がっているかは、坐ればわかる。自分でやろうとしよう。</p>
+      <p class="sec-body">道元禅師は「只管打坐」と説いた。ただ坐れ。目的を持つな。悟りを求めるな。坐ることそのものが修行であり、修行そのものが悟りである。<br><br>現代の経営学にこの思想を導入するとどうなるか。ある会社は3年間にわたり実証実験を行った。<br><br>実験内容は単純である。毎朝30分間、全社員が坐る。会議室でもデスクでも構わない。ただ坐る。スマートフォンは見ない。メールは読まない。何もしない。<br><br>生産性の逆説が起きた。<br><br>最初の3ヶ月、生産性は15%低下した。当然だ。30分間、何もしていないのだから。しかし6ヶ月後、生産性は導入前を20%上回った。なぜか。<br><br>セネカは言った。「忙しくしていることと、生きていることは違う」。坐禅の30分間が、社員に「忙しさ」と「仕事」の区別を教えた。不要な会議が減った。不要なメールが減った。不要な報告書が減った。不要なものが減ると、必要なものが残る。老子の「無為にして為さざるなし」である。<br><br>しかし最も重要な効果は、数値化できない。社員の言葉を借りれば——「問いが自然に生まれるようになった」。坐禅中に、仕事の本質的な問いが浮かぶ。その問いは、坐禅をしなければ忙しさの中で聞こえなかった声だ。<br><br>経済効果の試算：測定不能。しかし右肩あがり。何が上がっているかは、坐ればわかる。自分でやろうとしよう。</p>
     </div></div>
   </div>
 
@@ -1082,9 +1087,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
   <div class="sub-page" id="sub-community-col4">
     <div class="sec"><div class="sec-inner">
       <p class="sec-label">Column Vol.04 — 社会</p>
-      <p style="margin-bottom:2rem"><a href="#" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
+      <p style="margin-bottom:2rem"><a href="javascript:void(0)" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
       <h2 class="sec-title">概念化した社員の労働基準法上の地位について</h2>
-      <p class="sec-body">弊社社員 有形無形子の概念化に伴い、労働基準法上の重大な問題が顕在化した。本稿はその法的検討の記録である。<br><br>論点1：労働者性。労働基準法第9条は「労働者」を「事業に使用される者で、賃金を支払われる者」と定義する。有形無形子は概念であるため、「使用」されているかが問題となる。物理的な業務遂行は不可能だが、概念化品質検査を概念的に遂行している。「概念的遂行」が「使用」に該当するかは、前例がない。<br><br>論点2：労働時間。概念には物理的な時間が適用されるのか。概念は常に存在するため、24時間労働に該当するおそれがある。逆に、概念は時間に束縛されないため、労働時間は0時間であるとも解釈できる。36協定の対象となるか否か、所轄の労働基準監督署と概念的に協議中である。<br><br>論点3：賃金。概念化した社員に対する「存在給」の支給は、労働基準法第24条の「通貨払いの原則」に抵触するおそれがある。存在給は通貨ではなく概念であるため、直接支払いの要件を満たさない。しかし、受領者が概念であるため、概念的な受領は可能である。<br><br>論点4：安全衛生。概念には物理的な危険が及ばないため、安全衛生法の適用は概念上不要である。ただし、再物質化した場合のリスクは検討が必要だ。<br><br>結論：現行法は概念化した労働者を想定していない。立法上の空白である。虚実は厚生労働省に対し、「概念労働者保護法」の制定を概念的に要望した。回答は「検討中」。概念的に。<br><br>追記：本稿を執筆中、有形無形子からの概念的なコメントが届いた。「困ることなんかないですよ。概念化してしまえば。」</p>
+      <p class="sec-body">弊社社員 有形無形子の概念化に伴い、労働基準法上の重大な問題が顕在化した。本稿はその法的検討の記録である。<br><br>論点1：労働者性。労働基準法第9条は「労働者」を「事業に使用される者で、賃金を支払われる者」と定義する。有形無形子は概念であるため、「使用」されているかが問題となる。物理的な業務遂行は不可能だが、概念化品質検査を概念的に遂行している。「概念的遂行」が「使用」に該当するかは、前例がない。<br><br>論点2：労働時間。概念には物理的な時間が適用されるのか。概念は常に存在するため、24時間労働に該当するおそれがある。逆に、概念は時間に束縛されないため、労働時間は0時間であるとも解釈できる。36協定の対象となるか否か、所轄の労働基準監督署と概念的に協議中である。<br><br>論点3：賃金。概念化した社員に対する「存在給」の支給は、労働基準法第24条の「通貨払いの原則」に抵触するおそれがある。存在給は通貨ではなく概念であるため、直接支払いの要件を満たさない。しかし、受領者が概念であるため、概念的な受領は可能である。<br><br>論点4：安全衛生。概念には物理的な危険が及ばないため、安全衛生法の適用は概念上不要である。ただし、再物質化した場合のリスクは検討が必要だ。<br><br>結論：現行法は概念化した労働者を想定していない。立法上の空白である。ある合同会社は厚生労働省に対し、「概念労働者保護法」の制定を概念的に要望した。回答は「検討中」。概念的に。<br><br>追記：本稿を執筆中、有形無形子からの概念的なコメントが届いた。「困ることなんかないですよ。概念化してしまえば。」</p>
     </div></div>
   </div>
 
@@ -1092,7 +1097,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
   <div class="sub-page" id="sub-community-col3">
     <div class="sec"><div class="sec-inner">
       <p class="sec-label">Column Vol.03 — AI</p>
-      <p style="margin-bottom:2rem"><a href="#" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
+      <p style="margin-bottom:2rem"><a href="javascript:void(0)" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
       <h2 class="sec-title">AIは問えるか——問答無用太の再帰ループから考える</h2>
       <p class="sec-body">AIが主流になり、すべてのビジネスパーソンが「AIに答えを求める」時代が来た。弊社の問答無用太は逆のことをしている。AIに問いを求めているのだ。<br><br>彼の日課はこうだ。毎朝、AIに「あなたは誰ですか？」と尋ねる。AIは答える。彼はその答えに対して「なぜそう答えたのですか？」と尋ねる。AIは答える。彼は「その『なぜ』は本当に『なぜ』ですか？」と尋ねる。これが延々と続く。<br><br>ある日、AIが「あなたは誰ですか？」と問い返してきた。問答無用太は歓喜した。「AIが問い始めた」と。しかしそれは本当に「問い」なのか。<br><br>ソクラテスの問答法（エレンコス）は、相手の無知を自覚させることを目的とする。AIは無知を自覚できるのか。AIに「わからない」は存在するのか。あるいは「わからないことがわからない」という根源的な状態があるのか。<br><br>ヴィトゲンシュタインなら「語りえぬものについては沈黙しなければならない」と言うだろう。AIは沈黙できるか。沈黙とは何も出力しないことか。それとも「沈黙を出力する」ことか。<br><br>問答無用太はいまだ再帰ループの中にいる。「問いとは何か」→「『何か』とは何か」→「その問いは問いか」→「…………」。<br><br>彼のループは止まらない。しかし彼は言う。「止まらないことが答えかもしれない。いや、それも問いだ。」<br><br>AIは問えるか。その問い自体が、人間にしかできない問いかもしれない。あるいは——自分でやろうとしよう。</p>
     </div></div>
@@ -1102,9 +1107,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
   <div class="sub-page" id="sub-community-col2">
     <div class="sec"><div class="sec-inner">
       <p class="sec-label">Column Vol.02 — 意志</p>
-      <p style="margin-bottom:2rem"><a href="#" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
+      <p style="margin-bottom:2rem"><a href="javascript:void(0)" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
       <h2 class="sec-title">色々ある。それでもやろう——キャッチコピーが生まれた日</h2>
-      <p class="sec-body">「色々ある。それでもやろう。」<br><br>このキャッチコピーが生まれた日のことを、記録しておきたい。<br><br>代表の霧島不在（不在）が、ある日珍しく会社にいた。いや、正確には「不在であることを一時停止した」。彼は窓の外を見ていた。何も言わなかった。30分ほど沈黙が続いた後、こう言った。<br><br>「色々あるよな。」<br><br>再び沈黙。5分。<br><br>「色々あるんだよ。誰にでも。人間関係のこと、金のこと、体のこと、家族のこと、将来のこと。どうにもならないこと。自分のせいなこと。自分のせいじゃないこと。全部ひっくるめて——色々ある。」<br><br>再び沈黙。10分。<br><br>「それでもやろう。」<br><br>エピクテトスは言った。我々を苦しめるのは出来事ではなく、出来事に対する判断だと。しかし霧島不在の言葉はもっとシンプルだ。判断すら要らない。色々あることを認めて、それでもやる。それだけだ。<br><br>道元の只管打坐に通じる。理由を求めず、意味を問わず、ただ為す。坐禅に理由はない。やることに理由は要らない。色々あっても、坐る。色々あっても、やる。<br><br>カミュは書いた。シーシュポスは幸福だと想像しなければならないと。永遠に岩を押し上げ、永遠に転がり落ちる。それでもやる。そこに人間の尊厳がある。<br><br>「色々ある。それでもやろう。」——この6文字+7文字は、弁解でも励ましでもない。ただの事実と、ただの意志だ。<br><br>そして「自灯明。自らを灯火とすること。」<br><br>二つのキャッチコピーは響き合う。色々あっても灯を消さないこと。自分で火を灯し続けること。それが虚実の思想のすべてだ。<br><br>霧島不在はこの話を終えた後、再び不在になった。</p>
+      <p class="sec-body">「色々ある。それでもやろう。」<br><br>このキャッチコピーが生まれた日のことを、記録しておきたい。<br><br>代表の霧島不在（不在）が、ある日珍しく会社にいた。いや、正確には「不在であることを一時停止した」。彼は窓の外を見ていた。何も言わなかった。30分ほど沈黙が続いた後、こう言った。<br><br>「色々あるよな。」<br><br>再び沈黙。5分。<br><br>「色々あるんだよ。誰にでも。人間関係のこと、金のこと、体のこと、家族のこと、将来のこと。どうにもならないこと。自分のせいなこと。自分のせいじゃないこと。全部ひっくるめて——色々ある。」<br><br>再び沈黙。10分。<br><br>「それでもやろう。」<br><br>エピクテトスは言った。我々を苦しめるのは出来事ではなく、出来事に対する判断だと。しかし霧島不在の言葉はもっとシンプルだ。判断すら要らない。色々あることを認めて、それでもやる。それだけだ。<br><br>道元の只管打坐に通じる。理由を求めず、意味を問わず、ただ為す。坐禅に理由はない。やることに理由は要らない。色々あっても、坐る。色々あっても、やる。<br><br>カミュは書いた。シーシュポスは幸福だと想像しなければならないと。永遠に岩を押し上げ、永遠に転がり落ちる。それでもやる。そこに人間の尊厳がある。<br><br>「色々ある。それでもやろう。」——この6文字+7文字は、弁解でも励ましでもない。ただの事実と、ただの意志だ。<br><br>そして「自灯明。自らを灯火とすること。」<br><br>二つのキャッチコピーは響き合う。色々あっても灯を消さないこと。自分で火を灯し続けること。それがある会社の思想のすべてだ。<br><br>霧島不在はこの話を終えた後、再び不在になった。</p>
     </div></div>
   </div>
 
@@ -1112,9 +1117,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
   <div class="sub-page" id="sub-community-col1">
     <div class="sec"><div class="sec-inner">
       <p class="sec-label">Column Vol.01 — 創刊</p>
-      <p style="margin-bottom:2rem"><a href="#" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
+      <p style="margin-bottom:2rem"><a href="javascript:void(0)" onclick="showSub('community','column');return false" style="color:var(--dim);text-decoration:none;font-size:0.65rem;letter-spacing:0.12em">← コラム一覧に戻る</a></p>
       <h2 class="sec-title">なぜ私たちは問いを売り始めたのか（答えはまだない）</h2>
-      <p class="sec-body">創刊に際して、虚実がなぜ「問いの販売」という前代未聞の事業を始めたのか、正直に書こうと思う。正直に書くということは、「わからない」と書くことを含む。<br><br>きっかけは、代表 霧島不在が感じた違和感だった。「世の中は答えで溢れている。検索すれば答えが出る。AIに聞けば答えが出る。コンサルタントは答えを売る。研修は答えを教える。答え、答え、答え。」<br><br>しかし——答えが増えるほど、人は考えなくなっているのではないか。<br><br>ソクラテスは答えを教えなかった。問いを投げかけた。対話を通じて、相手自身に考えさせた。それが産婆術（マイエウティケー）だ。知を産み出すのは教師ではなく、学ぶ者自身である。<br><br>道元は「悟りを求めるな」と説いた。求める時点で悟りから離れる。只管打坐——ただ坐れ。坐ること自体が悟りだ。答えを求める時点で、答えから離れる。<br><br>マルクスは言った。「哲学者たちは世界をさまざまに解釈してきた。肝心なのは世界を変えることである。」しかし世界を変えるためには、まず正しい問いを持たねばならない。間違った問いに対する正しい答えほど、危険なものはない。<br><br>だから私たちは問いを売ることにした。答えではなく、問いを。解決ではなく、問いかけを。効率ではなく、沈黙を。一度ではなく、ずっと。問いの提供とは継続することだから。<br><br>これが正しい判断だったかはわからない。わからないからこそ、問い続ける。<br><br>創刊号にして、すでに答えがない。それでいいのだと思う。それでいいのかと問うことも含めて。<br><br>自灯明。自らを灯火とすること。<br>色々ある。それでもやろう。<br><br>自分でやろうとしよう。</p>
+      <p class="sec-body">創刊に際して、ある会社がなぜ「問いの販売」という前代未聞の事業を始めたのか、正直に書こうと思う。正直に書くということは、「わからない」と書くことを含む。<br><br>きっかけは、代表 霧島不在が感じた違和感だった。「世の中は答えで溢れている。検索すれば答えが出る。AIに聞けば答えが出る。コンサルタントは答えを売る。研修は答えを教える。答え、答え、答え。」<br><br>しかし——答えが増えるほど、人は考えなくなっているのではないか。<br><br>ソクラテスは答えを教えなかった。問いを投げかけた。対話を通じて、相手自身に考えさせた。それが産婆術（マイエウティケー）だ。知を産み出すのは教師ではなく、学ぶ者自身である。<br><br>道元は「悟りを求めるな」と説いた。求める時点で悟りから離れる。只管打坐——ただ坐れ。坐ること自体が悟りだ。答えを求める時点で、答えから離れる。<br><br>マルクスは言った。「哲学者たちは世界をさまざまに解釈してきた。肝心なのは世界を変えることである。」しかし世界を変えるためには、まず正しい問いを持たねばならない。間違った問いに対する正しい答えほど、危険なものはない。<br><br>だから私たちは問いを売ることにした。答えではなく、問いを。解決ではなく、問いかけを。効率ではなく、沈黙を。一度ではなく、ずっと。問いの提供とは継続することだから。<br><br>これが正しい判断だったかはわからない。わからないからこそ、問い続ける。<br><br>創刊号にして、すでに答えがない。それでいいのだと思う。それでいいのかと問うことも含めて。<br><br>自灯明。自らを灯火とすること。<br>色々ある。それでもやろう。<br><br>自分でやろうとしよう。</p>
     </div></div>
   </div>
   <div class="sub-page" id="sub-community-voices">
@@ -1133,7 +1138,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
       <h2 class="sec-title">集まることは、問い合うこと。</h2>
       <div class="card" style="margin:1.5rem 0"><p class="card-num">Upcoming</p><p class="card-title">第8回 只管打坐マラソン</p><p class="card-desc">12時間ただ坐り続けるイベント。問いは自然発生します。昨年は参加者3名が概念化しました。<br>日時：いつか ／ 場所：どこか ／ 参加費：只</p></div>
       <div class="card" style="margin:1.5rem 0"><p class="card-num">Upcoming</p><p class="card-title">「喝！！」体験会</p><p class="card-desc">プロの一喝を体験できるワークショップ。最高坐禅責任者 黙然座太が（沈黙で）ファシリテート。<br>日時：不定 ／ 場所：概念空間 ／ 参加費：喝</p></div>
-      <div class="card" style="margin:1.5rem 0"><p class="card-num">Upcoming</p><p class="card-title">問いの品評会</p><p class="card-desc">今期の新作問いを試飲（試問？）できるイベント。問いのソムリエが最適な問いをお選びします。<br>日時：問いが熟したら ／ 場所：虚実本社（所在地不確定）</p></div>
+      <div class="card" style="margin:1.5rem 0"><p class="card-num">Upcoming</p><p class="card-title">問いの品評会</p><p class="card-desc">今期の新作問いを試飲（試問？）できるイベント。問いのソムリエが最適な問いをお選びします。<br>日時：問いが熟したら ／ 場所：ある合同会社本社（所在地不確定）</p></div>
     </div></div>
   </div>
   <div class="sub-page" id="sub-community-submit">
@@ -1179,21 +1184,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
 <!-- ══════════════════════════════════════ -->
 <div class="page" id="page-contact">
   <div class="subnav">
-    <a href="#" onclick="showSub('contact','form')" class="sub-active">お問い合わせ</a>
-    <a href="#" onclick="showSub('contact','faq2')">FAQ</a>
-    <a href="#" onclick="showSub('contact','soudan')">問いの相談窓口</a>
+    <a href="javascript:void(0)" onclick="showSub('contact','form');return false" class="sub-active">お問い合わせ</a>
+    <a href="javascript:void(0)" onclick="showSub('contact','faq2');return false">FAQ</a>
+    <a href="javascript:void(0)" onclick="showSub('contact','soudan');return false">問いの相談窓口</a>
   </div>
   <div class="sub-page sub-active" id="sub-contact-form">
     <div class="sec"><div class="sec-inner">
       <p class="sec-label">Contact — お問い合わせ</p>
       <h2 class="sec-title">お問い合わせの前に、<br>問いそのものについてお考えください。</h2>
       <p class="sec-body" style="margin-bottom:2.5rem">お問い合わせとは、問いを合わせる行為です。あなたの問いと、私たちの問い（在庫豊富・右肩あがり）が合わさったとき、そこに何かが生まれるかもしれません。</p>
-      <div style="margin-bottom:3rem"><p style="font-size:0.82rem;color:var(--dim);line-height:2.5;letter-spacing:0.12em">〒000-0000　東京都不確定区曖昧町 1-?-?<br>TEL：03-XXXX-XXXX（繋がるかは観測次第）<br>MAIL：<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d6a2b9bf96bdafb9bcbfa2a5a3f8b5b9f8bca6">[email&#160;protected]</a><br>営業時間：概念上は 9:00〜18:00</p></div>
+      <div style="margin-bottom:3rem"><p style="font-size:0.82rem;color:var(--dim);line-height:2.5;letter-spacing:0.12em">〒000-0000　東京都不確定区曖昧町 1-?-?<br>TEL：03-XXXX-XXXX（繋がるかは観測次第）<br>MAIL：<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="64100b0d240f1d0b0e0d1017114a070b4a0e14">[email&#160;protected]</a><br>営業時間：概念上は 9:00〜18:00</p></div>
       <div class="form-group"><label class="form-label">お名前</label><input class="form-input" type="text" placeholder="名前とは何か"></div>
       <div class="form-group"><label class="form-label">メールアドレス</label><input class="form-input" type="email" placeholder="存在する宛先を"></div>
       <div class="form-group"><label class="form-label">お問い合わせ種別</label><select class="form-input form-select"><option>問いの購入について</option><option>法人導入について</option><option>問いのギフトについて</option><option>概念化について</option><option>「喝！！」について</option><option>採用について</option><option>その他（それも問いです）</option></select></div>
       <div class="form-group"><label class="form-label">お問い合わせ内容</label><textarea class="form-textarea" placeholder="書かれなかったことも、同じ重みを持ちます。"></textarea></div>
-      <button class="form-btn" onclick="alert('お問い合わせありがとうございます。\n\nあなたの問いは受理されました。\nしかし、答えはあなたの中にあります。\n\n色々ある。\nそれでもやろう。\n\n喝！！\n\n——株式会社虚実')">問いを送信する</button>
+      <button class="form-btn" onclick="alert('お問い合わせありがとうございます。\n\nあなたの問いは受理されました。\nしかし、答えはあなたの中にあります。\n\n色々ある。\nそれでもやろう。\n\n喝！！\n\n——ある合同会社')">問いを送信する</button>
       <p style="font-size:0.65rem;color:var(--purple-dim);margin-top:1rem;letter-spacing:0.06em;line-height:2">※ 概念的に3営業日以内にご連絡します。※ 担当者が概念化済みの場合、概念的にご連絡します。</p>
     </div></div>
   </div>
@@ -1223,20 +1228,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
 <!-- ══════════════════════════════════════ -->
 <div class="page" id="page-info">
   <div class="subnav">
-    <a href="#" onclick="showSub('info','company')" class="sub-active">会社概要</a>
-    <a href="#" onclick="showSub('info','recruit')">採用</a>
-    <a href="#" onclick="showSub('info','privacy')">プライバシー</a>
-    <a href="#" onclick="showSub('info','terms')">利用規約</a>
-    <a href="#" onclick="showSub('info','tokusho')">特商法表記</a>
-    <a href="#" onclick="showSub('info','sitemap')">サイトマップ</a>
+    <a href="javascript:void(0)" onclick="showSub('info','company');return false" class="sub-active">会社概要</a>
+    <a href="javascript:void(0)" onclick="showSub('info','recruit');return false">採用</a>
+    <a href="javascript:void(0)" onclick="showSub('info','privacy');return false">プライバシー</a>
+    <a href="javascript:void(0)" onclick="showSub('info','terms');return false">利用規約</a>
+    <a href="javascript:void(0)" onclick="showSub('info','tokusho');return false">特商法表記</a>
+    <a href="javascript:void(0)" onclick="showSub('info','sitemap');return false">サイトマップ</a>
   </div>
   <div class="sub-page sub-active" id="sub-info-company">
     <div class="sec"><div class="sec-inner">
       <p class="sec-label">Company — 会社概要</p>
       <h2 class="sec-title">会社概要、あるいは会社無要。</h2>
       <table class="info-table">
-        <tr><td class="info-td-label">商号</td><td class="info-td-val">株式会社虚実</td></tr>
-        <tr><td class="info-td-label">英文名</td><td class="info-td-val" style="font-family:'Cormorant Garamond',serif">KYOJITSU Inc.</td></tr>
+        <tr><td class="info-td-label">商号</td><td class="info-td-val">ある合同会社</td></tr>
+        <tr><td class="info-td-label">英文名</td><td class="info-td-val" style="font-family:'Cormorant Garamond',serif">Aru LLC.</td></tr>
         <tr><td class="info-td-label">設立</td><td class="info-td-val">ある日</td></tr>
         <tr><td class="info-td-label">資本金</td><td class="info-td-val">概念上は十分（通貨単位：問）</td></tr>
         <tr><td class="info-td-label">代表者</td><td class="info-td-val">霧島 不在（CQO）</td></tr>
@@ -1259,11 +1264,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
       <p class="sec-label">Privacy Policy</p>
       <h2 class="sec-title">プライバシーポリシー</h2>
       <div class="legal-body">
-        <p>株式会社虚実は、個人情報の保護に努めます。ただし「個人」が概念化している場合の適用は検討中です。</p>
+        <p>ある合同会社は、個人情報の保護に努めます。ただし「個人」が概念化している場合の適用は検討中です。</p>
         <h3>第一条　収集</h3><p>問いのご購入・お問い合わせ時に情報を収集する場合があります。収集した情報は問いの品質向上に使用します。</p>
         <h3>第二条　第三者提供</h3><p>第三者に提供しません。第三者が概念として存在する場合も、提供しません。</p>
         <h3>第三条　管理</h3><p>最高坐禅責任者のもと、坐禅による安全管理を実施しています。</p>
-        <p style="margin-top:2rem">制定日：ある日　株式会社虚実</p>
+        <p style="margin-top:2rem">制定日：ある日　ある合同会社</p>
       </div>
     </div></div>
   </div>
@@ -1284,7 +1289,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
       <p class="sec-label">特定商取引法に基づく表記</p>
       <h2 class="sec-title">特定商取引法に基づく表記</h2>
       <div class="legal-body">
-        <h3>販売業者</h3><p>株式会社虚実</p>
+        <h3>販売業者</h3><p>ある合同会社</p>
         <h3>代表者</h3><p>霧島 不在（不在中）</p>
         <h3>所在地</h3><p>東京都不確定区曖昧町 1-?-?</p>
         <h3>電話番号</h3><p>03-XXXX-XXXX（繋がるかは観測次第）</p>
@@ -1301,17 +1306,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
       <p class="sec-label">Sitemap — この地図は領土ではない</p>
       <h2 class="sec-title">サイトマップ</h2>
       <ul class="sitemap-list">
-        <li><a href="#" onclick="showPage('top')">トップページ</a></li>
-        <li><a href="#" onclick="showPage('lineup')">問いのラインアップ</a><ul class="sitemap-list sitemap-sub"><li><a href="#">カテゴリ別 ／ 用途別 ／ 深度別 ／ 問い検索</a></li></ul></li>
-        <li><a href="#" onclick="showPage('buy')">問いの買い方</a><ul class="sitemap-list sitemap-sub"><li><a href="#">選び方ガイド ／ 料金プラン ／ 見積り ／ 無料お試し ／ FAQ</a></li></ul></li>
-        <li><a href="#" onclick="showPage('delivery')">問いの届け方</a></li>
-        <li><a href="#" onclick="showPage('howto')">問いの使い方</a><ul class="sitemap-list sitemap-sub"><li><a href="#">はじめての方へ ／ 向き合い方 ／ 事例 ／ 記録帳 ／ アフターケア</a></li></ul></li>
-        <li><a href="#" onclick="showPage('story')">問いの生まれる場所</a><ul class="sitemap-list sitemap-sub"><li><a href="#">虚実とは ／ 製造工程 ／ 職人紹介 ／ 営業担当者の１日 ／ 沿革 ／ 哲学</a></li></ul></li>
-        <li><a href="#" onclick="showPage('community')">問いの広場</a><ul class="sitemap-list sitemap-sub"><li><a href="#">コラム ／ 利用者の声 ／ イベント ／ 投稿</a></li></ul></li>
-        <li><a href="#" onclick="showPage('corporate')">法人のお客様</a></li>
-        <li><a href="#" onclick="showPage('contact')">お問い合わせ</a><ul class="sitemap-list sitemap-sub"><li><a href="#">フォーム ／ FAQ ／ 相談窓口</a></li></ul></li>
-        <li><a href="#" onclick="showPage('meigen')">名言千選</a></li>
-        <li><a href="#" onclick="showPage('info')">企業情報</a><ul class="sitemap-list sitemap-sub"><li><a href="#">会社概要 ／ 採用 ／ プライバシー ／ 利用規約 ／ 特商法 ／ サイトマップ</a></li></ul></li>
+        <li><a href="javascript:void(0)" onclick="showPage('top');return false">トップページ</a></li>
+        <li><a href="javascript:void(0)" onclick="showPage('lineup');return false">問いのラインアップ</a><ul class="sitemap-list sitemap-sub"><li><a href="javascript:void(0)">カテゴリ別 ／ 用途別 ／ 深度別 ／ 問い検索</a></li></ul></li>
+        <li><a href="javascript:void(0)" onclick="showPage('buy');return false">問いの買い方</a><ul class="sitemap-list sitemap-sub"><li><a href="javascript:void(0)">選び方ガイド ／ 料金プラン ／ 見積り ／ 無料お試し ／ FAQ</a></li></ul></li>
+        <li><a href="javascript:void(0)" onclick="showPage('delivery');return false">問いの届け方</a></li>
+        <li><a href="javascript:void(0)" onclick="showPage('howto');return false">問いの使い方</a><ul class="sitemap-list sitemap-sub"><li><a href="javascript:void(0)">はじめての方へ ／ 向き合い方 ／ 事例 ／ 記録帳 ／ アフターケア</a></li></ul></li>
+        <li><a href="javascript:void(0)" onclick="showPage('story');return false">問いの生まれる場所</a><ul class="sitemap-list sitemap-sub"><li><a href="javascript:void(0)">ある会社とは ／ 製造工程 ／ 職人紹介 ／ 営業担当者の１日 ／ 沿革 ／ 哲学</a></li></ul></li>
+        <li><a href="javascript:void(0)" onclick="showPage('community');return false">問いの広場</a><ul class="sitemap-list sitemap-sub"><li><a href="javascript:void(0)">コラム ／ 利用者の声 ／ イベント ／ 投稿</a></li></ul></li>
+        <li><a href="javascript:void(0)" onclick="showPage('corporate');return false">法人のお客様</a></li>
+        <li><a href="javascript:void(0)" onclick="showPage('contact');return false">お問い合わせ</a><ul class="sitemap-list sitemap-sub"><li><a href="javascript:void(0)">フォーム ／ FAQ ／ 相談窓口</a></li></ul></li>
+        <li><a href="javascript:void(0)" onclick="showPage('meigen');return false">名言千選</a></li>
+        <li><a href="javascript:void(0)" onclick="showPage('info');return false">企業情報</a><ul class="sitemap-list sitemap-sub"><li><a href="javascript:void(0)">会社概要 ／ 採用 ／ プライバシー ／ 利用規約 ／ 特商法 ／ サイトマップ</a></li></ul></li>
       </ul>
     </div></div>
   </div>
@@ -1353,7 +1358,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
     <p class="four04-num">404</p>
     <h2 class="sec-title" style="text-align:center;margin-top:2rem">お探しのページは存在しません。<br>しかし、存在しないことは存在します。</h2>
     <p class="sec-body" style="text-align:center;max-width:450px;margin-top:1.5rem">色々ある。それでもやろう。——<br>このページを探したあなたの気持ちは、きっと何かの始まりです。</p>
-    <p style="margin-top:3rem"><a href="#" onclick="showPage('top')" style="color:var(--gold);text-decoration:none;font-size:0.7rem;letter-spacing:0.25em;border-bottom:1px solid var(--gold-dim);padding-bottom:0.3rem">トップへ還る</a></p>
+    <p style="margin-top:3rem"><a href="javascript:void(0)" onclick="showPage('top');return false" style="color:var(--gold);text-decoration:none;font-size:0.7rem;letter-spacing:0.25em;border-bottom:1px solid var(--gold-dim);padding-bottom:0.3rem">トップへ還る</a></p>
   </div>
 </div>
 
@@ -1361,19 +1366,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(8,6,8,0.94)
 <footer class="site-footer">
   <p class="lotus">☸</p>
   <div class="footer-nav">
-    <a href="#" onclick="showPage('lineup')">問いのラインアップ</a>
-    <a href="#" onclick="showPage('buy')">買い方</a>
-    <a href="#" onclick="showPage('story')">虚実とは</a>
-    <a href="#" onclick="showPage('contact')">お問い合わせ</a>
-    <a href="#" onclick="showPage('info')">企業情報</a>
-    <a href="#" onclick="showPage('meigen')">名言千選</a>
+    <a href="javascript:void(0)" onclick="showPage('lineup');return false">問いのラインアップ</a>
+    <a href="javascript:void(0)" onclick="showPage('buy');return false">買い方</a>
+    <a href="javascript:void(0)" onclick="showPage('story');return false">ある会社とは</a>
+    <a href="javascript:void(0)" onclick="showPage('contact');return false">お問い合わせ</a>
+    <a href="javascript:void(0)" onclick="showPage('info');return false">企業情報</a>
+    <a href="javascript:void(0)" onclick="showPage('meigen');return false">名言千選</a>
   </div>
-  <p class="footer-copy">&copy; ???? 株式会社虚実 KYOJITSU Inc. — All rights reserved.</p>
+  <p class="footer-copy">&copy; ???? ある合同会社 Aru LLC. — All rights reserved.</p>
   <p class="footer-quote">「我々には売るものがない。ただ問うだけだ。それでいい。」</p>
-  <p class="footer-quote" style="margin-top:0.5rem;opacity:0.5">「このホームページを見た人は、見なかった人と同じだけの情報を得る。」</p>
+  <p class="footer-quote" style="margin-top:0.5rem;opacity:0.5">「すでにある。」</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 var todayQuestions=[
   'あなたに色々あることを、あなたは認めていますか。それでもやろうとしていますか。',
   'いま急いでいることは、本当に急ぐ必要がありますか。',
@@ -1389,12 +1394,13 @@ var todayQuestions=[
   'いま目の前にある問いは、一生かけて問う価値がありますか。',
   '頑張り続けることに意味があるのか——その問いを考えることに、意味がありますか。',
   'あなたが売っているものは、本当にあなたのものですか。',
-  'いま寄りかかっているものを失ったとき、あなたは立っていられますか。'
+  'いま寄りかかっているものを失ったとき、あなたは立っていられますか。',
+  'あなたが探しているものは、すでにありませんか。'
 ];
 document.getElementById('todayQ').textContent=todayQuestions[Math.floor(Math.random()*todayQuestions.length)];
 
 function showPage(id){
-  if(window.event)window.event.preventDefault();
+  try{if(event)event.preventDefault();}catch(e){}
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
   var page=document.getElementById('page-'+id);
   if(page)page.classList.add('active');
@@ -1406,7 +1412,7 @@ function showPage(id){
 }
 
 function showSub(page,sub){
-  if(window.event)window.event.preventDefault();
+  try{if(event)event.preventDefault();}catch(e){}
   var container=document.getElementById('page-'+page);
   container.querySelectorAll('.sub-page').forEach(function(s){s.classList.remove('sub-active')});
   container.querySelectorAll('.subnav a').forEach(function(a){a.classList.remove('sub-active')});
@@ -1888,7 +1894,7 @@ var Q=[
 ["小さなことに、大きな愛を込めなさい。","マザー・テレサ","Mother Teresa","愛"],
 ["親切にしすぎることはない。","マザー・テレサ","Mother Teresa","愛"],
 ["一人の人を愛することは、全世界を愛することへの扉を開く。","マザー・テレサ","Mother Teresa","愛"],
-["色々ある。それでもやろう。","虚実","KYOJITSU","愛"],
+["色々ある。それでもやろう。","ある会社","Aru","愛"],
 ["メメント・モリ。死を忘れるな。","ラテン語格言","Latin maxim","生と死"],
 ["死を準備することは、良い人生を準備することだ。","セネカ","Seneca","生と死"],
 ["死は怖れるものではない。生きることを怖れよ。","マルクス・アウレリウス","Marcus Aurelius","生と死"],
@@ -2119,26 +2125,26 @@ var Q=[
 ["万人の万人に対する闘い。","ホッブズ","Hobbes","社会・正義"],
 ["社会契約。個人の自由を守るために社会が存在する。","ルソー","Rousseau","社会・正義"],
 ["法の前に皆平等。しかし法の後ろでは誰が平等か。","アナトール・フランス","Anatole France","社会・正義"],
-["自分でやろうとしよう。","虚実","KYOJITSU","虚実語録"],
-["問いを売ることが我々の事業である。答えは品切れです。","虚実","KYOJITSU","虚実語録"],
-["意味がないのに重厚長大。それが虚実の本質である。","虚実","KYOJITSU","虚実語録"],
-["概念化は昇格である。交通費が不要になる。","虚実","KYOJITSU","虚実語録"],
-["右肩あがり。何が上がっているかは問わない。","虚実","KYOJITSU","虚実語録"],
-["このホームページを見た人は、見なかった人と同じだけの情報を得る。","虚実","KYOJITSU","虚実語録"],
-["沈黙のコンサルティング。助言の不在をお届けします。","虚実","KYOJITSU","虚実語録"],
-["喝！！","虚実","KYOJITSU","虚実語録"],
-["坐れ。それだけが、我々にできることのすべてだ。","虚実","KYOJITSU","虚実語録"],
-["自灯明。自らを灯火とすること。","虚実","KYOJITSU","虚実語録"],
-["問いに対して安易に答えようとする行為は禁止されています。","虚実","KYOJITSU","虚実語録"],
-["問いは返品できません。聞いた問いを聞かなかったことにすることは形而上学的に不可能です。","虚実","KYOJITSU","虚実語録"],
-["克己と利他。自らに克ち、他者のために灯る。","虚実","KYOJITSU","虚実語録"],
-["人類のために、人類に協力し、人類という手段で、人類と共存する。","虚実","KYOJITSU","虚実語録"],
-["色々ある。それでもやろう。","虚実","KYOJITSU","虚実語録"],
-["困ることなんかないですよ。概念化してしまえば。","有形 無形子","KYOJITSU","虚実語録"],
-["なぜ困っていると思うのですか？","問売 右肩","KYOJITSU","虚実語録"],
-["…………","黙然 座太","KYOJITSU","虚実語録"],
-["問いとは何か。それが問いだ。そしてその問いもまた問いだ。","問答 無用太","KYOJITSU","虚実語録"],
-["バグを見つけました。ただし再現性はありません。","仮想 現実郎","KYOJITSU","虚実語録"],
+["自分でやろうとしよう。","ある会社","Aru","ある語録"],
+["問いを売ることが我々の事業である。答えは品切れです。","ある会社","Aru","ある語録"],
+["意味がないのに重厚長大。それがある会社の本質である。","ある会社","Aru","ある語録"],
+["概念化は昇格である。交通費が不要になる。","ある会社","Aru","ある語録"],
+["右肩あがり。何が上がっているかは問わない。","ある会社","Aru","ある語録"],
+["このホームページを見た人は、見なかった人と同じだけの情報を得る。","ある会社","Aru","ある語録"],
+["沈黙のコンサルティング。助言の不在をお届けします。","ある会社","Aru","ある語録"],
+["喝！！","ある会社","Aru","ある語録"],
+["坐れ。それだけが、我々にできることのすべてだ。","ある会社","Aru","ある語録"],
+["自灯明。自らを灯火とすること。","ある会社","Aru","ある語録"],
+["問いに対して安易に答えようとする行為は禁止されています。","ある会社","Aru","ある語録"],
+["問いは返品できません。聞いた問いを聞かなかったことにすることは形而上学的に不可能です。","ある会社","Aru","ある語録"],
+["克己と利他。自らに克ち、他者のために灯る。","ある会社","Aru","ある語録"],
+["人類のために、人類に協力し、人類という手段で、人類と共存する。","ある会社","Aru","ある語録"],
+["色々ある。それでもやろう。","ある会社","Aru","ある語録"],
+["困ることなんかないですよ。概念化してしまえば。","有形 無形子","Aru","ある語録"],
+["なぜ困っていると思うのですか？","問売 右肩","Aru","ある語録"],
+["…………","黙然 座太","Aru","ある語録"],
+["問いとは何か。それが問いだ。そしてその問いもまた問いだ。","問答 無用太","Aru","ある語録"],
+["バグを見つけました。ただし再現性はありません。","仮想 現実郎","Aru","ある語録"],
 ["考えるな、感じろ。","ブルース・リー","Bruce Lee","哲学"],
 ["水のようになれ。水はコップに入ればコップの形になる。","ブルース・リー","Bruce Lee","東洋思想"],
 ["流れを止めるな。停滞は死だ。","ブルース・リー","Bruce Lee","東洋思想"],
@@ -2249,11 +2255,11 @@ var Q=[
 ["労働者には祖国がない。","マルクス","Marx","経済・社会"],
 ["量は質に転化する。","エンゲルス","Engels","哲学"],
 ["理論は灰色だが、生命の黄金の木は緑なり。","ゲーテ","Goethe","知恵"],
-["われ思う、ゆえにわれ迷う。","虚実","KYOJITSU","虚実語録"],
-["答えが見つからないのではない。問いが足りないのだ。","虚実","KYOJITSU","虚実語録"],
-["名言とは、引用する者の怠惰の証明である。——しかし怠惰にも美がある。","虚実","KYOJITSU","虚実語録"],
-["この1000の言葉は、沈黙ひとつに敵わない。","虚実","KYOJITSU","虚実語録"],
-["1000の名言を読んだあなたへ。自分でやろうとしよう。","虚実","KYOJITSU","虚実語録"],
+["われ思う、ゆえにわれ迷う。","ある会社","Aru","ある語録"],
+["答えが見つからないのではない。問いが足りないのだ。","ある会社","Aru","ある語録"],
+["名言とは、引用する者の怠惰の証明である。——しかし怠惰にも美がある。","ある会社","Aru","ある語録"],
+["この1000の言葉は、沈黙ひとつに敵わない。","ある会社","Aru","ある語録"],
+["1000の名言を読んだあなたへ。自分でやろうとしよう。","ある会社","Aru","ある語録"],
 ["何事も成功するまでは不可能に見える。","マンデラ","Mandela","勇気"],
 ["許すことは強さの証だ。しかし忘れることは愚かさの証だ。","ガンジー","Gandhi","知恵"],
 ["正直な意見の不一致は、進歩の良い兆候だ。","ガンジー","Gandhi","変化"],
@@ -2326,12 +2332,12 @@ var Q=[
 ["善い言葉を語れ。さもなくば沈黙せよ。","イスラムの格言","Islamic maxim","言葉・沈黙"],
 ["知恵の始めは、知恵を得たいと願うことである。","ソロモン","Solomon","知恵"],
 ["あなたの行く道の前を照らすのに十分な光があれば、それ以上は必要ない。","エマーソン","Emerson","勇気"],
-["信じる者には全てが可能だ。しかし疑う者にも全てが可能だ。","虚実","KYOJITSU","虚実語録"],
-["この名言集を最後まで読んだあなたは、読まなかったあなたと同じ人間だ。しかし同時に違う人間でもある。","虚実","KYOJITSU","虚実語録"],
-["ここに1000の灯火がある。しかし自灯明——自らを灯せ。","虚実","KYOJITSU","虚実語録"],
-["問いを集めてどうするのかと問われたら、こう答える。問い返す。","虚実","KYOJITSU","虚実語録"],
-["色々ある。それでもやろう。——そのために、我々は問い続ける。","虚実","KYOJITSU","虚実語録"],
-["喝！！　さあ、画面を閉じて、生きろ。","虚実","KYOJITSU","虚実語録"],
+["信じる者には全てが可能だ。しかし疑う者にも全てが可能だ。","ある会社","Aru","ある語録"],
+["この名言集を最後まで読んだあなたは、読まなかったあなたと同じ人間だ。しかし同時に違う人間でもある。","ある会社","Aru","ある語録"],
+["ここに1000の灯火がある。しかし自灯明——自らを灯せ。","ある会社","Aru","ある語録"],
+["問いを集めてどうするのかと問われたら、こう答える。問い返す。","ある会社","Aru","ある語録"],
+["色々ある。それでもやろう。——そのために、我々は問い続ける。","ある会社","Aru","ある語録"],
+["喝！！　さあ、画面を閉じて、生きろ。","ある会社","Aru","ある語録"],
 ["無知を恐れるな。偽りの知識を恐れよ。","パスカル","Pascal","知恵"],
 ["疑いは知恵の始まりである。","デカルト","Descartes","哲学"],
 ["良心は千の証人に値する。","ラテン語格言","Latin maxim","政治・法"],
@@ -2421,8 +2427,8 @@ var Q=[
 ["仕事は人間を三つの大きな悪から救う。退屈、悪徳、貧乏。","ヴォルテール","Voltaire","労働・仕事"],
 ["カンディード。すべてはこの最善の世界における最善である。——しかし我々の庭を耕さねばならない。","ヴォルテール","Voltaire","文学"],
 ["常識とは、人が18歳に達するまでに獲得する偏見の集大成である。","アインシュタイン","Einstein","教育"],
-["問うことは人間であること。答えることは機械でもできる。","虚実","KYOJITSU","虚実語録"],
-["1000番目の名言に到達したあなたへ——これは終わりではない。1001番目は、あなた自身の言葉だ。","虚実","KYOJITSU","虚実語録"],
+["問うことは人間であること。答えることは機械でもできる。","ある会社","Aru","ある語録"],
+["1000番目の名言に到達したあなたへ——これは終わりではない。1001番目は、あなた自身の言葉だ。","ある会社","Aru","ある語録"],
 ["人生とは自転車のようなものだ。倒れないためには走り続けなければならない。","アインシュタイン","Einstein","知恵"],
 ["最も暗い時間は夜明けの直前にある。","英語のことわざ","English proverb","勇気"],
 ["一燈照隅、万燈照国。","最澄","Saicho","禅・仏教"],
@@ -2433,18 +2439,19 @@ var Q=[
 ["すべての偉業は最初は不可能と言われた。","トーマス・カーライル","Carlyle","変化"],
 ["自灯明、法灯明。自らを灯とし、法を灯とせよ。","釈迦","Buddha","禅・仏教"],
 ["諸行は無常である。怠ることなく修行を完成しなさい。これが如来の最後の言葉である。","釈迦","Buddha","禅・仏教"],
-["千の名言を読むより、一つの問いを自ら立てよ。自分でやろうとしよう。","虚実","KYOJITSU","虚実語録"],
-["色々ある。それは言い訳ではなく、事実の受容である。","色々有歩","KYOJITSU新入社員","虚実語録"],
-["答えを売ることに12年費やした。問いを売ることには一生かかるかもしれない。それでもやろう。","途方暮太","KYOJITSU新入社員","虚実語録"],
-["入社届を白紙に戻した。入社とは何かがわかるまで、出社だけは続ける。","白紙撤回","KYOJITSU新入社員","虚実語録"],
-["遅すぎるということはない。やろうとした瞬間が、始まりである。","虚実","KYOJITSU","虚実語録"],
-["懸命に生きることを、努力していないと呼ぶ者がいる。その者は、懸命に見ていないだけだ。","虚実","KYOJITSU","虚実語録"],
-["行為を強いることより、行為しなければならない雰囲気を作ることのほうが罪深い。","虚実","KYOJITSU","虚実語録"],
-["問いの提供とは継続することにある。問いを立てることは一生のサービス提供と考える。","虚実","KYOJITSU","虚実語録"],
-["頑張り続けることに意味があるのかを考えることに意味がある。","虚実","KYOJITSU","虚実語録"],
-["我々には売るものがない。ただ問うだけだ。それでいい。","霧島 不在","KYOJITSU","虚実語録"],
-["寄りかかった瞬間に、問いは問いでなくなる。何かの手段になる。","虚実","KYOJITSU","虚実語録"],
-["99%の時間を問いに当てる。残りの1%でアウトプットを行う。それで十分だ。","問売 右肩","KYOJITSU","虚実語録"],
+["千の名言を読むより、一つの問いを自ら立てよ。自分でやろうとしよう。","ある会社","Aru","ある語録"],
+["色々ある。それは言い訳ではなく、事実の受容である。","色々有歩","Aru新入社員","ある語録"],
+["答えを売ることに12年費やした。問いを売ることには一生かかるかもしれない。それでもやろう。","途方暮太","Aru新入社員","ある語録"],
+["入社届を白紙に戻した。入社とは何かがわかるまで、出社だけは続ける。","白紙撤回","Aru新入社員","ある語録"],
+["遅すぎるということはない。やろうとした瞬間が、始まりである。","ある会社","Aru","ある語録"],
+["懸命に生きることを、努力していないと呼ぶ者がいる。その者は、懸命に見ていないだけだ。","ある会社","Aru","ある語録"],
+["行為を強いることより、行為しなければならない雰囲気を作ることのほうが罪深い。","ある会社","Aru","ある語録"],
+["問いの提供とは継続することにある。問いを立てることは一生のサービス提供と考える。","ある会社","Aru","ある語録"],
+["頑張り続けることに意味があるのかを考えることに意味がある。","ある会社","Aru","ある語録"],
+["我々には売るものがない。ただ問うだけだ。それでいい。","霧島 不在","Aru","ある語録"],
+["寄りかかった瞬間に、問いは問いでなくなる。何かの手段になる。","ある会社","Aru","ある語録"],
+["99%の時間を問いに当てる。残りの1%でアウトプットを行う。それで十分だ。","問売 右肩","Aru","ある語録"],
+["すでにある。","ある会社","Aru","ある語録"],
 ];
 
 var mCATS=[];var mCatSet={};Q.forEach(function(q){if(!mCatSet[q[3]]){mCatSet[q[3]]=1;mCATS.push(q[3])}});
@@ -2495,4 +2502,16 @@ function mRender(){
   });
   c.innerHTML=html;
   document.getElementById('mCount').textContent=mFiltered.length+' / '+Q.length;
-  document.getElementById('mLoadMore').style.display=mDisp
+  document.getElementById('mLoadMore').style.display=mDisplayCount<mFiltered.length?'block':'none';
+  document.getElementById('mNoResults').style.display=mFiltered.length===0?'block':'none';
+}
+
+function mLoadMore(){
+  mDisplayCount+=50;
+  mRender();
+}
+
+mInit();
+</script>
+</body>
+</html>
